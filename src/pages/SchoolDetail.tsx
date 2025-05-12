@@ -63,6 +63,15 @@ const SchoolDetail: React.FC = () => {
               <div className="text-center md:text-left text-white">
                 <h1 className="text-3xl md:text-4xl font-bold mb-2">{school.name}</h1>
                 <p className="text-lg md:text-xl opacity-90">{school.description}</p>
+                <Link 
+                  to={`/school/edit/${school.id}`}
+                  className="mt-4 inline-flex items-center bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-md"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                  Modifier cet établissement
+                </Link>
               </div>
             </div>
             
