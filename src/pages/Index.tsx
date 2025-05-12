@@ -1,11 +1,21 @@
 
-import React from 'react';
-import { schools } from '../data/schools';
+import React, { useState } from 'react';
+import { schools, categories } from '../data/schools';
 import SchoolCard from '../components/SchoolCard';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const Index: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  
+  // Filtrer les écoles en fonction de la catégorie sélectionnée
+  const filteredSchools = selectedCategory 
+    ? schools.filter(school => 
+        school.programs.some(program => program.category === selectedCategory)
+      )
+    : schools;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -24,15 +34,50 @@ const Index: React.FC = () => {
         
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-primary">
+            <h2 className="text-3xl font-bold text-center mb-8 text-primary">
               Nos établissements
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {schools.map(school => (
-                <SchoolCard key={school.id} school={school} />
-              ))}
+            <div className="flex justify-center mb-10">
+              <div className="bg-white p-2 rounded-lg shadow-md">
+                <ToggleGroup 
+                  type="single"
+                  className="flex flex-wrap justify-center gap-2"
+                  value={selectedCategory || ""}
+                  onValueChange={(value) => setSelectedCategory(value || null)}
+                >
+                  <ToggleGroupItem 
+                    value="" 
+                    className="rounded-md"
+                  >
+                    Tous
+                  </ToggleGroupItem>
+                  {categories.map((category) => (
+                    <ToggleGroupItem 
+                      key={category} 
+                      value={category}
+                      className="rounded-md"
+                    >
+                      {category}
+                    </ToggleGroupItem>
+                  ))}
+                </ToggleGroup>
+              </div>
             </div>
+            
+            {filteredSchools.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredSchools.map(school => (
+                  <SchoolCard key={school.id} school={school} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-10">
+                <p className="text-xl text-gray-600">
+                  Aucun établissement trouvé pour cette catégorie.
+                </p>
+              </div>
+            )}
           </div>
         </section>
         

@@ -15,6 +15,9 @@ const Header: React.FC = () => {
           <Link to="/" className="text-white hover:text-secondary transition-colors">
             Accueil
           </Link>
+          <Link to="/index" className="text-white hover:text-secondary transition-colors">
+            Établissements
+          </Link>
           <Link to="/about" className="text-white hover:text-secondary transition-colors">
             À propos
           </Link>

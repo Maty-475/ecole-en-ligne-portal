@@ -8,6 +8,9 @@ interface SchoolCardProps {
 }
 
 const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
+  // Obtenir les catégories uniques des programmes de l'école
+  const schoolCategories = [...new Set(school.programs.map(program => program.category))];
+  
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 animate-fade-in">
       <div className="p-1 bg-secondary">
@@ -24,6 +27,17 @@ const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
         <p className="text-gray-600 mb-4 line-clamp-3">
           {school.description}
         </p>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          {schoolCategories.map(category => (
+            <span 
+              key={category} 
+              className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full"
+            >
+              {category}
+            </span>
+          ))}
+        </div>
         
         <div className="flex justify-between items-center mt-4">
           <span className="text-sm text-gray-500">

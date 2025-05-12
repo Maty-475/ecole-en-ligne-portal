@@ -4,6 +4,7 @@ export interface Program {
   name: string;
   description: string;
   duration: string;
+  category: string; // Ajout de la catégorie au programme
 }
 
 export interface School {
@@ -25,6 +26,17 @@ export interface School {
   };
   programs: Program[];
 }
+
+export const categories = [
+  "Informatique",
+  "Commerce",
+  "Arts",
+  "Sciences",
+  "Ingénierie",
+  "Santé",
+  "Langues",
+  "Droit"
+];
 
 export const schools: School[] = [
   {
@@ -53,19 +65,22 @@ export const schools: School[] = [
         id: "prog-1-1",
         name: "Génie Informatique",
         description: "Formation complète en développement logiciel, cybersécurité et réseaux.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Informatique"
       },
       {
         id: "prog-1-2",
         name: "Électronique Embarquée",
         description: "Spécialisation dans la conception et programmation de systèmes embarqués.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Ingénierie"
       },
       {
         id: "prog-1-3",
         name: "Intelligence Artificielle",
         description: "Programme avancé en data science et développement d'algorithmes d'IA.",
-        duration: "2 ans (Master)"
+        duration: "2 ans (Master)",
+        category: "Informatique"
       }
     ]
   },
@@ -95,19 +110,22 @@ export const schools: School[] = [
         id: "prog-2-1",
         name: "Management International",
         description: "Formation complète en gestion d'entreprise dans un contexte mondial.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Commerce"
       },
       {
         id: "prog-2-2",
         name: "Marketing Digital",
         description: "Spécialisation dans les stratégies marketing en ligne et l'analyse de données.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Commerce"
       },
       {
         id: "prog-2-3",
         name: "Finance d'Entreprise",
         description: "Programme axé sur la gestion financière et l'investissement international.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Commerce"
       }
     ]
   },
@@ -137,20 +155,69 @@ export const schools: School[] = [
         id: "prog-3-1",
         name: "Design Graphique",
         description: "Formation aux techniques de communication visuelle et design d'interface.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Arts"
       },
       {
         id: "prog-3-2",
         name: "Animation 3D",
         description: "Apprentissage des logiciels et techniques d'animation numérique.",
-        duration: "3 ans"
+        duration: "3 ans",
+        category: "Arts"
       },
       {
         id: "prog-3-3",
         name: "Photographie Artistique",
         description: "Développement d'une pratique photographique professionnelle et artistique.",
-        duration: "2 ans"
+        duration: "2 ans",
+        category: "Arts"
+      }
+    ]
+  },
+  {
+    id: "ecole-4",
+    name: "Institut des Sciences Naturelles",
+    description: "Centre de formation spécialisé dans les sciences environnementales et la recherche.",
+    logo: "/placeholder.svg",
+    address: "56 Rue de la Science, 44000 Nantes",
+    contact: {
+      phone: "+33 2 34 56 78 90",
+      email: "contact@isn-nantes.fr",
+      website: "www.isn-nantes.fr"
+    },
+    registrationInfo: {
+      deadline: "30 avril 2025",
+      requirements: [
+        "Baccalauréat scientifique",
+        "Lettre de motivation",
+        "Entretien de sélection"
+      ],
+      fees: "4500€ par an",
+      process: "Dossier académique et entretien de motivation."
+    },
+    programs: [
+      {
+        id: "prog-4-1",
+        name: "Biologie Moléculaire",
+        description: "Formation approfondie sur l'étude des mécanismes biologiques à l'échelle moléculaire.",
+        duration: "3 ans",
+        category: "Sciences"
+      },
+      {
+        id: "prog-4-2",
+        name: "Sciences Environnementales",
+        description: "Programme axé sur l'étude des écosystèmes et le développement durable.",
+        duration: "3 ans",
+        category: "Sciences"
+      },
+      {
+        id: "prog-4-3",
+        name: "Physique Appliquée",
+        description: "Formation en physique avec applications dans divers domaines industriels.",
+        duration: "3 ans",
+        category: "Sciences"
       }
     ]
   }
 ];
+
