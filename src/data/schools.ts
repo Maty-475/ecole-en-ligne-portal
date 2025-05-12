@@ -1,6 +1,7 @@
 
 export interface Program {
   id: string;
+  parcours: string;
   name: string;
   description: string;
   duration: string;
@@ -50,50 +51,200 @@ export const cycles = [
 export const schools: School[] = [
   {
     id: "ecole-1",
-    name: "Institut Supérieur de Technologie",
+    name: "Groupe Miage Etablissement Privé",
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
-    logo: "/placeholder.svg",
-    address: "123 Avenue de la Technologie, 75001 Paris",
+    logo: "../Images/Miage/images.jpeg",
+    address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
     contact: {
-      phone: "+33 1 23 45 67 89",
-      email: "contact@ist-paris.fr",
-      website: "www.ist-paris.fr"
+      phone: "+212 5 22 27 96 00",
+      email: "miagecasa@groupemiage.net",
+      website: "www.groupemiage.net"
     },
     registrationInfo: {
-      deadline: "30 juin 2025",
+      deadline: "30 Septembre 2025",
       requirements: [
-        "Baccalauréat scientifique ou technologique",
-        "Lettre de motivation",
-        "Entretien de sélection"
+        "3 Copies du diplôme de Baccalauréat ou Diplôme de Technicien",
+        "Rélevé de note du Baccalauréat ou DT",
+        "4 Photos d'identité",
+        "Un attestation d'Authentification",
+        "1 Extrait de naissance ou copie d'acte de naissance",
+        "2 copie légalisées du passeport"
       ],
-      fees: "5000€ par an",
+      fees: "Veuillez contacter le service administratif",
       process: "Inscription en ligne suivie d'un entretien et d'un test d'aptitude."
     },
     programs: [
       {
         id: "prog-1-1",
-        name: "Génie Informatique",
-        description: "Formation complète en développement logiciel, cybersécurité et réseaux.",
-        duration: "3 ans",
-        category: "Informatique",
+        parcours: "Technicien Spécialisé",
+        name: "Finance et Comptable",
+        description: "Formation complète en finance et comptabilité.",
+        duration: "2 ans",
+        category: "Gestion Financière",
         cycle: "Cycle Initial"
       },
       {
         id: "prog-1-2",
-        name: "Électronique Embarquée",
-        description: "Spécialisation dans la conception et programmation de systèmes embarqués.",
-        duration: "3 ans",
-        category: "Ingénierie",
+        parcours: "Technicien Spécialisé",
+        name: "Développement Informatique",
+        description: "Spécialisation dans la conception et programmation de logiciel et site web.",
+        duration: "2 ans",
+        category: "Informatique",
         cycle: "Cycle Initial"
       },
       {
         id: "prog-1-3",
-        name: "Intelligence Artificielle",
-        description: "Programme avancé en data science et développement d'algorithmes d'IA.",
+        parcours: "Technicien Spécialisé",
+        name: "Systèmes et Réseaux Informatique",
+        description: "Spécialisation dans l'administration réseau : Installation et conception.",
         duration: "2 ans",
         category: "Informatique",
+        cycle: "Cycle Initial"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Technicien Spécialisé",
+        name: "Gestion Informatisée",
+        description: "Apprendre la Base sur la Gestion Informatique.",
+        duration: "2 ans",
+        category: "Informatique",
+        cycle: "Classes Préparatoires"
+      },
+      {
+        id: "prog-1-1",
+        parcours: "Licence Professionnelle",
+        name: "Informatique (Développement BD, Web, Réseaux et Sécurité)",
+        description: "Formation complète en Développement et programmation informatique.",
+        duration: "3 ans",
+        category: "Informatique",
         cycle: "Cycle Supérieur"
-      }
+      },
+      {
+        id: "prog-1-2",
+        parcours: "Licence Professionnelle",
+        name: "Management et Gestion de PME",
+        description: "Prépare aux responsabilités de gestion et de management au sein des petites et moyennes entreprises.",
+        duration: "3 ans",
+        category: "Gestion d'Entreprise",
+        cycle: "Cycle Supérieur"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Licence Professionnelle",
+        name: "Marketing Finance et Ressources Humaines",
+        description: "Le responsable marketing RH utilise les techniques du marketing pour améliorer la marque employeur.",
+        duration: "3 ans",
+        category: "Gestion des Ressources Humaines",
+        cycle: "Cycle Supérieur"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Licence Professionnelle",
+        name: "transport et logistique",
+        description: "La logistique et le transport englobent les méthodes et moyens d'organisation des services ou entreprises",
+        duration: "3 ans",
+        category: "Logistique",
+        cycle: "Cycle Supérieur"
+      },    
+       {
+        id: "prog-1-1",
+        parcours: "Technicien Spécialisé",
+        name: "Finance et Comptable",
+        description: "Formation complète en finance et comptabilité.",
+        duration: "2 ans",
+        category: "Gestion Financière",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-2",
+        parcours: "Technicien Spécialisé",
+        name: "Développement Informatique",
+        description: "Spécialisation dans la conception et programmation de logiciel et site web.",
+        duration: "2 ans",
+        category: "Informatique",
+       cycle: "Master"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Technicien Spécialisé",
+        name: "Systèmes et Réseaux Informatique",
+        description: "Spécialisation dans l'administration réseau : Installation et conception.",
+        duration: "2 ans",
+        category: "Informatique",
+       cycle: "Master"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Technicien Spécialisé",
+        name: "Gestion Informatisée",
+        description: "Apprendre la Base sur la Gestion Informatique.",
+        duration: "2 ans",
+        category: "Informatique",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-1",
+        parcours: "Licence Professionnelle",
+        name: "Informatique (Développement BD, Web, Réseaux et Sécurité)",
+        description: "Formation complète en Développement et programmation informatique.",
+        duration: "3 ans",
+        category: "Informatique",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-2",
+        parcours: "Licence Professionnelle",
+        name: "Management et Gestion de PME",
+        description: "Prépare aux responsabilités de gestion et de management au sein des petites et moyennes entreprises.",
+        duration: "3 ans",
+        category: "Gestion d'Entreprise",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Licence Professionnelle",
+        name: "Marketing Finance et Ressources Humaines",
+        description: "Le responsable marketing RH utilise les techniques du marketing pour améliorer la marque employeur.",
+        duration: "3 ans",
+        category: "Gestion des Ressources Humaines",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Licence Professionnelle",
+        name: "transport et logistique",
+        description: "La logistique et le transport englobent les méthodes et moyens d'organisation des services ou entreprises",
+        duration: "3 ans",
+        category: "Logistique",
+        cycle: "Master"
+      },
+        {
+        id: "prog-1-2",
+        parcours: "Licence Professionnelle",
+        name: "Management et Gestion de PME",
+        description: "Prépare aux responsabilités de gestion et de management au sein des petites et moyennes entreprises.",
+        duration: "3 ans",
+        category: "Gestion d'Entreprise",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Licence Professionnelle",
+        name: "Marketing Finance et Ressources Humaines",
+        description: "Le responsable marketing RH utilise les techniques du marketing pour améliorer la marque employeur.",
+        duration: "3 ans",
+        category: "Gestion des Ressources Humaines",
+        cycle: "Master"
+      },
+      {
+        id: "prog-1-3",
+        parcours: "Licence Professionnelle",
+        name: "transport et logistique",
+        description: "La logistique et le transport englobent les méthodes et moyens d'organisation des services ou entreprises",
+        duration: "3 ans",
+        category: "Logistique",
+        cycle: "Master"
+      }  
     ]
   },
   {
@@ -120,14 +271,16 @@ export const schools: School[] = [
     programs: [
       {
         id: "prog-2-1",
+         parcours: "Technicien Spécialisé",
         name: "Management International",
         description: "Formation complète en gestion d'entreprise dans un contexte mondial.",
         duration: "3 ans",
         category: "Commerce",
-        cycle: "Cycle Initial"
+       cycle: "Master"
       },
       {
         id: "prog-2-2",
+         parcours: "Technicien Spécialisé",
         name: "Marketing Digital",
         description: "Spécialisation dans les stratégies marketing en ligne et l'analyse de données.",
         duration: "3 ans",
@@ -136,6 +289,7 @@ export const schools: School[] = [
       },
       {
         id: "prog-2-3",
+         parcours: "Technicien Spécialisé",
         name: "Finance d'Entreprise",
         description: "Programme axé sur la gestion financière et l'investissement international.",
         duration: "2 ans",
@@ -168,6 +322,7 @@ export const schools: School[] = [
     programs: [
       {
         id: "prog-3-1",
+         parcours: "Technicien Spécialisé",
         name: "Design Graphique",
         description: "Formation aux techniques de communication visuelle et design d'interface.",
         duration: "3 ans",
@@ -176,6 +331,7 @@ export const schools: School[] = [
       },
       {
         id: "prog-3-2",
+         parcours: "Technicien Spécialisé",
         name: "Animation 3D",
         description: "Apprentissage des logiciels et techniques d'animation numérique.",
         duration: "3 ans",
@@ -184,6 +340,7 @@ export const schools: School[] = [
       },
       {
         id: "prog-3-3",
+         parcours: "Technicien Spécialisé",
         name: "Photographie Artistique",
         description: "Développement d'une pratique photographique professionnelle et artistique.",
         duration: "2 ans",
@@ -216,6 +373,7 @@ export const schools: School[] = [
     programs: [
       {
         id: "prog-4-1",
+         parcours: "Technicien Spécialisé",
         name: "Biologie Moléculaire",
         description: "Formation approfondie sur l'étude des mécanismes biologiques à l'échelle moléculaire.",
         duration: "3 ans",
@@ -224,6 +382,7 @@ export const schools: School[] = [
       },
       {
         id: "prog-4-2",
+         parcours: "Technicien Spécialisé",
         name: "Sciences Environnementales",
         description: "Programme axé sur l'étude des écosystèmes et le développement durable.",
         duration: "3 ans",
@@ -232,6 +391,7 @@ export const schools: School[] = [
       },
       {
         id: "prog-4-3",
+         parcours: "Technicien Spécialisé",
         name: "Physique Appliquée",
         description: "Formation en physique avec applications dans divers domaines industriels.",
         duration: "2 ans",

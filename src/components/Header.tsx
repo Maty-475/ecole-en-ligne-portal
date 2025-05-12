@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     <header className="bg-primary py-4 shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="text-white text-2xl font-bold flex items-center">
-          <span className="mr-2">🏫</span>
+          <span className="mr-2">🟡</span>
           EduManager
         </Link>
         
