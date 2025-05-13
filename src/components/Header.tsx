@@ -6,9 +6,9 @@ const Header: React.FC = () => {
   return (
     <header className="bg-primary py-4 shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="text-white text-2xl font-bold flex items-center">
+        <Link to="/" className="text-white text-2xl font-bold flex items-center bg-blue-400 px-3 py-2">
           <span className="mr-2">🟡</span>
-          EduManager
+          RézoCampus
         </Link>
         
         <nav className="hidden md:flex space-x-6">

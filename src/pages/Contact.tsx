@@ -47,18 +47,22 @@ const Contact: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Adresse</h3>
-                    <p>123 Avenue de l'Éducation</p>
-                    <p>75000 Paris, France</p>
+                    <p>444 Boulevard Grande Ceinture</p>
+                    <p>20350 Casablanca, Morocco</p>
                   </div>
                   
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Email</h3>
-                    <p>info@edumanager.fr</p>
+                    <p>divinmister@hotmail.com</p>
                   </div>
                   
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Téléphone</h3>
-                    <p>+33 1 23 45 67 89</p>
+                    <p>+212 617-725867 </p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Whatsapp</h3>
+                    <p>+242 06 814 38 84 </p>
                   </div>
                 </div>
               </div>

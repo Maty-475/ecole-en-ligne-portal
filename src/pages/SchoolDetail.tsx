@@ -63,21 +63,19 @@ const SchoolDetail: React.FC = () => {
               <div className="text-center md:text-left text-white">
                 <h1 className="text-3xl md:text-4xl font-bold mb-2">{school.name}</h1>
                 <p className="text-lg md:text-xl opacity-90">{school.description}</p>
-                <Link 
-                  to={`/school/edit/${school.id}`}
-                  className="mt-4 inline-flex items-center bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-md"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                  </svg>
-                  Modifier cet établissement
-                </Link>
+                <a 
+                   href={`https://${school.contact.website}`} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center bg-secondary hover:bg-red-400 font-bold text-white px-4 py-2 rounded-md">
+                                   Accedez au site de l'Etablissement
+                </a>
               </div>
             </div>
             
             <div className="mt-6">
               <Link 
-                to="/"
+                to="/index"
                 className="inline-flex items-center text-white hover:text-secondary transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -121,6 +119,9 @@ const SchoolDetail: React.FC = () => {
                             .map(program => (
                               <div key={program.id} className="border-l-4 border-secondary pl-4">
                                 <h3 className="text-xl font-semibold mb-2">{program.name}</h3>
+                                <h6 className="text font-bold text-primary mb-6 pb-3 border-b">
+                                  <span className="font-medium"> Parcours : </span>{program.parcours}
+                                </h6>
                                 <p className="text-gray-600 mb-2">{program.description}</p>
                                 <div className="flex flex-wrap gap-3">
                                   <p className="text-sm bg-gray-100 px-2 py-1 rounded">
@@ -153,7 +154,7 @@ const SchoolDetail: React.FC = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Conditions requises</h3>
+                    <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
                     <ul className="list-disc list-inside text-gray-600">
                       {school.registrationInfo.requirements.map((req, index) => (
                         <li key={index} className="mb-1">{req}</li>
@@ -246,7 +247,7 @@ const SchoolDetail: React.FC = () => {
                   
                   <div className="pt-2">
                     <Link 
-                      to="/"
+                      to="/index"
                       className="text-secondary hover:underline font-medium flex items-center"
                     >
                       Voir tous les établissements
