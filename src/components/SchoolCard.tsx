@@ -8,8 +8,8 @@ interface SchoolCardProps {
 }
 
 const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
-  // Obtenir les catégories uniques des programmes de l'école
-  const schoolCategories = [...new Set(school.programs.map(program => program.category))];
+  // Obtenir les parcours uniques des programmes de l'école
+  const schoolParcours = [...new Set(school.programs.map(program => program.parcours))];
   
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 animate-fade-in">
@@ -29,19 +29,19 @@ const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
         </p>
         
         <div className="flex flex-wrap gap-2 mb-4">
-          {schoolCategories.map(category => (
+          {schoolParcours.map(parcours => (
             <span 
-              key={category} 
+              key={parcours} 
               className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full"
             >
-              {category}
+              {parcours}
             </span>
           ))}
         </div>
         
         <div className="flex justify-between items-center mt-4">
           <span className="text-sm text-gray-500">
-            {school.programs.length} programme{school.programs.length > 1 ? 's' : ''}
+            {schoolParcours.length} parcours disponible{schoolParcours.length > 1 ? 's' : ''}
           </span>
           
           <Link 

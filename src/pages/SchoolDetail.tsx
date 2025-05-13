@@ -5,6 +5,8 @@ import { schools, cycles } from '../data/schools';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const SchoolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,6 +46,9 @@ const SchoolDetail: React.FC = () => {
     );
   }
   
+  // Obtenir les catégories uniques pour cette école
+  const schoolCategories = [...new Set(school.programs.map(program => program.category))];
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -68,7 +73,7 @@ const SchoolDetail: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center bg-secondary hover:bg-red-400 font-bold text-white px-4 py-2 rounded-md">
-                                   Accedez au site de l'Etablissement
+                  Accédez au site de l'établissement
                 </a>
               </div>
             </div>
@@ -141,36 +146,77 @@ const SchoolDetail: React.FC = () => {
                 )}
               </section>
               
-              {/* Section: Modalités d'inscription */}
+              {/* Section: Présentation vidéo YouTube */}
+              <section className="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 className="text-2xl font-bold text-primary mb-6 pb-3 border-b">
+                  Présentation vidéo
+                </h2>
+                <div className="w-full">
+                  <AspectRatio ratio={16 / 9}>
+                    <iframe 
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                      title="Présentation de l'établissement"
+                      className="w-full h-full rounded-md"
+                      allowFullScreen
+                    ></iframe>
+                  </AspectRatio>
+                  <p className="text-sm text-gray-500 mt-2">Cette vidéo présente notre établissement et ses différentes formations.</p>
+                </div>
+              </section>
+              
+              {/* Section: Modalités d'inscription par catégorie */}
               <section className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-bold text-primary mb-6 pb-3 border-b">
-                  Modalités d'inscription
+                  Modalités d'inscription par spécialité
                 </h2>
                 
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
-                    <p className="text-gray-600">{school.registrationInfo.process}</p>
-                  </div>
+                <Tabs defaultValue={schoolCategories[0]} className="w-full">
+                  <TabsList className="w-full mb-6 grid grid-cols-2 md:grid-cols-3 lg:flex flex-wrap">
+                    {schoolCategories.map(category => (
+                      <TabsTrigger 
+                        key={category} 
+                        value={category}
+                        className="flex-1 whitespace-normal text-center py-2"
+                      >
+                        {category}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
                   
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
-                    <ul className="list-disc list-inside text-gray-600">
-                      {school.registrationInfo.requirements.map((req, index) => (
-                        <li key={index} className="mb-1">{req}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="flex flex-col sm:flex-row justify-between sm:items-center p-4 bg-gray-50 rounded-lg mt-6">
-                    <div className="mb-2 sm:mb-0">
-                      <span className="font-semibold">Date limite:</span> {school.registrationInfo.deadline}
-                    </div>
-                    <div>
-                      <span className="font-semibold">Frais de scolarité:</span> {school.registrationInfo.fees}
-                    </div>
-                  </div>
-                </div>
+                  {schoolCategories.map(category => (
+                    <TabsContent key={category} value={category}>
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="text-xl">Modalités pour {category}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                          <div>
+                            <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
+                            <p className="text-gray-600">{school.registrationInfo.process}</p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
+                            <ul className="list-disc list-inside text-gray-600">
+                              {school.registrationInfo.requirements.map((req, index) => (
+                                <li key={index} className="mb-1">{req}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div className="flex flex-col sm:flex-row justify-between sm:items-center p-4 bg-gray-50 rounded-lg mt-6">
+                            <div className="mb-2 sm:mb-0">
+                              <span className="font-semibold">Date limite:</span> {school.registrationInfo.deadline}
+                            </div>
+                            <div>
+                              <span className="font-semibold">Frais de scolarité:</span> {school.registrationInfo.fees}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  ))}
+                </Tabs>
               </section>
             </div>
             
@@ -239,7 +285,7 @@ const SchoolDetail: React.FC = () => {
                       >
                         <div className="font-medium text-primary">{s.name}</div>
                         <div className="text-sm text-gray-500 mt-1">
-                          {s.programs.length} programme{s.programs.length > 1 ? 's' : ''}
+                          {[...new Set(s.programs.map(p => p.parcours))].length} parcours disponible{[...new Set(s.programs.map(p => p.parcours))].length > 1 ? 's' : ''}
                         </div>
                       </Link>
                     ))
