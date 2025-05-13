@@ -13,13 +13,13 @@ const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
   
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 animate-fade-in">
-      <div className="p-1 bg-secondary">
+      <Link to={`/school/${school.id}`} className="block p-1 bg-secondary">
         <img 
           src={school.logo} 
           alt={`Logo de ${school.name}`} 
           className="w-full h-48 object-contain bg-white"
         />
-      </div>
+      </Link>
       
       <div className="p-6">
         <h3 className="text-xl font-bold text-primary mb-2">{school.name}</h3>

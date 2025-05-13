@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { schools, cycles } from '../data/schools';
@@ -25,6 +24,7 @@ const SchoolDetail: React.FC = () => {
     }
   }, [availableCycles, selectedCycle]);
   
+  // Si l'école n'existe pas, afficher un message
   if (!school) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -187,7 +187,9 @@ const SchoolDetail: React.FC = () => {
                     <TabsContent key={category} value={category}>
                       <Card>
                         <CardHeader>
-                          <CardTitle className="text-xl">Modalités pour {category}</CardTitle>
+                          <CardTitle className="text-xl">
+                            <div>Modalités pour {category}</div>
+                          </CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                           <div>

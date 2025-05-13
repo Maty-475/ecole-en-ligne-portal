@@ -58,7 +58,7 @@ const SchoolEdit: React.FC = () => {
         return {
           ...prev,
           [parent]: {
-            ...prev[parent as keyof School],
+            ...(prev[parent as keyof School] as Record<string, any>),
             [child]: value
           }
         };
@@ -80,7 +80,7 @@ const SchoolEdit: React.FC = () => {
         return {
           ...prev,
           [parent]: {
-            ...prev[parent as keyof School],
+            ...(prev[parent as keyof School] as Record<string, any>),
             [child]: value
           }
         };
@@ -147,7 +147,8 @@ const SchoolEdit: React.FC = () => {
       description: "Description du programme",
       duration: "3 ans",
       category: categories[0],
-      cycle: cycles[0]
+      cycle: cycles[0],
+      parcours: "Nouveau parcours"
     };
     
     setAvailablePrograms(prev => [...prev, newProgram]);
