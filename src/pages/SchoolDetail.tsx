@@ -1,28 +1,18 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { schools, cycles } from '../data/schools';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import SchoolBanner from '../components/SchoolBanner';
+import SchoolPrograms from '../components/SchoolPrograms';
+import SchoolVideo from '../components/SchoolVideo';
+import SchoolRegistration from '../components/SchoolRegistration';
+import SchoolSidebar from '../components/SchoolSidebar';
 
 const SchoolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const school = schools.find(school => school.id === id);
-  const [selectedCycle, setSelectedCycle] = useState<string | null>(null);
-  
-  // Obtenir les cycles disponibles pour cette école
-  const availableCycles = school ? 
-    [...new Set(school.programs.map(program => program.cycle))] : 
-    [];
-  
-  // Sélectionner le premier cycle disponible par défaut
-  useEffect(() => {
-    if (availableCycles.length > 0 && !selectedCycle) {
-      setSelectedCycle(availableCycles[0]);
-    }
-  }, [availableCycles, selectedCycle]);
   
   // Si l'école n'existe pas, afficher un message
   if (!school) {
@@ -46,8 +36,10 @@ const SchoolDetail: React.FC = () => {
     );
   }
   
-  // Obtenir les catégories uniques pour cette école
-  const schoolCategories = [...new Set(school.programs.map(program => program.category))];
+  // Sélectionner les écoles similaires (hors l'école courante)
+  const relatedSchools = schools
+    .filter(s => s.id !== school.id)
+    .slice(0, 3);
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -55,257 +47,33 @@ const SchoolDetail: React.FC = () => {
       
       <main className="flex-grow">
         {/* Bannière de l'école */}
-        <div className="bg-primary py-12">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center mb-6">
-              <div className="bg-white p-2 rounded-lg shadow-md mb-6 md:mb-0 md:mr-8">
-                <img 
-                  src={school.logo} 
-                  alt={`Logo de ${school.name}`} 
-                  className="w-32 h-32 object-contain"
-                />
-              </div>
-              <div className="text-center md:text-left text-white">
-                <h1 className="text-3xl md:text-4xl font-bold mb-2">{school.name}</h1>
-                <p className="text-lg md:text-xl opacity-90">{school.description}</p>
-                <a 
-                   href={`https://${school.contact.website}`} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center bg-secondary hover:bg-red-400 font-bold text-white px-4 py-2 rounded-md">
-                  Accédez au site de l'établissement
-                </a>
-              </div>
-            </div>
-            
-            <div className="mt-6">
-              <Link 
-                to="/index"
-                className="inline-flex items-center text-white hover:text-secondary transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
-                </svg>
-                Retour à la liste des établissements
-              </Link>
-            </div>
-          </div>
-        </div>
+        <SchoolBanner 
+          logo={school.logo} 
+          name={school.name} 
+          description={school.description} 
+          website={school.contact.website} 
+        />
         
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Colonne principale */}
             <div className="lg:col-span-2">
               {/* Section: Programmes avec onglets par cycle */}
-              <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 className="text-2xl font-bold text-primary mb-6 pb-3 border-b">
-                  Programmes disponibles
-                </h2>
-                
-                {availableCycles.length > 0 && (
-                  <Tabs defaultValue={availableCycles[0]} className="w-full" onValueChange={setSelectedCycle}>
-                    <TabsList className="w-full mb-6 grid grid-cols-2 md:grid-cols-3 lg:flex">
-                      {availableCycles.map(cycle => (
-                        <TabsTrigger 
-                          key={cycle} 
-                          value={cycle}
-                          className="flex-1 whitespace-normal text-center py-2"
-                        >
-                          {cycle}
-                        </TabsTrigger>
-                      ))}
-                    </TabsList>
-                    
-                    {availableCycles.map(cycle => (
-                      <TabsContent key={cycle} value={cycle}>
-                        <div className="space-y-6">
-                          {school.programs
-                            .filter(program => program.cycle === cycle)
-                            .map(program => (
-                              <div key={program.id} className="border-l-4 border-secondary pl-4">
-                                <h3 className="text-xl font-semibold mb-2">{program.name}</h3>
-                                <h6 className="text font-bold text-primary mb-6 pb-3 border-b">
-                                  <span className="font-medium"> Parcours : </span>{program.parcours}
-                                </h6>
-                                <p className="text-gray-600 mb-2">{program.description}</p>
-                                <div className="flex flex-wrap gap-3">
-                                  <p className="text-sm bg-gray-100 px-2 py-1 rounded">
-                                    <span className="font-medium">Durée:</span> {program.duration}
-                                  </p>
-                                  <p className="text-sm bg-gray-100 px-2 py-1 rounded">
-                                    <span className="font-medium">Catégorie:</span> {program.category}
-                                  </p>
-                                </div>
-                              </div>
-                            ))
-                          }
-                        </div>
-                      </TabsContent>
-                    ))}
-                  </Tabs>
-                )}
-              </section>
+              <SchoolPrograms programs={school.programs} />
               
               {/* Section: Présentation vidéo YouTube */}
-              <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 className="text-2xl font-bold text-primary mb-6 pb-3 border-b">
-                  Présentation vidéo
-                </h2>
-                <div className="w-full">
-                  <AspectRatio ratio={16 / 9}>
-                    <iframe 
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                      title="Présentation de l'établissement"
-                      className="w-full h-full rounded-md"
-                      allowFullScreen
-                    ></iframe>
-                  </AspectRatio>
-                  <p className="text-sm text-gray-500 mt-2">Cette vidéo présente notre établissement et ses différentes formations.</p>
-                </div>
-              </section>
+              <SchoolVideo />
               
-              {/* Section: Modalités d'inscription par catégorie */}
-              <section className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-bold text-primary mb-6 pb-3 border-b">
-                  Modalités d'inscription par spécialité
-                </h2>
-                
-                <Tabs defaultValue={schoolCategories[0]} className="w-full">
-                  <TabsList className="w-full mb-6 grid grid-cols-2 md:grid-cols-3 lg:flex flex-wrap">
-                    {schoolCategories.map(category => (
-                      <TabsTrigger 
-                        key={category} 
-                        value={category}
-                        className="flex-1 whitespace-normal text-center py-2"
-                      >
-                        {category}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                  
-                  {schoolCategories.map(category => (
-                    <TabsContent key={category} value={category}>
-                      <Card>
-                        <CardHeader>
-                          <CardTitle className="text-xl">
-                            <div>Modalités pour {category}</div>
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                          <div>
-                            <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
-                            <p className="text-gray-600">{school.registrationInfo.process}</p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
-                            <ul className="list-disc list-inside text-gray-600">
-                              {school.registrationInfo.requirements.map((req, index) => (
-                                <li key={index} className="mb-1">{req}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          
-                          <div className="flex flex-col sm:flex-row justify-between sm:items-center p-4 bg-gray-50 rounded-lg mt-6">
-                            <div className="mb-2 sm:mb-0">
-                              <span className="font-semibold">Date limite:</span> {school.registrationInfo.deadline}
-                            </div>
-                            <div>
-                              <span className="font-semibold">Frais de scolarité:</span> {school.registrationInfo.fees}
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </TabsContent>
-                  ))}
-                </Tabs>
-              </section>
+              {/* Section: Modalités d'inscription par parcours */}
+              <SchoolRegistration 
+                programs={school.programs} 
+                registrationInfo={school.registrationInfo} 
+              />
             </div>
             
             {/* Barre latérale */}
             <div>
-              <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h3 className="text-xl font-bold text-primary mb-4 pb-2 border-b">
-                  Coordonnées
-                </h3>
-                
-                <div className="space-y-3">
-                  <p className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                    <span>{school.address}</span>
-                  </p>
-                  
-                  <p className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <span>{school.contact.phone}</span>
-                  </p>
-                  
-                  <p className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <span>{school.contact.email}</span>
-                  </p>
-                  
-                  {school.contact.website && (
-                    <p className="flex items-start">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clipRule="evenodd" />
-                      </svg>
-                      <a 
-                        href={`https://${school.contact.website}`} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline"
-                      >
-                        {school.contact.website}
-                      </a>
-                    </p>
-                  )}
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-bold text-primary mb-4 pb-2 border-b">
-                  Explorer plus
-                </h3>
-                
-                <div className="space-y-3">
-                  {schools
-                    .filter(s => s.id !== school.id)
-                    .slice(0, 3)
-                    .map(s => (
-                      <Link 
-                        key={s.id}
-                        to={`/school/${s.id}`}
-                        className="block p-3 border border-gray-200 rounded hover:bg-gray-50 transition-colors"
-                      >
-                        <div className="font-medium text-primary">{s.name}</div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          {[...new Set(s.programs.map(p => p.parcours))].length} parcours disponible{[...new Set(s.programs.map(p => p.parcours))].length > 1 ? 's' : ''}
-                        </div>
-                      </Link>
-                    ))
-                  }
-                  
-                  <div className="pt-2">
-                    <Link 
-                      to="/index"
-                      className="text-secondary hover:underline font-medium flex items-center"
-                    >
-                      Voir tous les établissements
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <SchoolSidebar school={school} relatedSchools={relatedSchools} />
             </div>
           </div>
         </div>
