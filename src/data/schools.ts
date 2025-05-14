@@ -46,7 +46,7 @@ export const categories = [
 
 export const niveau = [
   "Technicien Spécialisé",
-  "Classes Préparatoires",
+  "Technicien",
   "Licence",
   "Master",
   "Doctorat"
@@ -54,7 +54,7 @@ export const niveau = [
 
 export const cycles = [
   "Cycle Initial",
-  "classes Préparatoires",
+  "Technicien",
   "Licence",
   "Master",
   "Doctorat"
@@ -114,16 +114,16 @@ export const schools: School[] = [
         cycle: "Cycle Initial"
       },
       {
-        id: "prog-1-3",
-        parcours: "Technicien Spécialisé",
+        id: "prog-1-4",
+        parcours: "Technicien",
         name: "Gestion Informatisée",
         description: "Apprendre la Base sur la Gestion Informatique.",
         duration: "2 ans",
         category: "Informatique",
-        cycle: "Classes Préparatoires"
+        cycle: "Technicien"
       },
       {
-        id: "prog-1-1",
+        id: "prog-2-1",
         parcours: "Licence Professionnelle",
         name: "Informatique (Développement BD, Web, Réseaux et Sécurité)",
         description: "Formation complète en Développement et programmation informatique.",
@@ -132,7 +132,7 @@ export const schools: School[] = [
         cycle: "Licence"
       },
       {
-        id: "prog-1-2",
+        id: "prog-2-2",
         parcours: "Licence Professionnelle",
         name: "Management et Gestion de PME",
         description: "Prépare aux responsabilités de gestion et de management au sein des petites et moyennes entreprises.",
@@ -141,7 +141,7 @@ export const schools: School[] = [
         cycle: "Licence"
       },
       {
-        id: "prog-1-3",
+        id: "prog-2-3",
         parcours: "Licence Professionnelle",
         name: "Marketing Finance et Ressources Humaines",
         description: "Le responsable marketing RH utilise les techniques du marketing pour améliorer la marque employeur.",
@@ -150,7 +150,7 @@ export const schools: School[] = [
         cycle: "Licence"
       },
       {
-        id: "prog-1-3",
+        id: "prog-2-4",
         parcours: "Licence Professionnelle",
         name: "Transport et Logistique",
         description: "La logistique et le transport englobent les méthodes et moyens d'organisation des services ou entreprises",
@@ -159,7 +159,7 @@ export const schools: School[] = [
         cycle: "Licence"
       },    
        {
-        id: "prog-1-1",
+        id: "prog-4-1",
         parcours: "Master Europeen",
         name: "Management et Stratégie d'Entreprise (ME MSE)",
         description: "Ce master forme des futurs dirigeants capables d’élaborer et de piloter la stratégie globale d’une entreprise. Il permet d’acquérir des compétences en gestion, en pilotage d’équipe et en prise de décision stratégique, offrant une grande polyvalence pour évoluer vers des postes de cadre supérieur ou de consultant en organisation.",
@@ -168,7 +168,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
         {
-        id: "prog-1-1",
+        id: "prog-4-2",
         parcours: "Master Europeen",
         name: "Management et Stratégie Financière (ME MSF)",
         description: "Idéal pour ceux qui souhaitent maîtriser la finance d’entreprise, ce programme offre une expertise pointue en gestion budgétaire, évaluation des risques, audit et investissement. Il prépare à des postes clés comme directeur financier, contrôleur de gestion ou analyste financier, dans un secteur très porteur.",
@@ -177,7 +177,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-2",
+        id: "prog-4-3",
        parcours: "Master Europeen",
         name: "Management des Ressources Humaines (ME MRH)",
         description: "Ce master développe les compétences nécessaires pour gérer le capital humain d’une organisation, du recrutement à la formation, en passant par la gestion des conflits et la stratégie RH. Il prépare à des carrières de responsable RH, chargé de recrutement ou consultant en gestion du personnel.",
@@ -186,7 +186,7 @@ export const schools: School[] = [
        cycle: "Master"
       },
       {
-        id: "prog-1-3",
+        id: "prog-4-4",
        parcours: "Master Europeen",
         name: "Logistique (ME LOG)",
         description: "Axée sur la gestion des flux physiques et d’informations, cette formation forme des experts capables d’optimiser les chaînes d’approvisionnement. Elle est très recherchée dans les secteurs du transport, de l’industrie et de la grande distribution, avec des débouchés comme responsable logistique ou supply chain manager.",
@@ -195,7 +195,7 @@ export const schools: School[] = [
        cycle: "Master"
       },
       {
-        id: "prog-1-3",
+        id: "prog-4-5",
        parcours: "Master Europeen",
         name: "Management Digital (ME MD)",
         description: "Ce master permet d'acquérir une forte culture numérique et des compétences en transformation digitale, outils web, CRM et e-business. Il prépare à des postes comme chef de projet digital, consultant en transformation numérique ou responsable e-commerce, dans un marché en pleine croissance.",
@@ -204,7 +204,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-1",
+        id: "prog-4-6",
         parcours: "Master Europeen",
         name: "Management Environnemental et Énergétique (ME MEE)",
         description: "Cette formation est idéale pour ceux qui souhaitent concilier performance économique et développement durable. Elle prépare à gérer les problématiques environnementales et énergétiques des entreprises, ouvrant la voie à des carrières dans le conseil, l’industrie verte ou la gestion de projets durables.",
@@ -213,7 +213,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-2",
+        id: "prog-4-7",
         parcours: "Master Europeen",
         name: "Communication et Marketing Numérique (ME CMN)",
         description: "Parfait pour les créatifs orientés business, ce master allie stratégie de communication et maîtrise des outils numériques (SEO, réseaux sociaux, content marketing). Il forme des profils très demandés comme community manager, responsable marketing digital ou chargé de communication digitale.",
@@ -222,7 +222,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-3",
+        id: "prog-4-8",
         parcours: "Master Europeen",
         name: "Informatique (ME INFO)",
         description: "Cette formation couvre l’ensemble des domaines clés de l’informatique : développement, systèmes, réseaux, sécurité et bases de données. Elle permet d’accéder à des métiers techniques très recherchés, comme développeur, ingénieur logiciel ou administrateur systèmes",
@@ -231,7 +231,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-3",
+        id: "prog-4-9",
         parcours: "Master Europeen",
         name: "Expert IT Applications Intelligentes et Big Data (ME EIT-AIBD)",
         description: "Axée sur l’intelligence artificielle, la data science et les technologies avancées, cette formation prépare aux métiers d’avenir tels que data analyst, ingénieur IA ou expert Big Data. Elle combine compétences techniques et analytiques pour répondre aux enjeux de l’économie numérique.",
@@ -240,7 +240,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
         {
-        id: "prog-1-2",
+        id: "prog-4-10",
         parcours: "Master Europeen",
         name: "Juriste d’entreprise (ME-JE)",
         description: "Destiné à ceux qui souhaitent exercer dans le domaine juridique au sein d’une entreprise, ce programme offre une solide base en droit des affaires, contrats et droit social. Il prépare à des fonctions telles que juriste d’entreprise, conseiller juridique ou responsable conformité.",
@@ -249,7 +249,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-3",
+        id: "prog-4-11",
         parcours: "Master Europeen",
         name: "Banque privée internationale (ME-BPI)",
         description: "Ce master forme des experts en gestion de fortune, conseil patrimonial et placements financiers internationaux. Il ouvre des portes dans le secteur bancaire haut de gamme, notamment comme conseiller clientèle privée ou gestionnaire de portefeuille.",
@@ -258,7 +258,7 @@ export const schools: School[] = [
         cycle: "Master"
       },
       {
-        id: "prog-1-3",
+        id: "prog-4-12",
         parcours: "Master Europeen",
         name: "Communication-publicité (ME-PUB)",
         description: "Cette formation met l’accent sur la créativité, la stratégie de marque et les campagnes publicitaires. Elle prépare à travailler dans les agences de communication, les médias ou les départements marketing, avec des postes comme concepteur-rédacteur, chargé de communication ou chef de publicité.",
@@ -269,25 +269,28 @@ export const schools: School[] = [
     ]
   },
   {
-    id: "ecole-2",
-    name: "École de Commerce International",
-    description: "Formation d'excellence en commerce, management et marketing international avec un accent sur les langues étrangères.",
+    id: "Best-Institut",
+    name: "Best Institut Formmation Professionnelle Privée",
+    description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
     logo: "/placeholder.svg",
-    address: "45 Boulevard du Commerce, 69002 Lyon",
+    address: "45 Boulevard du Commerce, 20000 Casablanca",
     contact: {
-      phone: "+33 4 56 78 90 12",
-      email: "info@eci-lyon.fr",
-      website: "www.eci-lyon.fr"
+      phone: "+212 664-402051",
+      email: "info@bestinstitut.com",
+      website: "www.bestinstitut.com"
     },
     registrationInfo: {
-      deadline: "15 mai 2025",
+      deadline: "30 Septembre 2025",
       requirements: [
-        "Baccalauréat général ou technologique",
-        "Niveau B2 en anglais minimum",
-        "Dossier de candidature complet"
+        "Un attestation d'Authentification",
+        "1 Extrait de naissance ou copie d'acte de naissance",
+        "3 Copies du diplôme de Baccalauréat ou Diplôme de Technicien",
+        "Rélevé de note du Baccalauréat ou DT",
+        "4 Photos d'identité",
+        "2 copie légalisées du passeport"
       ],
-      fees: "7500€ par an",
-      process: "Dossier de candidature, tests écrits et entretien de motivation."
+      fees: "Veillez prendre contact avec l'Etablissement",
+      process: "Dossier de candidature, la procedure se fait en ligne ou en présentielle."
     },
     programs: [
       {
@@ -366,7 +369,7 @@ export const schools: School[] = [
         description: "Développement d'une pratique photographique professionnelle et artistique.",
         duration: "2 ans",
         category: "Arts",
-        cycle: "Classes Préparatoires"
+        cycle: "Technicien"
       }
     ]
   },

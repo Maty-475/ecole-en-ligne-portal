@@ -11,11 +11,11 @@ const About: React.FC = () => {
       <main className="flex-grow py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold text-primary mb-8">À propos d'EduManager</h1>
+            <h1 className="text-3xl font-bold text-primary mb-8">À propos RézoCampus</h1>
             
             <div className="prose prose-lg">
               <p className="mb-4">
-                EduManager est une plateforme dédiée à la gestion et à la présentation des établissements d'enseignement.
+                RézoCampus est une plateforme dédiée à la gestion et à la présentation des établissements d'enseignement.
                 Notre mission est de faciliter l'accès aux informations essentielles concernant les différentes 
                 institutions éducatives, leurs programmes, et leurs modalités d'inscription.
               </p>
