@@ -6,6 +6,7 @@ interface Program {
   id: string;
   name: string;
   description: string;
+  debouche: string;
   duration: string;
   category: string;
   cycle: string;
@@ -54,10 +55,13 @@ const SchoolPrograms: React.FC<SchoolProgramsProps> = ({ programs }) => {
                       <p className="text-gray-600 mb-2">{program.description}</p>
                       <div className="flex flex-wrap gap-3">
                         <p className="text-sm bg-gray-100 px-2 py-1 rounded">
-                          <span className="font-medium">Durée:</span> {program.duration}
+                          <span className="font-medium">Durée :</span> {program.duration}
                         </p>
                         <p className="text-sm bg-gray-100 px-2 py-1 rounded">
-                          <span className="font-medium">Catégorie:</span> {program.category}
+                          <span className="font-medium">Catégorie :</span> {program.category}
+                        </p>
+                         <p className="text-sm bg-gray-100 px-2 py-1 rounded">
+                          <span className="font-medium">Debouchés :</span> {program.debouche}
                         </p>
                       </div>
                     </div>
