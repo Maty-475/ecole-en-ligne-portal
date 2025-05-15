@@ -11,6 +11,8 @@ import {
 import { Button } from '@/components/ui/button';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const Landing: React.FC = () => {
   const images = [
@@ -44,7 +46,7 @@ const Landing: React.FC = () => {
             </h2>
             
             <div className="max-w-4xl mx-auto mb-16">
-              <Carousel className="relative">
+              <Carousel className="relative" opts={{ loop: true, align: "start" }} autoplay={{ delay: 5000 }}>
                 <CarouselContent>
                   {images.map((image, index) => (
                     <CarouselItem key={index}>
@@ -72,6 +74,106 @@ const Landing: React.FC = () => {
                 </Button>
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section className="py-12 md:py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-10 text-primary">
+              Démarches administratives
+            </h2>
+            
+            <Tabs defaultValue="visa" className="max-w-4xl mx-auto">
+              <TabsList className="grid w-full grid-cols-3">
+                <TabsTrigger value="visa">Visa étudiant</TabsTrigger>
+                <TabsTrigger value="logement">Logement</TabsTrigger>
+                <TabsTrigger value="sejour">Carte de séjour</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="visa" className="mt-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Procédure de demande de visa étudiant</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>Pour étudier en France, vous devez suivre les étapes suivantes pour obtenir un visa étudiant :</p>
+                    <ol className="list-decimal list-inside space-y-2 ml-4">
+                      <li>Inscription auprès de l'établissement d'enseignement</li>
+                      <li>Création d'un dossier sur le site Campus France</li>
+                      <li>Paiement des frais de dossier Campus France</li>
+                      <li>Réception de l'attestation d'admission</li>
+                      <li>Dépôt de la demande de visa auprès du consulat français</li>
+                      <li>Entretien au consulat</li>
+                      <li>Réception du visa</li>
+                    </ol>
+                    <p className="mt-4 text-gray-600">
+                      Assurez-vous de déposer votre demande de visa au moins 3 mois avant le début prévu de vos études.
+                    </p>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              
+              <TabsContent value="logement" className="mt-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Trouver un logement</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>Différentes options de logement s'offrent à vous en tant qu'étudiant :</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Résidences universitaires du CROUS</li>
+                      <li>Résidences étudiantes privées</li>
+                      <li>Colocation</li>
+                      <li>Location individuelle</li>
+                      <li>Logement chez l'habitant</li>
+                    </ul>
+                    <p className="mt-4 text-gray-600">
+                      N'oubliez pas de constituer votre dossier de location (garant, attestation de bourse, etc.) et de 
+                      vérifier votre éligibilité aux aides au logement (APL, ALS).
+                    </p>
+                    <div className="bg-blue-50 p-4 rounded-lg mt-4">
+                      <p className="font-medium">Documents généralement requis :</p>
+                      <ul className="list-disc list-inside mt-2">
+                        <li>Pièce d'identité</li>
+                        <li>Justificatif de ressources</li>
+                        <li>Attestation de garant</li>
+                        <li>Attestation d'assurance habitation</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              
+              <TabsContent value="sejour" className="mt-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Carte de séjour</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p>Après votre arrivée en France, vous devez valider votre visa long séjour (VLS-TS) dans les 3 mois :</p>
+                    <ol className="list-decimal list-inside space-y-2 ml-4">
+                      <li>Créer un compte sur le site de l'ANEF (Administration Numérique pour les Étrangers en France)</li>
+                      <li>Compléter le formulaire en ligne</li>
+                      <li>Payer la taxe de séjour (environ 60€)</li>
+                      <li>Télécharger les justificatifs demandés</li>
+                    </ol>
+                    <p className="mt-4 text-gray-600">
+                      Pour le renouvellement de votre titre de séjour, la demande doit être effectuée 2 mois avant la date d'expiration.
+                    </p>
+                    <div className="bg-amber-50 p-4 rounded-lg mt-4">
+                      <p className="font-medium">Documents nécessaires :</p>
+                      <ul className="list-disc list-inside mt-2">
+                        <li>Passeport avec visa</li>
+                        <li>Justificatif de domicile</li>
+                        <li>Photos d'identité</li>
+                        <li>Certificat d'inscription dans un établissement d'enseignement</li>
+                        <li>Justificatifs de ressources</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
         
