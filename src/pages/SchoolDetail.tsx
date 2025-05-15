@@ -91,7 +91,17 @@ const SchoolDetail: React.FC = () => {
             
             {/* Barre latérale */}
             <div>
-              <SchoolSidebar school={school} relatedSchools={relatedSchools} />
+              <SchoolSidebar 
+                school={{
+                  address: school.address,
+                  contact: {
+                    phone: school.contact.phone,
+                    email: school.contact.email,
+                    website: school.contact.website || ''
+                  }
+                }} 
+                relatedSchools={relatedSchools} 
+              />
             </div>
           </div>
         </div>
