@@ -10,18 +10,6 @@ import SchoolVideo from '../components/SchoolVideo';
 import SchoolRegistration from '../components/SchoolRegistration';
 import SchoolSidebar from '../components/SchoolSidebar';
 
-interface VideoInfo {
-  [key: string]: string;
-}
-
-// URLs des vidéos spécifiques pour chaque école
-const schoolVideos: VideoInfo = {
-  "Groupe-Miage": "https://www.youtube.com/embed/9KH4l0VK9WI", // Exemple d'URL pour Groupe Miage
-  "Best-Institut": "https://www.youtube.com/embed/_P6dI0I7dg0", // Exemple d'URL pour Best Institut
-  "Ecole-des-Declarants-Douane": "https://www.youtube.com/embed/LucZ8nIHgYQ", // Exemple d'URL pour EDD
-  "IBEGIS": "https://www.youtube.com/embed/Z7hM-XJV-4g", // Exemple d'URL pour IBEGIS
-};
-
 const SchoolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const school = schools.find(school => school.id === id);
@@ -48,8 +36,8 @@ const SchoolDetail: React.FC = () => {
     );
   }
   
-  // Obtenir l'URL de la vidéo spécifique à cette école
-  const schoolVideoUrl = schoolVideos[school.id];
+  // Utiliser directement la propriété vidéo de l'école
+  const schoolVideoUrl = school.video;
   
   // Sélectionner les écoles similaires (hors l'école courante)
   const relatedSchools = schools
@@ -77,10 +65,12 @@ const SchoolDetail: React.FC = () => {
               <SchoolPrograms programs={school.programs} />
               
               {/* Section: Présentation vidéo YouTube */}
-              <SchoolVideo 
-                videoUrl={schoolVideoUrl} 
-                schoolName={school.name} 
-              />
+              {schoolVideoUrl && (
+                <SchoolVideo 
+                  videoUrl={schoolVideoUrl} 
+                  schoolName={school.name} 
+                />
+              )}
               
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
