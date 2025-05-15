@@ -48,7 +48,7 @@ const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
             to={`/school/${school.id}`}
             className="bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-md transition-colors"
           >
-            En savoir plus
+            Plus de détails
           </Link>
         </div>
       </div>
