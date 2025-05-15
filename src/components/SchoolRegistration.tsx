@@ -18,11 +18,12 @@ interface Program {
   category: string;
   cycle: string;
   parcours: string;
+  registrationInfo?: RegistrationInfo; // Information d'inscription spécifique au programme
 }
 
 interface SchoolRegistrationProps {
   programs: Program[];
-  registrationInfo: RegistrationInfo;
+  registrationInfo: RegistrationInfo; // Information d'inscription par défaut de l'école
 }
 
 const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, registrationInfo }) => {
@@ -48,42 +49,49 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
           ))}
         </TabsList>
         
-        {schoolParcours.map(parcours => (
-          <TabsContent key={parcours} value={parcours}>
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">
-                  <div className="mt-2">Modalités pour {parcours}</div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
-                  <p className="text-gray-600">{registrationInfo.process}</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
-                  <ul className="list-disc list-inside text-gray-600">
-                    {registrationInfo.requirements.map((req, index) => (
-                      <li key={index} className="mb-1">{req}</li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row justify-between sm:items-center p-4 bg-gray-50 rounded-lg mt-6">
-                  <div className="mb-2 sm:mb-0">
-                    <span className="font-semibold">Date limite:</span> {registrationInfo.deadline}
-                    
-                  </div>
+        {schoolParcours.map(parcours => {
+          // Trouver le premier programme de ce parcours pour obtenir ses informations d'inscription spécifiques
+          const programOfParcours = programs.find(program => program.parcours === parcours);
+          
+          // Utiliser les infos d'inscription spécifiques au programme si disponibles, sinon utiliser celles de l'école
+          const parcoursRegistrationInfo = programOfParcours?.registrationInfo || registrationInfo;
+          
+          return (
+            <TabsContent key={parcours} value={parcours}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">
+                    <div className="mt-2">Modalités pour {parcours}</div>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
                   <div>
-                    <span className="font-semibold">Frais de scolarité:</span> {registrationInfo.fees}
+                    <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
+                    <p className="text-gray-600">{parcoursRegistrationInfo.process}</p>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        ))}
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
+                    <ul className="list-disc list-inside text-gray-600">
+                      {parcoursRegistrationInfo.requirements.map((req, index) => (
+                        <li key={index} className="mb-1">{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center p-4 bg-gray-50 rounded-lg mt-6">
+                    <div className="mb-2 sm:mb-0">
+                      <span className="font-semibold">Date limite:</span> {parcoursRegistrationInfo.deadline}
+                    </div>
+                    <div>
+                      <span className="font-semibold">Frais de scolarité:</span> {parcoursRegistrationInfo.fees}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          );
+        })}
       </Tabs>
     </section>
   );

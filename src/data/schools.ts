@@ -1,4 +1,3 @@
-
 export interface Program {
   id: string;
   parcours: string;
@@ -8,6 +7,12 @@ export interface Program {
   duration: string;
   category: string;
   cycle: string;
+  registrationInfo?: {
+    process: string;
+    requirements: string[];
+    deadline: string;
+    fees: string;
+  };
 }
 
 export interface School {
@@ -115,9 +120,20 @@ export const schools: School[] = [
         debouche: "assistant administratif, opérateur de saisie, agent de gestion informatisée.",
         duration: "2 ans",
         category: "Gestion Informatisée",
-        cycle: "Technicien"
+        cycle: "Technicien",
+        registrationInfo: {
+          deadline: "15 Septembre 2025",
+          requirements: [
+            "Diplôme de niveau bac",
+            "4 Photos d'identité",
+            "Extrait de naissance",
+            "Copie de la CIN"
+          ],
+          fees: "15 000 DH / an",
+          process: "Dossier de candidature et entretien de motivation"
+        }
       },
-        {
+      {
         id: "prog-1-2",
         parcours: "Technicien Spécialisé",
         name: "Finance et Comptable",
@@ -155,7 +171,19 @@ export const schools: School[] = [
         debouche: "développeur full stack, administrateur systèmes et réseaux, ingénieur sécurité junior.",
         duration: "3 ans",
         category: "Informatique",
-        cycle: "Licence"
+        cycle: "Licence",
+        registrationInfo: {
+          deadline: "31 Août 2025",
+          requirements: [
+            "Baccalauréat scientifique ou technique",
+            "Dossier académique",
+            "Lettre de motivation",
+            "2 lettres de recommandation",
+            "5 Photos d'identité récentes"
+          ],
+          fees: "32 000 DH / an",
+          process: "Dossier de candidature, test d'aptitude et entretien technique"
+        }
       },
       {
         id: "prog-1-6",
@@ -301,7 +329,7 @@ export const schools: School[] = [
         id: "prog-1-20",
         parcours: "Master Europeen",
         name: "Communication-publicité (ME-PUB)",
-        description: "Création publicitaire, stratégie de marque, campagnes média et marketing créatif.",
+        description: "Création publicitaire, strat��gie de marque, campagnes média et marketing créatif.",
         debouche: "concepteur-rédacteur, chargé de communication, chef de publicité.",
         duration: "5 ans",
         category: "Communication",
@@ -404,7 +432,18 @@ export const schools: School[] = [
         debouche: "Développeur web, webdesigner, intégrateur multimédia, UX/UI designer, chef de projet digital",
         duration: "3 ans",
         category: "Informatique",
-        cycle: "Bachelor"
+        cycle: "Bachelor",
+        registrationInfo: {
+          deadline: "15 Octobre 2025",
+          requirements: [
+            "Baccalauréat ou diplôme équivalent",
+            "Portfolio de créations numériques",
+            "Entretien de motivation",
+            "4 Photos d'identité"
+          ],
+          fees: "38 000 DH / an",
+          process: "Étude du dossier, test technique et entretien de motivation"
+        }
       },
       {
         id: "prog-2-8",
@@ -813,4 +852,55 @@ export const schools: School[] = [
 ]
 
   }
+];
+
+export const categories = [
+  "Informatique",
+  "Informatique & Digital",
+  "Cyber Sécurité",
+  "Sécurité Informatique",
+  "Management Informatique",
+  "Réseaux et Télécommunications",
+  "Gestion Informatisée",
+  "Multimédia",
+  "Infographie",
+  "Arts",
+  "Finances",
+  "Economie",
+  "Comptabilité",
+  "Gestion Comptable",  
+  "Commerce",  
+  "Sciences",
+  "Ingénierie",
+  "Santé",  
+  "Management & Gestion",
+  "Ressources Humaines",
+  "Transport et Logistique",
+  "Logistique",
+  "Langues",
+  "Communication",
+  "Marketing",
+  "Douane",
+  "Droit"
+];
+
+export const niveau = [
+  "Technicien Spécialisé",
+  "Technicien",
+  "Licence",
+  "Bachelor",
+  "Master",
+  "Ingénierie",
+  "Doctorat"
+];
+
+export const cycles = [
+  "Cycle Initial",
+  "Technicien",
+  "Formation",
+  "Licence",
+  "Bachelor",
+  "Master",
+  "Ingénierie",
+  "Doctorat"
 ];
