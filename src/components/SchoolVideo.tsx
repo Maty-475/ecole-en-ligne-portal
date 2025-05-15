@@ -9,7 +9,7 @@ interface SchoolVideoProps {
 
 const SchoolVideo: React.FC<SchoolVideoProps> = ({ videoUrl, schoolName }) => {
   // URL par défaut si aucune URL n'est fournie
-  const defaultVideoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
+  const defaultVideoUrl = "https://www.youtube.com/watch?v=vov6mA_YcyU";
   const videoSrc = videoUrl || defaultVideoUrl;
   
   return (

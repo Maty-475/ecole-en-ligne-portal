@@ -94,7 +94,7 @@ export const schools: School[] = [
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
     logo: "../Images/Miage/images.jpeg",
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video: "https://www.youtube.com/watch?v=vov6mA_YcyU",
     contact: {
       phone: "+212 5 22 27 96 00",
       email: "miagecasa@groupemiage.net",
@@ -183,7 +183,7 @@ export const schools: School[] = [
             "2 lettres de recommandation",
             "5 Photos d'identité récentes"
           ],
-          fees: "32 000 DH / an",
+          fees: "Contactez l'école",
           process: "Dossier de candidature, test d'aptitude et entretien technique"
         }
       },
@@ -612,7 +612,7 @@ export const schools: School[] = [
     description: "l’Ecole IBEGIS s'est spécialisée dans des formations pour les métiers d'avenir. Nous assurons un suivi embauche des lauréats grâce à un réseau de plus de 70 entreprises partenaires. Notre mission est d'accompagner ceux qui veulent réussir.",
     logo: "../Images/Ibegis/ibegis.png",
     address: "66, allée des Sophoras, Ain Sebaâ 20350 Casablanca",
-    video: "https://www.youtube.com/embed/OsS_0RD-8Xs",
+    video: "https://www.youtube.com/watch",
     contact: {
       phone: "+212 662-083646",
       email: "contact@ibegis.ma",

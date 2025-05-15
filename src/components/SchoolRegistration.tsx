@@ -81,8 +81,12 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
                   
                   <div className="p-4 bg-gray-50 rounded-lg mt-6">
                     <div className="mb-2">
-                      <span className="font-semibold">Date limite d'inscription:</span> {parcoursRegistrationInfo.deadline}
+                      <span className="font-semibold">Date limite d'inscription :</span> {parcoursRegistrationInfo.deadline} 
                     </div>
+                  </div>
+                    <div className="p-4 bg-gray-50 rounded-lg mt-6">
+                    <div className="mb-2">
+<span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees}                    </div>
                   </div>
                 </CardContent>
               </Card>

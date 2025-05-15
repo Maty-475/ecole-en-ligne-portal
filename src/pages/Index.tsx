@@ -35,7 +35,7 @@ const Index: React.FC = () => {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-8 text-primary">
-              Nos établissements
+              Toutes les formations et Etablissements Agréés par l'Etat
             </h2>
             
             <div className="flex justify-center mb-10">
