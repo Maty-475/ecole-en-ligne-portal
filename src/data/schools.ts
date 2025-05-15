@@ -33,6 +33,7 @@ export interface School {
     process: string;
   };
   programs: Program[];
+  video?: string;
 }
 
 export const categories = [
@@ -93,6 +94,7 @@ export const schools: School[] = [
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
     logo: "../Images/Miage/images.jpeg",
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     contact: {
       phone: "+212 5 22 27 96 00",
       email: "miagecasa@groupemiage.net",
@@ -137,7 +139,7 @@ export const schools: School[] = [
         id: "prog-1-2",
         parcours: "Technicien Spécialisé",
         name: "Finance et Comptable",
-        description: "Ce programme permet d’acquérir des compétences solides en gestion financière, analyse comptable, fiscalité et audit pour travailler efficacement dans divers environnements financiers.",
+        description: "Ce programme permet d'acquérir des compétences solides en gestion financière, analyse comptable, fiscalité et audit pour travailler efficacement dans divers environnements financiers.",
         debouche: "comptable, assistant financier, auditeur junior, gestionnaire de paie.",
         duration: "2 ans",
         category: "Gestion Comptable",
@@ -344,6 +346,7 @@ export const schools: School[] = [
     description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
     logo: "../Images/BestIn/Best.png",
     address: "45 Boulevard du Commerce, 20000 Casablanca",
+    video: "https://www.youtube.com/embed/G9TdA8d5aaU",
     contact: {
       phone: "+212 522-541547",
       email: "contact@bestinstitut.com",
@@ -523,6 +526,7 @@ export const schools: School[] = [
     description: "L’EDD propose ainsi des programmes diversifiés et adaptés aux attentes des entreprises nationales et internationales, dans ces secteurs.",
     logo: "../Images/Edd/EDD.jpg",
     address: "30 Avenue des FAR 4éme étage (en dessus de PIZZA HUT) CASABLANCA – MAROC",
+    video: "https://www.youtube.com/embed/elA-1SogEAY",
     contact: {
       phone: "+212 522-484751",
       email: "contact@edd.ma",
@@ -607,9 +611,10 @@ export const schools: School[] = [
   {
     id: "IBEGIS",
     name: "IBEGIS Ecole de Commerce et de Gestion",
-    description: " l’Ecole IBEGIS s’est spécialisée dans des formations pour les métiers d’avenir. Nous assurons un suivi embauche des lauréats grâce à un réseau de plus de 70 entreprises partenaires. Notre mission est d’accompagner ceux qui veulent réussir.",
+    description: " l’Ecole IBEGIS s'est spécialisée dans des formations pour les métiers d'avenir. Nous assurons un suivi embauche des lauréats grâce à un réseau de plus de 70 entreprises partenaires. Notre mission est d'accompagner ceux qui veulent réussir.",
     logo: "../Images/Ibegis/ibegis.png",
     address: " 66, allée des Sophoras, Ain Sebaâ 20350 Casablanca",
+    video: "https://www.youtube.com/embed/OsS_0RD-8Xs",
     contact: {
       phone: "+212 662-083646",
       email: "contact@ibegis.ma",
