@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { schools, School, Program, categories, cycles } from '../data/schools';
@@ -140,7 +139,7 @@ const SchoolEdit: React.FC = () => {
   };
   
   const addProgram = () => {
-    const newId = `prog-${editableSchool.id}-${availablePrograms.length + 1}`;
+    const newId = `prog-${editableSchool?.id}-${availablePrograms.length + 1}`;
     const newProgram: Program = {
       id: newId,
       name: "Nouveau programme",
@@ -148,7 +147,8 @@ const SchoolEdit: React.FC = () => {
       duration: "3 ans",
       category: categories[0],
       cycle: cycles[0],
-      parcours: "Nouveau parcours"
+      parcours: "Nouveau parcours",
+      debouche: "Débouchés professionnels"
     };
     
     setAvailablePrograms(prev => [...prev, newProgram]);
@@ -434,6 +434,16 @@ const SchoolEdit: React.FC = () => {
                       <textarea
                         value={program.description}
                         onChange={(e) => handleProgramChange(program.id, 'description', e.target.value)}
+                        rows={2}
+                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label>Débouchés</Label>
+                      <textarea
+                        value={program.debouche || ""}
+                        onChange={(e) => handleProgramChange(program.id, 'debouche', e.target.value)}
                         rows={2}
                         className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       />
