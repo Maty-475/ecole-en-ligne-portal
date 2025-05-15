@@ -33,6 +33,7 @@ export interface School {
     process: string;
   };
   programs: Program[];
+  video?: string;
 }
 
 export const categories = [
@@ -93,6 +94,7 @@ export const schools: School[] = [
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
     logo: "../Images/Miage/images.jpeg",
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     contact: {
       phone: "+212 5 22 27 96 00",
       email: "miagecasa@groupemiage.net",
@@ -137,7 +139,7 @@ export const schools: School[] = [
         id: "prog-1-2",
         parcours: "Technicien Spécialisé",
         name: "Finance et Comptable",
-        description: "Ce programme permet d’acquérir des compétences solides en gestion financière, analyse comptable, fiscalité et audit pour travailler efficacement dans divers environnements financiers.",
+        description: "Ce programme permet d'acquérir des compétences solides en gestion financière, analyse comptable, fiscalité et audit pour travailler efficacement dans divers environnements financiers.",
         debouche: "comptable, assistant financier, auditeur junior, gestionnaire de paie.",
         duration: "2 ans",
         category: "Gestion Comptable",
@@ -329,13 +331,12 @@ export const schools: School[] = [
         id: "prog-1-20",
         parcours: "Master Europeen",
         name: "Communication-publicité (ME-PUB)",
-        description: "Création publicitaire, strat��gie de marque, campagnes média et marketing créatif.",
+        description: "Création publicitaire, stratégie de marque, campagnes média et marketing créatif.",
         debouche: "concepteur-rédacteur, chargé de communication, chef de publicité.",
         duration: "5 ans",
         category: "Communication",
         cycle: "Master"
       }
-
     ]
   },
   {
@@ -344,6 +345,7 @@ export const schools: School[] = [
     description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
     logo: "../Images/BestIn/Best.png",
     address: "45 Boulevard du Commerce, 20000 Casablanca",
+    video: "https://www.youtube.com/embed/G9TdA8d5aaU",
     contact: {
       phone: "+212 522-541547",
       email: "contact@bestinstitut.com",
@@ -363,18 +365,17 @@ export const schools: School[] = [
       process: "Dossier de candidature, la procedure se fait en ligne ou en présentielle."
     },
     programs: [
-      
       {
         id: "prog-2-1",
         parcours: "Technicien",
         name: "🖥️ Technicien en  Action Commerciale et Marketing",
         description: "Ce programme forme des professionnels capables de participer à la mise en œuvre des actions commerciales et marketing d’une entreprise. Il couvre les techniques de vente, la prospection, la gestion de la relation client, l’analyse de marché et la promotion des produits/services.",
-        debouche: "Commercial, assistant marketing, chargé de prospection, conseiller clientèle, responsable de rayon, télévendeu.",
+        debouche: "Commercial, assistant marketing, chargé de prospection, conseiller clientèle, responsable de rayon, télévendeur.",
         duration: "2 ans",
         category: "Commerce",
         cycle: "Technicien"
       },
-       {
+      {
         id: "prog-2-2",
         parcours: "Technicien",
         name: "🖥️ Technicien en Infographie",
@@ -384,7 +385,7 @@ export const schools: School[] = [
         category: "Infographie",
         cycle: "Technicien"
       },
-       {
+      {
         id: "prog-2-3",
         parcours: "Technicien",
         name: "🖥️ Technicien en gestion informatisée",
@@ -404,7 +405,7 @@ export const schools: School[] = [
         category: "Multimédia",
         cycle: "Cycle Initial"
       },
-        {
+      {
         id: "prog-2-5",
         parcours: "Technicien spécialisé",
         name: "🌍 Technicien spécialisé commerce international",
@@ -450,7 +451,7 @@ export const schools: School[] = [
         parcours: "Bachelor Européen",
         name: "🎓 Management des Organisations",
         description: "Ce programme forme les futurs managers aux méthodes de gestion d'entreprise, aux techniques de leadership, à la stratégie d'entreprise et aux ressources humaines. Il met l’accent sur l’analyse, la prise de décision et le pilotage d’équipes.",
-        debouche: " Assistant manager, chef de projet, responsable de service, coordinateur d’équipe, adjoint de direction.",
+        debouche: "Assistant manager, chef de projet, responsable de service, coordinateur d’équipe, adjoint de direction.",
         duration: "3 ans",
         category: "Management & Gestion",
         cycle: "Bachelor"
@@ -460,7 +461,7 @@ export const schools: School[] = [
         parcours: "Bachelor Européen",
         name: "🎓 Technique Comptable et Financière",
         description: "Parfait pour les créatifs orientés business, ce Bachelor allie stratégie de communication et maîtrise des outils numériques (SEO, réseaux sociaux, content marketing).",
-        debouche: " Comptable, assistant financier, contrôleur de gestion, analyste financier, technicien comptable.",
+        debouche: "Comptable, assistant financier, contrôleur de gestion, analyste financier, technicien comptable.",
         duration: "3 ans",
         category: "Finances",
         cycle: "Bachelor"
@@ -470,7 +471,7 @@ export const schools: School[] = [
         parcours: "Bachelor Européen",
         name: "🎓 Marketing et Communication",
         description: "Cette formation prépare aux métiers du marketing digital, de la communication d’entreprise et de la publicité. Elle aborde les stratégies de communication, l’étude de marché, le marketing opérationnel, le community management et le branding.",
-        debouche: " Chargé de communication, chef de produit, responsable marketing, community manager, chargé d’études marketing.",
+        debouche: "Chargé de communication, chef de produit, responsable marketing, community manager, chargé d’études marketing.",
         duration: "3 ans",
         category: "Marketing",
         cycle: "Bachelor"
@@ -500,7 +501,7 @@ export const schools: School[] = [
         parcours: "Bachelor Européen",
         name: "🎓 Ingénierie des Applications Mobiles",
         description: "Ce programme est dédié à la conception et au développement d’applications mobiles performantes et ergonomiques sur Android et iOS. Il englobe l’analyse des besoins, le design d’interface (UX/UI), le codage natif et hybride, ainsi que la publication sur les stores. La formation inclut aussi les notions de responsive design, sécurité mobile et gestion de bases de données embarquées.",
-        debouche: " Développeur mobile, concepteur d'applications, ingénieur logiciel mobile, testeur mobile, chef de projet mobile.",
+        debouche: "Développeur mobile, concepteur d'applications, ingénieur logiciel mobile, testeur mobile, chef de projet mobile.",
         duration: "3 ans",
         category: "Ingénierie",
         cycle: "Ingénierie"
@@ -523,6 +524,7 @@ export const schools: School[] = [
     description: "L’EDD propose ainsi des programmes diversifiés et adaptés aux attentes des entreprises nationales et internationales, dans ces secteurs.",
     logo: "../Images/Edd/EDD.jpg",
     address: "30 Avenue des FAR 4éme étage (en dessus de PIZZA HUT) CASABLANCA – MAROC",
+    video: "https://www.youtube.com/embed/elA-1SogEAY",
     contact: {
       phone: "+212 522-484751",
       email: "contact@edd.ma",
@@ -541,75 +543,76 @@ export const schools: School[] = [
       fees: "Voir le site officiel",
       process: "L’inscription n’est considéré valider qu’après se présenter en personne à EDD dans le délai de 2 jours pour la confirmation définitive et dans la limite des places disponibles."
     },
-   programs: [
-  {
-    id: "prog-3-1",
-    parcours: "Technicien",
-    name: "🧾 Technicien Déclarant en Douane",
-    description: "Formation axée sur la réglementation douanière, les techniques de dédouanement, la nomenclature tarifaire, la fiscalité douanière et la gestion des documents de transit.",
-    debouche: "Déclarant en douane, agent de transit, assistant logistique, responsable d’expédition, gestionnaire import/export.",
-    duration: "2 ans",
-    category: "Douane",
-    cycle: "Technicien"
+    programs: [
+      {
+        id: "prog-3-1",
+        parcours: "Technicien",
+        name: "🧾 Technicien Déclarant en Douane",
+        description: "Formation axée sur la réglementation douanière, les techniques de dédouanement, la nomenclature tarifaire, la fiscalité douanière et la gestion des documents de transit.",
+        debouche: "Déclarant en douane, agent de transit, assistant logistique, responsable d’expédition, gestionnaire import/export.",
+        duration: "2 ans",
+        category: "Douane",
+        cycle: "Technicien"
+      },
+      {
+        id: "prog-3-2",
+        parcours: "Technicien Spécialisé",
+        name: "🚚 Technicien Spécialisé en Gestion de Transport et Logistique",
+        description: "Développe des compétences en planification du transport, optimisation des flux, gestion d’entrepôt et utilisation de logiciels spécialisés en logistique.",
+        debouche: "Planificateur de transport, gestionnaire de stock, technicien logistique, agent d’exploitation, coordinateur supply chain.",
+        duration: "2 ans",
+        category: "Transport et Logistique",
+        cycle: "Cycle Initial"
+      },
+      {
+        id: "prog-3-3",
+        parcours: "Licence Professionnelle",
+        name: "🎓 Licence Professionnelle en Transport et Logistique",
+        description: "Cette formation initie aux techniques de prise de vue, au traitement de l’image, à la composition visuelle et à la narration photographique. Elle allie pratique artistique et compétences techniques en photographie numérique et argentique.",
+        debouche: "Responsable logistique, superviseur transport, coordinateur logistique, chef d’équipe entrepôt.",
+        duration: "3 ans",
+        category: "Transport et Logistique",
+        cycle: "Licence"
+      },
+      {
+        id: "prog-3-4",
+        parcours: "Master Européen",
+        name: "🏗️ Master en Logistique",
+        description: "Formation stratégique et managériale sur la logistique globale, les systèmes ERP, la digitalisation de la chaîne d’approvisionnement et les pratiques durables.",
+        debouche: "Directeur logistique, consultant supply chain, chef de projet logistique, responsable des achats.",
+        duration: "5 ans",
+        category: "Transport et Logistique",
+        cycle: "Master"
+      },
+      {
+        id: "prog-3-5",
+        parcours: "Formation Professionnelle",
+        name: "🏢 Formation en Entreprise (Transport & Logistique)",
+        description: "Centrée sur la pratique, elle permet aux salariés ou apprentis d’acquérir rapidement des compétences concrètes sur le terrain en environnement professionnel.",
+        debouche: "Assistant logistique, gestionnaire de stock, agent de planning, opérateur logistique.",
+        duration: "1 an",
+        category: "Transport et Logistique",
+        cycle: "Formation"
+      },
+      {
+        id: "prog-3-6",
+        parcours: "Formation Continue",
+        name: "📜 Formation Continue : Déclarant en Douane",
+        description: "Permet aux professionnels d’actualiser ou approfondir leurs compétences en législation douanière, conformité réglementaire et opérations internationales",
+        debouche: "Déclarant en douane senior, expert en transit, conseiller douanier, responsable conformité import/export.",
+        duration: "1 an",
+        category: "Douane",
+        cycle: "Formation"
+      }
+    ]
   },
-  {
-    id: "prog-3-2",
-    parcours: "Technicien Spécialisé",
-    name: "🚚 Technicien Spécialisé en Gestion de Transport et Logistique",
-    description: "Développe des compétences en planification du transport, optimisation des flux, gestion d’entrepôt et utilisation de logiciels spécialisés en logistique.",
-    debouche: "Planificateur de transport, gestionnaire de stock, technicien logistique, agent d’exploitation, coordinateur supply chain.",
-    duration: "2 ans",
-    category: "Transport et Logistique",
-    cycle: "Cycle Initial"
-  },
-  {
-    id: "prog-3-3",
-    parcours: "Licence Professionnelle",
-    name: "🎓 Licence Professionnelle en Transport et Logistique",
-    description: "Cette formation initie aux techniques de prise de vue, au traitement de l’image, à la composition visuelle et à la narration photographique. Elle allie pratique artistique et compétences techniques en photographie numérique et argentique.",
-    debouche: "Responsable logistique, superviseur transport, coordinateur logistique, chef d’équipe entrepôt.",
-    duration: "3 ans",
-    category: "Transport et Logistique",
-    cycle: "Licence"
-  },
-   {
-    id: "prog-3-4",
-    parcours: "Master Européen",
-    name: "🏗️ Master en Logistique",
-    description: "Formation stratégique et managériale sur la logistique globale, les systèmes ERP, la digitalisation de la chaîne d’approvisionnement et les pratiques durables.",
-    debouche: "Directeur logistique, consultant supply chain, chef de projet logistique, responsable des achats.",
-    duration: "5 ans",
-    category: "Transport et Logistique",
-    cycle: "Master"
-  },
-   {
-    id: "prog-3-5",
-    parcours: "Formation Professionnelle",
-    name: "🏢 Formation en Entreprise (Transport & Logistique)",
-    description: "Centrée sur la pratique, elle permet aux salariés ou apprentis d’acquérir rapidement des compétences concrètes sur le terrain en environnement professionnel.",
-    debouche: "Assistant logistique, gestionnaire de stock, agent de planning, opérateur logistique.",
-    duration: "1 an",
-    category: "Transport et Logistique",
-    cycle: "Formation"
-  },
-  {
-    id: "prog-3-6",
-    parcours: "Formation Continue",
-    name: "📜 Formation Continue : Déclarant en Douane",
-    description: "Permet aux professionnels d’actualiser ou approfondir leurs compétences en législation douanière, conformité réglementaire et opérations internationales",
-    debouche: "Déclarant en douane senior, expert en transit, conseiller douanier, responsable conformité import/export.",
-    duration: "1 an",
-    category: "Douane",
-    cycle: "Formation"
-  }
-]
-},
   {
     id: "IBEGIS",
     name: "IBEGIS Ecole de Commerce et de Gestion",
-    description: " l’Ecole IBEGIS s’est spécialisée dans des formations pour les métiers d’avenir. Nous assurons un suivi embauche des lauréats grâce à un réseau de plus de 70 entreprises partenaires. Notre mission est d’accompagner ceux qui veulent réussir.",
+    description: "l’Ecole IBEGIS s'est spécialisée dans des formations pour les métiers d'avenir. Nous assurons un suivi embauche des lauréats grâce à un réseau de plus de 70 entreprises partenaires. Notre mission est d'accompagner ceux qui veulent réussir.",
     logo: "../Images/Ibegis/ibegis.png",
-    address: " 66, allée des Sophoras, Ain Sebaâ 20350 Casablanca",
+    address: "66, allée des Sophoras, Ain Sebaâ 20350 Casablanca",
+    video: "https://www.youtube.com/embed/OsS_0RD-8Xs",
     contact: {
       phone: "+212 662-083646",
       email: "contact@ibegis.ma",
@@ -629,39 +632,39 @@ export const schools: School[] = [
       process: "Dossier académique et entretien de motivation."
     },
     programs: [
-       {
-    id: "prog-4-1",
-    parcours: "Technicien",
-    name: "📑 Technicien Assistant en Gestion Administrative et Comptable",
-    description: "Formation sur la gestion quotidienne d’une entreprise : comptabilité, bureautique, suivi administratif et gestion documentaire.",
-    debouche: "Assistant comptable, agent administratif, aide-comptable, gestionnaire de dossiers.",
-    duration: "2 ans",
-    category: "Gestion Comptable",
-    cycle: "Technicien"
-  },
-  {
-    id: "prog-4-2",
-    parcours: "Technicien",
-    name: "💻 Technicien en Gestion Informatisée",
-    description: "Apprend la digitalisation des tâches administratives, la gestion des bases de données et l’utilisation de logiciels professionnels.",
-    debouche: "Opérateur de saisie, assistant informatique, technicien support, gestionnaire de fichiers clients.",
-    duration: "2 ans",
-    category: "Gestion Informatisée",
-    cycle: "Technicien"
-  },
-  {
-    id: "prog-4-3",
-    parcours: "Technicien",
-    name: "🎨 Technicien Infographiste",
-    description: "Formation axée sur la création visuelle, la retouche photo, la mise en page, l’édition numérique et les outils Adobe.",
-    debouche: "Infographiste, maquettiste, web designer junior, illustrateur digital.",
-    duration: "2 ans",
-    category: "Infographie",
-    cycle: "Technicien"
-  },
+      {
+        id: "prog-4-1",
+        parcours: "Technicien",
+        name: "📑 Technicien Assistant en Gestion Administrative et Comptable",
+        description: "Formation sur la gestion quotidienne d’une entreprise : comptabilité, bureautique, suivi administratif et gestion documentaire.",
+        debouche: "Assistant comptable, agent administratif, aide-comptable, gestionnaire de dossiers.",
+        duration: "2 ans",
+        category: "Gestion Comptable",
+        cycle: "Technicien"
+      },
+      {
+        id: "prog-4-2",
+        parcours: "Technicien",
+        name: "💻 Technicien en Gestion Informatisée",
+        description: "Apprend la digitalisation des tâches administratives, la gestion des bases de données et l’utilisation de logiciels professionnels.",
+        debouche: "Opérateur de saisie, assistant informatique, technicien support, gestionnaire de fichiers clients.",
+        duration: "2 ans",
+        category: "Gestion Informatisée",
+        cycle: "Technicien"
+      },
+      {
+        id: "prog-4-3",
+        parcours: "Technicien",
+        name: "🎨 Technicien Infographiste",
+        description: "Formation axée sur la création visuelle, la retouche photo, la mise en page, l’édition numérique et les outils Adobe.",
+        debouche: "Infographiste, maquettiste, web designer junior, illustrateur digital.",
+        duration: "2 ans",
+        category: "Infographie",
+        cycle: "Technicien"
+      },
       {
         id: "prog-4-4",
-         parcours: "Technicien",
+        parcours: "Technicien",
         name: "📈 Technicien en Action Commerciale et Marketing",
         description: "Développe des compétences commerciales, en techniques de vente, communication marketing et gestion client.",
         debouche: "Assistant marketing, commercial terrain, chargé de prospection, télévendeur",
@@ -671,7 +674,7 @@ export const schools: School[] = [
       },
       {
         id: "prog-4-5",
-         parcours: "Technicien Spécialisé",
+        parcours: "Technicien Spécialisé",
         name: "💰 Technicien Spécialisé Financier Comptable",
         description: "Maîtrise des outils de gestion comptable, des normes fiscales, des logiciels spécialisés et des déclarations financières.",
         debouche: "Comptable, assistant financier, responsable facturation, analyste junior.",
@@ -679,39 +682,39 @@ export const schools: School[] = [
         category: "Gestion Comptable",
         cycle: "Cycle Initial"
       },
-       {
-    id: "prog-4-6",
-    parcours: "Technicien Spécialisé",
-    name: "🌍 Technicien Spécialisé en Commerce International",
-    description: "Formation aux opérations d’import-export, négociation à l’international, incoterms et douane.",
-    debouche: "Agent commercial export, assistant import/export, responsable clientèle internationale.",
-    duration: "2 ans",
-    category: "Commerce",
-    cycle: "Cycle Initial"
-  },
-  {
-    id: "prog-4-7",
-    parcours: "Technicien Spécialisé",
-    name: "👨‍💻 Technicien Spécialisé en Développement Informatique",
-    description: "Apprentissage des langages de programmation, création d’applications, conception de bases de données..",
-    debouche: "Développeur junior, testeur logiciel, assistant chef de projet IT, intégrateur web.",
-    duration: "2 ans",
-    category: "Informatique",
-    cycle: "Cycle Initial"
-  },
-  {
-    id: "prog-4-8",
-    parcours: "Licence Professionnelle",
-    name: "🏢 Licence Pro en Management et Gestion des Entreprises",
-    description: "Forme aux fondements du management, gestion budgétaire, droit des affaires et stratégie.",
-    debouche: "Manager de service, assistant de direction, chef d'équipe opérationnel.",
-    duration: "3 ans",
-    category: "Management & Gestion",
-    cycle: "Licence"
-  },
+      {
+        id: "prog-4-6",
+        parcours: "Technicien Spécialisé",
+        name: "🌍 Technicien Spécialisé en Commerce International",
+        description: "Formation aux opérations d’import-export, négociation à l’international, incoterms et douane.",
+        debouche: "Agent commercial export, assistant import/export, responsable clientèle internationale.",
+        duration: "2 ans",
+        category: "Commerce",
+        cycle: "Cycle Initial"
+      },
+      {
+        id: "prog-4-7",
+        parcours: "Technicien Spécialisé",
+        name: "👨‍💻 Technicien Spécialisé en Développement Informatique",
+        description: "Apprentissage des langages de programmation, création d’applications, conception de bases de données.",
+        debouche: "Développeur junior, testeur logiciel, assistant chef de projet IT, intégrateur web.",
+        duration: "2 ans",
+        category: "Informatique",
+        cycle: "Cycle Initial"
+      },
+      {
+        id: "prog-4-8",
+        parcours: "Licence Professionnelle",
+        name: "🏢 Licence Pro en Management et Gestion des Entreprises",
+        description: "Forme aux fondements du management, gestion budgétaire, droit des affaires et stratégie.",
+        debouche: "Manager de service, assistant de direction, chef d'équipe opérationnel.",
+        duration: "3 ans",
+        category: "Management & Gestion",
+        cycle: "Licence"
+      },
       {
         id: "prog-4-9",
-         parcours: "Licence Professionnelle",
+        parcours: "Licence Professionnelle",
         name: "💹 Licence Pro en Finance",
         description: "Expertise en gestion financière, analyse financière, investissements, et contrôle de gestion",
         debouche: "Analyste financier, gestionnaire de portefeuille, assistant contrôleur de gestion",
@@ -719,49 +722,49 @@ export const schools: School[] = [
         category: "Finances",
         cycle: "Licence"
       },
-       {
-    id: "prog-4-10",
-    parcours: "Licence Professionnelle",
-    name: "👥 Licence Pro en Ressources Humaines",
-    description: "Maîtrise du recrutement, droit social, gestion des carrières et paie.",
-    debouche: "Chargé RH, gestionnaire de paie, assistant en développement RH.",
-    duration: "3 ans",
-    category: "Ressources Humaines",
-    cycle: "Licence"
-  },
-  {
-    id: "prog-4-11",
-    parcours: "Licence Professionnelle",
-    name: "📱 Licence Pro en Développement d’Applications Mobiles",
-    description: "Apprend le développement sur iOS/Android, UX mobile, tests et publication sur stores",
-    debouche: "Développeur mobile, testeur applicatif, intégrateur mobile.",
-    duration: "3 ans",
-    category: "Informatique",
-    cycle: "Licence"
-  },
-  {
-    id: "prog-4-12",
-    parcours: "Licence Professionnelle",
-    name: "📢 Licence Pro en Marketing Digital",
-    description: "Focus sur le SEO, SEA, réseaux sociaux, emailing, et stratégie digitale.",
-    debouche: "Community manager, webmarketeur, chargé de communication digitale.",
-    duration: "3 ans",
-    category: "Marketing",
-    cycle: "Licence"
-  },
-  {
-    id: "prog-4-13",
-    parcours: "Licence Professionnelle",
-    name: "🖧 Licence Pro en Informatique Réseau et Sécurité",
-    description: "Formation à la gestion de réseaux, cybersécurité, systèmes et protocoles sécurisés.",
-    debouche: "Administrateur réseau, technicien sécurité IT, support systèmes.",
-    duration: "3 ans",
-    category: "Sécurité Informatique",
-    cycle: "Licence"
-  },
+      {
+        id: "prog-4-10",
+        parcours: "Licence Professionnelle",
+        name: "👥 Licence Pro en Ressources Humaines",
+        description: "Maîtrise du recrutement, droit social, gestion des carrières et paie.",
+        debouche: "Chargé RH, gestionnaire de paie, assistant en développement RH.",
+        duration: "3 ans",
+        category: "Ressources Humaines",
+        cycle: "Licence"
+      },
+      {
+        id: "prog-4-11",
+        parcours: "Licence Professionnelle",
+        name: "📱 Licence Pro en Développement d’Applications Mobiles",
+        description: "Apprend le développement sur iOS/Android, UX mobile, tests et publication sur stores",
+        debouche: "Développeur mobile, testeur applicatif, intégrateur mobile.",
+        duration: "3 ans",
+        category: "Informatique",
+        cycle: "Licence"
+      },
+      {
+        id: "prog-4-12",
+        parcours: "Licence Professionnelle",
+        name: "📢 Licence Pro en Marketing Digital",
+        description: "Focus sur le SEO, SEA, réseaux sociaux, emailing, et stratégie digitale.",
+        debouche: "Community manager, webmarketeur, chargé de communication digitale.",
+        duration: "3 ans",
+        category: "Marketing",
+        cycle: "Licence"
+      },
+      {
+        id: "prog-4-13",
+        parcours: "Licence Professionnelle",
+        name: "🖧 Licence Pro en Informatique Réseau et Sécurité",
+        description: "Formation à la gestion de réseaux, cybersécurité, systèmes et protocoles sécurisés.",
+        debouche: "Administrateur réseau, technicien sécurité IT, support systèmes.",
+        duration: "3 ans",
+        category: "Sécurité Informatique",
+        cycle: "Licence"
+      },
       {
         id: "prog-4-14",
-         parcours: "Licence Professionnelle",
+        parcours: "Licence Professionnelle",
         name: "🚛 Licence Pro Logistique et Supply Chain",
         description: "Gestion des flux, achats, entrepôts, outils ERP et optimisation logistique",
         debouche: "Coordinateur supply chain, gestionnaire logistique, superviseur entrepôt.",
@@ -769,87 +772,86 @@ export const schools: School[] = [
         category: "Logistique",
         cycle: "Licence"
       },
-       {
-    id: "prog-4-15",
-    parcours: "Licence Professionnelle",
-    name: "🗣️ Licence Pro en Communication",
-    description: "Stratégies de communication, relation presse, médias et rédaction professionnelle.",
-    debouche: "Chargé de com’, attaché de presse, assistant relations publiques.",
-    duration: "3 ans",
-    category: "Communication",
-    cycle: "Licence"
-  },
-  {
-    id: "prog-4-16",
-    parcours: "Master Européen",
-    name: "Management et Stratégie d'Entreprise (ME MSE)",
-    description: "Préparation à la gestion stratégique, à la conduite du changement et au pilotage d’entreprise à haut niveau.",
-    debouche: "directeur de stratégie, consultant en organisation, chef d'entreprise.",
-    duration: "5 ans",
-    category: "Management & Gestion",
-    cycle: "Master"
-  },
-  {
-    id: "prog-4-17",
-    parcours: "Master Européen",
-    name: "Management Digital (ME MD)",
-    description: "Formation centrée sur la transformation numérique, les stratégies digitales et la gouvernance IT dans les entreprises modernes.",
-    debouche: "chief digital officer, responsable digital, consultant e-business.",
-    duration: "5 ans",
-    category: "Digital",
-    cycle: "Master"
-  },
-  {
-    id: "prog-4-18",
-    parcours: "Master Européen",
-    name: "Communication Stratégique et Publicité Numérique (ME CSPN)",
-    description: "Développement de stratégies de communication avancées, publicité digitale et création de campagnes performantes.",
-    debouche: "responsable communication, média planner, directeur artistique.",
-    duration: "5 ans",
-    category: "Communication",
-    cycle: "Master"
-  },
-  {
-    id: "prog-4-19",
-    parcours: "Master Européen",
-    name: "Management de Projet Informatique (ME MPI)",
-    description: "Maîtrise de la gestion de projets IT, développement logiciel, encadrement d’équipes techniques et pilotage agile.",
-    debouche: "chef de projet informatique, consultant digital, product owner.",
-    duration: "5 ans",
-    category: "Management Informatique",
-    cycle: "Master"
-  },
-  {
-    id: "prog-4-20",
-    parcours: "Master Européen",
-    name: "Management et Stratégie Financière (ME MSF)",
-    description: "Formation axée sur la finance stratégique, l’analyse des risques, les décisions d’investissement et l’optimisation budgétaire.",
-    debouche: "directeur financier, auditeur senior, analyste stratégique.",
-    duration: "5 ans",
-    category: "Finance",
-    cycle: "Master"
-  },
-  {
-    id: "prog-4-21",
-    parcours: "Master Européen",
-    name: "Management et Ressources Humaines (ME MRH)",
-    description: "Gestion du capital humain, politique RH, conduite du changement et développement organisationnel.",
-    debouche: "responsable RH, gestionnaire des talents, consultant RH.",
-    duration: "5 ans",
-    category: "Ressources Humaines",
-    cycle: "Master"
-  },
-  {
-    id: "prog-4-22",
-    parcours: "Master Européen",
-    name: "Logistique et Supply Chain (ME LSC)",
-    description: "Optimisation des flux logistiques, gestion de la chaîne d’approvisionnement et pilotage de plateformes internationales.",
-    debouche: "directeur logistique, supply chain manager, consultant logistique.",
-    duration: "5 ans",
-    category: "Logistique",
-    cycle: "Master"
-  }
-]
-
+      {
+        id: "prog-4-15",
+        parcours: "Licence Professionnelle",
+        name: "🗣️ Licence Pro en Communication",
+        description: "Stratégies de communication, relation presse, médias et rédaction professionnelle.",
+        debouche: "Chargé de com’, attaché de presse, assistant relations publiques.",
+        duration: "3 ans",
+        category: "Communication",
+        cycle: "Licence"
+      },
+      {
+        id: "prog-4-16",
+        parcours: "Master Européen",
+        name: "Management et Stratégie d'Entreprise (ME MSE)",
+        description: "Préparation à la gestion stratégique, à la conduite du changement et au pilotage d’entreprise à haut niveau.",
+        debouche: "directeur de stratégie, consultant en organisation, chef d'entreprise.",
+        duration: "5 ans",
+        category: "Management & Gestion",
+        cycle: "Master"
+      },
+      {
+        id: "prog-4-17",
+        parcours: "Master Européen",
+        name: "Management Digital (ME MD)",
+        description: "Formation centrée sur la transformation numérique, les stratégies digitales et la gouvernance IT dans les entreprises modernes.",
+        debouche: "chief digital officer, responsable digital, consultant e-business.",
+        duration: "5 ans",
+        category: "Digital",
+        cycle: "Master"
+      },
+      {
+        id: "prog-4-18",
+        parcours: "Master Européen",
+        name: "Communication Stratégique et Publicité Numérique (ME CSPN)",
+        description: "Développement de stratégies de communication avancées, publicité digitale et création de campagnes performantes.",
+        debouche: "responsable communication, média planner, directeur artistique.",
+        duration: "5 ans",
+        category: "Communication",
+        cycle: "Master"
+      },
+      {
+        id: "prog-4-19",
+        parcours: "Master Européen",
+        name: "Management de Projet Informatique (ME MPI)",
+        description: "Maîtrise de la gestion de projets IT, développement logiciel, encadrement d’équipes techniques et pilotage agile.",
+        debouche: "chef de projet informatique, consultant digital, product owner.",
+        duration: "5 ans",
+        category: "Management Informatique",
+        cycle: "Master"
+      },
+      {
+        id: "prog-4-20",
+        parcours: "Master Européen",
+        name: "Management et Stratégie Financière (ME MSF)",
+        description: "Formation axée sur la finance stratégique, l’analyse des risques, les décisions d’investissement et l’optimisation budgétaire.",
+        debouche: "directeur financier, auditeur senior, analyste stratégique.",
+        duration: "5 ans",
+        category: "Finance",
+        cycle: "Master"
+      },
+      {
+        id: "prog-4-21",
+        parcours: "Master Européen",
+        name: "Management et Ressources Humaines (ME MRH)",
+        description: "Gestion du capital humain, politique RH, conduite du changement et développement organisationnel.",
+        debouche: "responsable RH, gestionnaire des talents, consultant RH.",
+        duration: "5 ans",
+        category: "Ressources Humaines",
+        cycle: "Master"
+      },
+      {
+        id: "prog-4-22",
+        parcours: "Master Européen",
+        name: "Logistique et Supply Chain (ME LSC)",
+        description: "Optimisation des flux logistiques, gestion de la chaîne d’approvisionnement et pilotage de plateformes internationales.",
+        debouche: "directeur logistique, supply chain manager, consultant logistique.",
+        duration: "5 ans",
+        category: "Logistique",
+        cycle: "Master"
+      }
+    ]
   }
 ];
