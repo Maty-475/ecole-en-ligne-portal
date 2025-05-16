@@ -131,7 +131,7 @@ export const schools: School[] = [
             "Extrait de naissance",
             "Copie de la CIN"
           ],
-          fees: "15 000 DH / an",
+          fees: "Veuillez entrer en Contact avec l'Ecole",
           process: "Dossier de candidature et entretien de motivation"
         }
       },
@@ -442,7 +442,7 @@ export const schools: School[] = [
             "Entretien de motivation",
             "4 Photos d'identité"
           ],
-          fees: "38 000 DH / an",
+          fees: "Les frais relatifs à la scolarité sont congignés dans le site officiel de l'ECOLE",
           process: "Étude du dossier, test technique et entretien de motivation"
         }
       },
