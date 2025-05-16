@@ -41,10 +41,10 @@ const Landing: React.FC = () => {
         
         <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-primary">
-              Nos établissements partenaires
-            </h2>
-            
+            <h1 className="text-3xl font-bold text-center mb-12 text-primary">
+              Trouvez une Formation dans l'un des Etablissements réconnus et agréés par l'Etat
+              <p className="text-ms text-center mb-4 text-primary">Les formations sont choisies sur mesure et ce, à des prix abordable</p>
+            </h1>            
             <div className="max-w-4xl mx-auto mb-16">
               <Carousel className="relative" opts={{ loop: true, align: "start" }} autoplay={{ delay: 5000 }}>
                 <CarouselContent>
@@ -70,7 +70,7 @@ const Landing: React.FC = () => {
             <div className="text-center">
               <Link to="/index">
                 <Button className="text-xl py-6 px-8 rounded-lg bg-secondary hover:bg-secondary/90 text-white transition-transform hover:scale-105">
-                  Afficher tous les établissements
+                 <strong><em> Acceder à toutes les formations et Etablissements</em></strong>
                 </Button>
               </Link>
             </div>
@@ -80,24 +80,24 @@ const Landing: React.FC = () => {
         <section className="py-12 md:py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-10 text-primary">
-              Démarches administratives
+             Tous ce qui a savoir sur les Démarches administratives pour voyager en toute sérénité.
             </h2>
             
             <Tabs defaultValue="visa" className="max-w-4xl mx-auto">
               <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="visa">Visa étudiant</TabsTrigger>
-                <TabsTrigger value="logement">Logement</TabsTrigger>
-                <TabsTrigger value="sejour">Carte de séjour</TabsTrigger>
+                <TabsTrigger value="visa">Pays avec visa ou AEVM</TabsTrigger>
+                <TabsTrigger value="logement">Trouver un Logement</TabsTrigger>
+                <TabsTrigger value="sejour">Faire sa Carte de séjour</TabsTrigger>
               </TabsList>
               
               <TabsContent value="visa" className="mt-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Procédure de demande de visa étudiant</CardTitle>
+                    <CardTitle>Les pays dont le visa est obligatoire :</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p>Pour étudier en France, vous devez suivre les étapes suivantes pour obtenir un visa étudiant :</p>
-                    <ol className="list-decimal list-inside space-y-2 ml-4">
+                    <p>Voici la liste des pays qui ont besoin d'un visa pour voyager au Maroc :</p>
+                    {/* <ol className="list-decimal list-inside space-y-2 ml-4">
                       <li>Inscription auprès de l'établissement d'enseignement</li>
                       <li>Création d'un dossier sur le site Campus France</li>
                       <li>Paiement des frais de dossier Campus France</li>
@@ -105,9 +105,22 @@ const Landing: React.FC = () => {
                       <li>Dépôt de la demande de visa auprès du consulat français</li>
                       <li>Entretien au consulat</li>
                       <li>Réception du visa</li>
-                    </ol>
+                    </ol> */}
+                      <p className="mt-4 text-gray-700">
+                      <a href="Documents/Visa/PaysAvecVisa.txt" download="PaysAvecVisa.txt">
+                     <strong> 📄 Télécharger la liste des pays nécessitant un visa</strong>
+                    </a>
+                    </p>
+                    <p>Voici la liste des pays qui ont besoin d'un AEVM pour voyager au Maroc :</p>
+                      <p className="mt-4 text-gray-700">
+                      <a href="Documents/Visa/AEVM.txt" download="AEVM.txt">
+                     <strong> 📄 Télécharger la liste des pays nécessitant un AEVM (Autorisation Electroonique de Voyage au Maroc)</strong>
+                    </a>
+                    </p>
+                    <p>Pour plus d'information contactez nos services pour un accompagnement gratuit au : <em><strong>+212 617-725867</strong></em> ou par mail : <em><strong>divinmister@hotmail.com</strong></em></p>
+                    <p></p>
                     <p className="mt-4 text-gray-600">
-                      Assurez-vous de déposer votre demande de visa au moins 3 mois avant le début prévu de vos études.
+                     <strong> Assurez-vous de déposer votre demande de visa au moins 3 mois avant le début prévu de vos études.</strong>
                     </p>
                   </CardContent>
                 </Card>
@@ -119,17 +132,17 @@ const Landing: React.FC = () => {
                     <CardTitle>Trouver un logement</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
+                    <p><strong><em>Une fois prêt à voyager nous vous aidons à trouver un logement.</em></strong></p>
                     <p>Différentes options de logement s'offrent à vous en tant qu'étudiant :</p>
                     <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li>Résidences universitaires du CROUS</li>
+                      <li>Résider chez un parent</li>
                       <li>Résidences étudiantes privées</li>
                       <li>Colocation</li>
                       <li>Location individuelle</li>
                       <li>Logement chez l'habitant</li>
                     </ul>
                     <p className="mt-4 text-gray-600">
-                      N'oubliez pas de constituer votre dossier de location (garant, attestation de bourse, etc.) et de 
-                      vérifier votre éligibilité aux aides au logement (APL, ALS).
+                      N'oubliez pas de constituer votre dossier de location (garant, attestation de bourse, etc.)
                     </p>
                     <div className="bg-blue-50 p-4 rounded-lg mt-4">
                       <p className="font-medium">Documents généralement requis :</p>
@@ -137,7 +150,6 @@ const Landing: React.FC = () => {
                         <li>Pièce d'identité</li>
                         <li>Justificatif de ressources</li>
                         <li>Attestation de garant</li>
-                        <li>Attestation d'assurance habitation</li>
                       </ul>
                     </div>
                   </CardContent>
@@ -147,27 +159,32 @@ const Landing: React.FC = () => {
               <TabsContent value="sejour" className="mt-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Carte de séjour</CardTitle>
+                    <CardTitle>Procédure de la Carte de séjour</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p>Après votre arrivée en France, vous devez valider votre visa long séjour (VLS-TS) dans les 3 mois :</p>
+                    <p> Une fois arrivé au Maroc, vous avez 3 mois pour réunir tous les documents nécessaires à la demande de votre titre de séjour.</p>
+                      <p className="mt-4 text-gray-600">
+                       <a href="https://www.divin-service-ei.tech/services#h.9woz7s1sgci" target="_blank" rel="noopener noreferrer">
+                        <strong>🌐 Accéder à la liste complète des documents</strong>
+                      </a>
+                    </p>
                     <ol className="list-decimal list-inside space-y-2 ml-4">
-                      <li>Créer un compte sur le site de l'ANEF (Administration Numérique pour les Étrangers en France)</li>
-                      <li>Compléter le formulaire en ligne</li>
-                      <li>Payer la taxe de séjour (environ 60€)</li>
-                      <li>Télécharger les justificatifs demandés</li>
+                      <li>Passeport en cours de validité (avec copies des pages d’identité et de visa ou du cachet d'entrée)</li>
+                      <li>8 Photos d’identité récentes (aux normes )</li>
+                      <li>Justificatif de résidence (contrat de location ou attestation d’hébergement,  facture de paiement d'eau et électricité.)</li>
+                     
                     </ol>
                     <p className="mt-4 text-gray-600">
-                      Pour le renouvellement de votre titre de séjour, la demande doit être effectuée 2 mois avant la date d'expiration.
+                     <strong> Pour le renouvellement de votre titre de séjour, la demande doit être effectuée 15 jours avant la date d'expiration.</strong>
                     </p>
                     <div className="bg-amber-50 p-4 rounded-lg mt-4">
                       <p className="font-medium">Documents nécessaires :</p>
                       <ul className="list-disc list-inside mt-2">
-                        <li>Passeport avec visa</li>
+                        <li>Passeport Valide</li>
                         <li>Justificatif de domicile</li>
                         <li>Photos d'identité</li>
                         <li>Certificat d'inscription dans un établissement d'enseignement</li>
-                        <li>Justificatifs de ressources</li>
+                        <li>Même documents que la première fois</li>
                       </ul>
                     </div>
                   </CardContent>
@@ -188,56 +205,56 @@ const Landing: React.FC = () => {
                 <div className="text-4xl mb-4">💻</div>
                 <h3 className="text-xl font-semibold mb-3">Informatique</h3>
                 <p className="text-gray-600 mb-4">Développement, IA, cybersécurité et réseaux</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🏢</div>
                 <h3 className="text-xl font-semibold mb-3">Commerce</h3>
                 <p className="text-gray-600 mb-4">Management, marketing, finance et vente</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🎨</div>
                 <h3 className="text-xl font-semibold mb-3">Arts</h3>
                 <p className="text-gray-600 mb-4">Design, animation, photographie et création</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🔬</div>
                 <h3 className="text-xl font-semibold mb-3">Sciences</h3>
                 <p className="text-gray-600 mb-4">Biologie, environnement, physique et recherche</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">⚙️</div>
                 <h3 className="text-xl font-semibold mb-3">Ingénierie</h3>
                 <p className="text-gray-600 mb-4">Systèmes embarqués, électronique et mécanique</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🏥</div>
                 <h3 className="text-xl font-semibold mb-3">Santé</h3>
                 <p className="text-gray-600 mb-4">Médecine, paramédical et recherche médicale</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🗣️</div>
                 <h3 className="text-xl font-semibold mb-3">Langues</h3>
                 <p className="text-gray-600 mb-4">Traduction, interprétation et communication</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">⚖️</div>
                 <h3 className="text-xl font-semibold mb-3">Droit</h3>
                 <p className="text-gray-600 mb-4">Juridique, notariat et administration</p>
-                <Link to="/index" className="text-secondary hover:underline">Découvrir</Link>
+                <Link to="/index" className="text-secondary hover:underline">Découvrir toutes les formations</Link>
               </div>
             </div>
           </div>
