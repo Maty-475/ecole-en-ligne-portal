@@ -1,20 +1,37 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { schools, categories } from '../data/schools';
 import SchoolCard from '../components/SchoolCard';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 const Index: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   
-  // Filtrer les écoles en fonction de la catégorie sélectionnée
-  const filteredSchools = selectedCategory 
-    ? schools.filter(school => 
-        school.programs.some(program => program.category === selectedCategory)
-      )
-    : schools;
+  // Filter schools based on category selection and search query
+  const filteredSchools = schools.filter(school => {
+    // Category filter
+    const matchesCategory = selectedCategory 
+      ? school.programs.some(program => program.category === selectedCategory)
+      : true;
+    
+    // Search query filter
+    const matchesSearch = searchQuery.trim() === "" 
+      ? true 
+      : (
+          school.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+          school.programs.some(program => 
+            program.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            program.category.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        );
+    
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -37,6 +54,20 @@ const Index: React.FC = () => {
             <h2 className="text-3xl font-bold text-center mb-8 text-primary">
               Toutes les formations et Etablissements Agréés par l'Etat
             </h2>
+            
+            {/* Search bar */}
+            <div className="max-w-xl mx-auto mb-8">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                <Input
+                  type="text"
+                  placeholder="Rechercher une école, formation ou catégorie..."
+                  className="pl-10 py-6 text-lg shadow-md"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+            </div>
             
             <div className="flex justify-center mb-10">
               <div className="bg-white p-2 rounded-lg shadow-md">
@@ -74,7 +105,7 @@ const Index: React.FC = () => {
             ) : (
               <div className="text-center py-10">
                 <p className="text-xl text-gray-600">
-                  Aucun établissement trouvé pour cette catégorie.
+                  Aucun établissement trouvé pour cette catégorie ou recherche.
                 </p>
               </div>
             )}

@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Carousel, 
   CarouselContent, 
@@ -9,12 +8,19 @@ import {
   CarouselNext 
 } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { schools, categories } from '../data/schools';
 
 const Landing: React.FC = () => {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [autoplay, setAutoplay] = useState(true);
+  
   const images = [
     { url: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7', alt: 'Étudiante travaillant sur un ordinateur portable' },
     { url: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b', alt: 'Ordinateur portable' },
@@ -22,6 +28,26 @@ const Landing: React.FC = () => {
     { url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c', alt: 'Groupe d\'étudiants travaillant ensemble' },
     { url: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81', alt: 'Salle de classe numérique' }
   ];
+  
+  // Handle search submission
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate('/index', { state: { searchQuery } });
+    }
+  };
+
+  useEffect(() => {
+    // Set up autoplay for the carousel
+    const interval = setInterval(() => {
+      if (autoplay) {
+        // The carousel component from shadcn has its own autoplay capability
+        // This is handled in the Carousel component options
+      }
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [autoplay]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -33,9 +59,28 @@ const Landing: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Trouvez votre formation idéale
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 mb-12">
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 mb-8">
               Explorez notre sélection d'établissements d'excellence et trouvez la formation qui vous correspond.
             </p>
+            
+            {/* Global search bar */}
+            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-6">
+              <div className="relative flex">
+                <div className="relative w-full">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
+                    type="text"
+                    placeholder="Rechercher une école, formation, catégorie ou domaine..."
+                    className="pl-10 py-6 pr-24 text-lg rounded-l-lg rounded-r-none shadow-md"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+                <Button type="submit" className="bg-secondary hover:bg-secondary/90 text-white text-lg py-6 px-6 rounded-r-lg rounded-l-none">
+                  Rechercher
+                </Button>
+              </div>
+            </form>
           </div>
         </section>
         
@@ -93,20 +138,11 @@ const Landing: React.FC = () => {
               <TabsContent value="visa" className="mt-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Les pays dont le visa est obligatoire :</CardTitle>
+                    <CardTitle>Les pays dont le visa est obligatoire :</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p>Voici la liste des pays qui ont besoin d'un visa pour voyager au Maroc :</p>
-                    {/* <ol className="list-decimal list-inside space-y-2 ml-4">
-                      <li>Inscription auprès de l'établissement d'enseignement</li>
-                      <li>Création d'un dossier sur le site Campus France</li>
-                      <li>Paiement des frais de dossier Campus France</li>
-                      <li>Réception de l'attestation d'admission</li>
-                      <li>Dépôt de la demande de visa auprès du consulat français</li>
-                      <li>Entretien au consulat</li>
-                      <li>Réception du visa</li>
-                    </ol> */}
-                      <p className="mt-4 text-gray-700">
+                    <p className="mt-4 text-gray-700">
                       <a href="Documents/Visa/PaysAvecVisa.txt" download="PaysAvecVisa.txt">
                      <strong> 📄 Télécharger la liste des pays nécessitant un visa</strong>
                     </a>
@@ -169,9 +205,9 @@ const Landing: React.FC = () => {
                       </a>
                     </p>
                     <ol className="list-decimal list-inside space-y-2 ml-4">
-                      <li>Passeport en cours de validité (avec copies des pages d’identité et de visa ou du cachet d'entrée)</li>
-                      <li>8 Photos d’identité récentes (aux normes )</li>
-                      <li>Justificatif de résidence (contrat de location ou attestation d’hébergement,  facture de paiement d'eau et électricité.)</li>
+                      <li>Passeport en cours de validité (avec copies des pages d'identité et de visa ou du cachet d'entrée)</li>
+                      <li>8 Photos d'identité récentes (aux normes )</li>
+                      <li>Justificatif de résidence (contrat de location ou attestation d'hébergement,  facture de paiement d'eau et électricité.)</li>
                      
                     </ol>
                     <p className="mt-4 text-gray-600">

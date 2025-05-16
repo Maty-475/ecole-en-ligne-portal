@@ -36,10 +36,10 @@ const SchoolDetail: React.FC = () => {
     );
   }
   
-  // Utiliser directement la propriété vidéo de l'école
-  const schoolVideoUrl = school.video;
+  // Use school video URL or fallback to the default one
+  const schoolVideoUrl = school.video || "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3";
   
-  // Sélectionner les écoles similaires (hors l'école courante)
+  // Select related schools (excluding the current school)
   const relatedSchools = schools
     .filter(s => s.id !== school.id)
     .slice(0, 3);
@@ -65,12 +65,10 @@ const SchoolDetail: React.FC = () => {
               <SchoolPrograms programs={school.programs} />
               
               {/* Section: Présentation vidéo YouTube */}
-              {schoolVideoUrl && (
-                <SchoolVideo 
-                  videoUrl={schoolVideoUrl} 
-                  schoolName={school.name} 
-                />
-              )}
+              <SchoolVideo 
+                videoUrl={schoolVideoUrl} 
+                schoolName={school.name} 
+              />
               
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
