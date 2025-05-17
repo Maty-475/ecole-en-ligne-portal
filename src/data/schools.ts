@@ -103,7 +103,7 @@ export const schools: School[] = [
     id: "Groupe-Miage",
     name: "Groupe Miage Etablissement Privé",
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
-    logo: "/logos/miage.png", 
+    logo: "Images/images.jpeg", 
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -219,7 +219,7 @@ export const schools: School[] = [
     id: "Best-Institut",
     name: "Best Institut Formation Professionnelle Privée",
     description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
-    logo: "/logos/best.png", 
+    logo: "Images/Best.png", 
     address: "45 Boulevard du Commerce, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -335,7 +335,7 @@ export const schools: School[] = [
     id: "CESA",
     name: "CESA Établissement Supérieur de Commerce",
     description: "Un établissement de premier plan spécialisé dans les formations commerciales, marketing et management, offrant des programmes adaptés aux exigences du marché.",
-    logo: "/logos/cesa.png", 
+    logo: "Images/Cesa.jpg", 
     address: "25 Avenue Hassan II, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -437,7 +437,7 @@ export const schools: School[] = [
     id: "EDD",
     name: "EDD École de Design",
     description: "Une école innovante spécialisée dans les arts graphiques, le design et les disciplines créatives, formant les talents de demain.",
-    logo: "/logos/edd.png", 
+    logo: "Images/EDD.jpg", 
     address: "12 Rue des Arts, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -539,7 +539,7 @@ export const schools: School[] = [
     id: "IBEGIS",
     name: "IBEGIS Institut des Hautes Études de Gestion",
     description: "Un institut dédié à l'excellence académique en gestion, économie et administration des entreprises, formant les futurs cadres dirigeants.",
-    logo: "/logos/ibegis.png", 
+    logo: "Images/ibegis.png", 
     address: "8 Boulevard Mohammed V, 20250 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
