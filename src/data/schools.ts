@@ -170,7 +170,7 @@ export const schools: School[] = [
     id: "Best-Institut",
     name: "Best Institut Formmation Professionnelle Privée",
     description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
-    logo: "Images/BestIn/Best.png", // Mise à jour du chemin
+    logo: "Best.png", // Mise à jour du chemin
     address: "45 Boulevard du Commerce, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -318,7 +318,7 @@ export const schools: School[] = [
     id: "EDD",
     name: "EDD École de Design",
     description: "Une école innovante spécialisée dans les arts graphiques, le design et les disciplines créatives, formant les talents de demain.",
-    logo: "/Images/Edd/EDD.jpg", // Mise à jour du chemin
+    logo: "../EDD.jpg", // Mise à jour du chemin
     address: "12 Rue des Arts, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -392,7 +392,7 @@ export const schools: School[] = [
     id: "IBEGIS",
     name: "IBEGIS Institut des Hautes Études de Gestion",
     description: "Un institut dédié à l'excellence académique en gestion, économie et administration des entreprises, formant les futurs cadres dirigeants.",
-    logo: "/Images/Ibegis/ibegis.png", // Mise à jour du chemin
+    logo: "ibegis.png", // Mise à jour du chemin
     address: "8 Boulevard Mohammed V, 20250 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
