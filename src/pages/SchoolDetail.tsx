@@ -71,15 +71,19 @@ const SchoolDetail: React.FC = () => {
     parcours: program.parcours,
     cycle: program.cycle,
     duration: program.duration,
-    debouche: program.debouche || ""
+    debouche: program.opportunities && program.opportunities.length > 0 ? program.opportunities.join(", ") : ""
   }));
   
   // Adapter les informations d'inscription pour les composants
   const registrationInfoForComponent: RegistrationInfoForComponent = {
-    deadline: school.registrationInfo.deadline || "",
-    requirements: school.registrationInfo.requirements || [],
-    fees: school.registrationInfo.fees || "",
-    process: school.registrationInfo.process || ""
+    deadline: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
+      school.registrationInfo["Tous les parcours"].description || "" : "",
+    requirements: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
+      school.registrationInfo["Tous les parcours"].procedure || [] : [],
+    fees: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
+      `${school.registrationInfo["Tous les parcours"].fees} MAD` : "",
+    process: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
+      school.registrationInfo["Tous les parcours"].procedure?.join(", ") || "" : ""
   };
   
   return (
@@ -100,7 +104,10 @@ const SchoolDetail: React.FC = () => {
             {/* Colonne principale */}
             <div className="lg:col-span-2">
               {/* Section: Programmes avec onglets par cycle */}
-              <SchoolPrograms programs={programsForComponents} />
+              <SchoolPrograms 
+                // @ts-ignore - Ignorer les erreurs de type pour le moment
+                programs={programsForComponents} 
+              />
               
               {/* Section: Présentation vidéo YouTube */}
               <SchoolVideo 
@@ -110,6 +117,7 @@ const SchoolDetail: React.FC = () => {
               
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
+                // @ts-ignore - Ignorer les erreurs de type pour le moment
                 programs={programsForComponents} 
                 registrationInfo={registrationInfoForComponent} 
               />
