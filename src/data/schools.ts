@@ -96,7 +96,7 @@ export const schools: School[] = [
     id: "Groupe-Miage",
     name: "Groupe Miage Etablissement Privé",
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
-    logo: "/Images/Miage/images.jpeg", // Mise à jour du chemin
+    logo: "Images/Miage/images.jpeg", // Mise à jour du chemin
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -170,7 +170,7 @@ export const schools: School[] = [
     id: "Best-Institut",
     name: "Best Institut Formmation Professionnelle Privée",
     description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
-    logo: "/Images/BestIn/Best.png", // Mise à jour du chemin
+    logo: "Images/BestIn/Best.png", // Mise à jour du chemin
     address: "45 Boulevard du Commerce, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
