@@ -10,6 +10,25 @@ import SchoolVideo from '../components/SchoolVideo';
 import SchoolRegistration from '../components/SchoolRegistration';
 import SchoolSidebar from '../components/SchoolSidebar';
 
+// Interface locale pour les composants qui attendent une structure différente
+interface ProgramForComponent {
+  id?: string;
+  name: string;
+  description: string;
+  category: string;
+  parcours: string;
+  cycle: string;
+  duration: string;
+  debouche?: string;
+}
+
+interface RegistrationInfoForComponent {
+  deadline: string;
+  requirements: string[];
+  fees: string;
+  process: string;
+}
+
 const SchoolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const school = schools.find(school => school.id === id);
@@ -44,6 +63,25 @@ const SchoolDetail: React.FC = () => {
     .filter(s => s.id !== school.id)
     .slice(0, 3);
   
+  // Adapter les programmes pour les composants
+  const programsForComponents: ProgramForComponent[] = school.programs.map(program => ({
+    name: program.name,
+    description: program.description,
+    category: program.category,
+    parcours: program.parcours,
+    cycle: program.cycle,
+    duration: program.duration,
+    debouche: program.debouche || ""
+  }));
+  
+  // Adapter les informations d'inscription pour les composants
+  const registrationInfoForComponent: RegistrationInfoForComponent = {
+    deadline: school.registrationInfo.deadline || "",
+    requirements: school.registrationInfo.requirements || [],
+    fees: school.registrationInfo.fees || "",
+    process: school.registrationInfo.process || ""
+  };
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -62,7 +100,7 @@ const SchoolDetail: React.FC = () => {
             {/* Colonne principale */}
             <div className="lg:col-span-2">
               {/* Section: Programmes avec onglets par cycle */}
-              <SchoolPrograms programs={school.programs} />
+              <SchoolPrograms programs={programsForComponents} />
               
               {/* Section: Présentation vidéo YouTube */}
               <SchoolVideo 
@@ -72,8 +110,8 @@ const SchoolDetail: React.FC = () => {
               
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
-                programs={school.programs} 
-                registrationInfo={school.registrationInfo} 
+                programs={programsForComponents} 
+                registrationInfo={registrationInfoForComponent} 
               />
             </div>
             

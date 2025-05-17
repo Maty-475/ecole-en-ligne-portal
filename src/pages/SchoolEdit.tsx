@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { schools, School, Program, categories, cycles } from '../data/schools';
+import { schools, School } from '../data/schools';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Input } from "@/components/ui/input";
@@ -9,19 +10,134 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
+// Interface locale pour les programmes dans l'éditeur
+interface ProgramForEditor {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  parcours: string;
+  cycle: string;
+  duration: string;
+  debouche: string;
+}
+
+// Interface locale pour les informations d'inscription dans l'éditeur
+interface RegistrationInfoForEditor {
+  deadline: string;
+  requirements: string[];
+  fees: string;
+  process: string;
+}
+
+// Interface locale pour l'école dans l'éditeur
+interface SchoolForEditor {
+  id: string;
+  name: string;
+  description: string;
+  logo: string;
+  address: string;
+  video?: string;
+  contact: {
+    phone: string;
+    email: string;
+    website?: string;
+  };
+  registrationInfo: RegistrationInfoForEditor;
+  programs: ProgramForEditor[];
+}
+
+// Définir les catégories et cycles disponibles
+const categories = [
+  "Informatique",
+  "Informatique & Digital",
+  "Cyber Sécurité",
+  "Sécurité Informatique",
+  "Management Informatique",
+  "Réseaux et Télécommunications",
+  "Gestion Informatisée",
+  "Multimédia",
+  "Infographie",
+  "Arts",
+  "Finances",
+  "Economie",
+  "Comptabilité",
+  "Gestion Comptable",  
+  "Commerce",  
+  "Sciences",
+  "Ingénierie",
+  "Santé",  
+  "Management & Gestion",
+  "Ressources Humaines",
+  "Transport et Logistique",
+  "Logistique",
+  "Langues",
+  "Communication",
+  "Marketing",
+  "Douane",
+  "Droit",
+  "Environnement et Energie",
+  "Marketing Digital",
+  "Gestion d'Entreprise",
+  "Gestion Financière",
+  "Gestion des Ressources Humaines",
+  "Banque et Assurance"
+];
+
+const cycles = [
+  "Cycle Initial",
+  "Technicien",
+  "Formation",
+  "Licence",
+  "Bachelor",
+  "Master",
+  "Ingénierie",
+  "Doctorat"
+];
+
 const SchoolEdit: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [editableSchool, setEditableSchool] = useState<School | null>(null);
+  const [editableSchool, setEditableSchool] = useState<SchoolForEditor | null>(null);
   const [selectedTab, setSelectedTab] = useState("general");
-  const [availablePrograms, setAvailablePrograms] = useState<Program[]>([]);
+  const [availablePrograms, setAvailablePrograms] = useState<ProgramForEditor[]>([]);
   
   useEffect(() => {
     const schoolToEdit = schools.find(s => s.id === id);
     if (schoolToEdit) {
-      // Créer une copie profonde de l'école pour l'édition
-      setEditableSchool(JSON.parse(JSON.stringify(schoolToEdit)));
-      setAvailablePrograms(JSON.parse(JSON.stringify(schoolToEdit.programs)));
+      // Convertir l'école du format de données au format d'édition
+      const schoolForEditor: SchoolForEditor = {
+        id: schoolToEdit.id,
+        name: schoolToEdit.name,
+        description: schoolToEdit.description,
+        logo: schoolToEdit.logo,
+        address: schoolToEdit.address,
+        video: schoolToEdit.video,
+        contact: {
+          phone: schoolToEdit.contact.phone,
+          email: schoolToEdit.contact.email,
+          website: schoolToEdit.contact.website
+        },
+        registrationInfo: {
+          deadline: schoolToEdit.registrationInfo.deadline || "",
+          requirements: schoolToEdit.registrationInfo.requirements || [],
+          fees: schoolToEdit.registrationInfo.fees || "",
+          process: schoolToEdit.registrationInfo.process || ""
+        },
+        programs: schoolToEdit.programs.map(p => ({
+          id: p.id || `prog-${Math.random().toString(36).substring(2, 9)}`,
+          name: p.name,
+          description: p.description,
+          category: p.category,
+          parcours: p.parcours,
+          cycle: p.cycle,
+          duration: p.duration,
+          debouche: p.debouche || ""
+        }))
+      };
+      
+      setEditableSchool(schoolForEditor);
+      setAvailablePrograms(schoolForEditor.programs);
     }
   }, [id]);
   
@@ -57,7 +173,7 @@ const SchoolEdit: React.FC = () => {
         return {
           ...prev,
           [parent]: {
-            ...(prev[parent as keyof School] as Record<string, any>),
+            ...(prev[parent as keyof typeof prev] as Record<string, any>),
             [child]: value
           }
         };
@@ -79,7 +195,7 @@ const SchoolEdit: React.FC = () => {
         return {
           ...prev,
           [parent]: {
-            ...(prev[parent as keyof School] as Record<string, any>),
+            ...(prev[parent as keyof typeof prev] as Record<string, any>),
             [child]: value
           }
         };
@@ -130,7 +246,7 @@ const SchoolEdit: React.FC = () => {
     });
   };
   
-  const handleProgramChange = (programId: string, field: keyof Program, value: string) => {
+  const handleProgramChange = (programId: string, field: keyof ProgramForEditor, value: string) => {
     setAvailablePrograms(prev => 
       prev.map(program => 
         program.id === programId ? { ...program, [field]: value } : program
@@ -140,7 +256,7 @@ const SchoolEdit: React.FC = () => {
   
   const addProgram = () => {
     const newId = `prog-${editableSchool?.id}-${availablePrograms.length + 1}`;
-    const newProgram: Program = {
+    const newProgram: ProgramForEditor = {
       id: newId,
       name: "Nouveau programme",
       description: "Description du programme",
@@ -442,7 +558,7 @@ const SchoolEdit: React.FC = () => {
                     <div className="space-y-2">
                       <Label>Débouchés</Label>
                       <textarea
-                        value={program.debouche || ""}
+                        value={program.debouche}
                         onChange={(e) => handleProgramChange(program.id, 'debouche', e.target.value)}
                         rows={2}
                         className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
