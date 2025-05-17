@@ -143,13 +143,13 @@ const Landing: React.FC = () => {
                   <CardContent className="space-y-4">
                     <p>Voici la liste des pays qui ont besoin d'un visa pour voyager au Maroc :</p>
                     <p className="mt-4 text-gray-700">
-                      <a href="Documents/Visa/PaysAvecVisa.txt" download="PaysAvecVisa.txt">
+                      <a href="/Documents/Visa/PaysAvecVisa.txt" download="PaysAvecVisa.txt">
                      <strong> 📄 Télécharger la liste des pays nécessitant un visa</strong>
                     </a>
                     </p>
                     <p>Voici la liste des pays qui ont besoin d'un AEVM pour voyager au Maroc :</p>
                       <p className="mt-4 text-gray-700">
-                      <a href="Documents/Visa/AEVM.txt" download="AEVM.txt">
+                      <a href="/Documents/Visa/AEVM.txt" download="AEVM.txt">
                      <strong> 📄 Télécharger la liste des pays nécessitant un AEVM (Autorisation Electroonique de Voyage au Maroc)</strong>
                     </a>
                     </p>

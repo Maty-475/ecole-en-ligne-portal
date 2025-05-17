@@ -1,54 +1,55 @@
 
 import React from 'react';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface SchoolVideoProps {
-  videoUrl?: string;
+  videoUrl: string;
   schoolName: string;
 }
 
 const SchoolVideo: React.FC<SchoolVideoProps> = ({ videoUrl, schoolName }) => {
-  // Default video URL if none is provided
-  const defaultVideoUrl = "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3";
-  
-  // Function to convert YouTube watch URLs to embed URLs
-  const getEmbedUrl = (url: string) => {
-    // If it's already an embed URL, return it
+  // Fonction pour convertir une URL YouTube standard en URL d'intégration
+  const getEmbedUrl = (url: string): string => {
+    // Si l'URL est déjà au format embed, la retourner telle quelle
     if (url.includes('youtube.com/embed/')) {
       return url;
     }
     
-    // Extract video ID from various YouTube URL formats
+    // Essayer de trouver l'ID de la vidéo dans différents formats d'URL YouTube
     let videoId = '';
-    if (url.includes('youtube.com/watch')) {
-      const urlParams = new URL(url).searchParams;
-      videoId = urlParams.get('v') || '';
-    } else if (url.includes('youtu.be/')) {
-      videoId = url.split('youtu.be/')[1].split('?')[0];
+    
+    // Format www.youtube.com/watch?v=VIDEO_ID
+    const watchRegex = /youtube\.com\/watch\?v=([^&]+)/;
+    const watchMatch = url.match(watchRegex);
+    
+    // Format youtu.be/VIDEO_ID
+    const shortRegex = /youtu\.be\/([^?&]+)/;
+    const shortMatch = url.match(shortRegex);
+    
+    if (watchMatch && watchMatch[1]) {
+      videoId = watchMatch[1];
+    } else if (shortMatch && shortMatch[1]) {
+      videoId = shortMatch[1];
+    } else {
+      // Si l'URL ne correspond à aucun format connu, renvoyer une URL embed par défaut
+      return "https://www.youtube.com/embed/c8jZRuMTiDQ";
     }
     
-    // Return proper embed URL
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : `https://www.youtube.com/embed/c8jZRuMTiDQ`;
+    return `https://www.youtube.com/embed/${videoId}`;
   };
   
-  const videoSrc = getEmbedUrl(videoUrl || defaultVideoUrl);
-  
+  const embedUrl = getEmbedUrl(videoUrl);
+
   return (
-    <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-      <h2 className="text-2xl font-bold text-primary mb-6 pb-3 border-b">
-        Présentation vidéo
-      </h2>
-      <div className="w-full">
-        <AspectRatio ratio={16 / 9}>
-          <iframe 
-            src={videoSrc} 
-            title={`Présentation de ${schoolName}`}
-            className="w-full h-full rounded-md"
-            allowFullScreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
-        </AspectRatio>
-        <p className="text-sm text-gray-500 mt-2">Cette vidéo présente l'établissement et ses différentes formations.</p>
+    <section className="mb-10">
+      <h3 className="text-2xl font-bold text-primary mb-4">Présentation vidéo</h3>
+      <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+        <iframe
+          src={embedUrl}
+          title={`Présentation de ${schoolName}`}
+          className="w-full h-96"
+          allowFullScreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
       </div>
     </section>
   );
