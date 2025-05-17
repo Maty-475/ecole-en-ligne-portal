@@ -67,7 +67,13 @@ export const categories = [
   "Communication",
   "Marketing",
   "Douane",
-  "Droit"
+  "Droit",
+  "Environnement et Energie",
+  "Marketing Digital",
+  "Gestion d'Entreprise",
+  "Gestion Financière",
+  "Gestion des Ressources Humaines",
+  "Banque et Assurance"
 ];
 
 export const niveau = [
@@ -88,7 +94,8 @@ export const cycles = [
   "Bachelor",
   "Master",
   "Ingénierie",
-  "Doctorat"
+  "Doctorat",
+  "Formation Continue"
 ];
 
 export const schools: School[] = [
@@ -96,7 +103,7 @@ export const schools: School[] = [
     id: "Groupe-Miage",
     name: "Groupe Miage Etablissement Privé",
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
-    logo: "Images/images.jpeg", // Mise à jour du chemin
+    logo: "/logos/miage.png", 
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -137,6 +144,20 @@ export const schools: School[] = [
         opportunities: ["Développeur web", "Développeur mobile", "Intégrateur web", "Chef de projet web", "Consultant en développement web et mobile"]
       },
       {
+        name: "Réseaux et Systèmes Informatiques",
+        description: "Formation approfondie aux technologies des réseaux et systèmes informatiques pour administrer et sécuriser les infrastructures IT.",
+        category: "Réseaux et Télécommunications",
+        parcours: "Réseaux et Systèmes",
+        niveau: "Technicien Spécialisé",
+        cycle: "Technicien",
+        duration: "2 ans",
+        diploma: "Diplôme de Technicien Spécialisé en Réseaux et Systèmes Informatiques",
+        admissionRequirements: ["Baccalauréat scientifique ou technique", "Test d'admission", "Entretien de motivation"],
+        objectives: ["Configurer des équipements réseau", "Administrer des serveurs et systèmes", "Sécuriser les infrastructures IT", "Optimiser les performances réseau"],
+        skillsDeveloped: ["Administration réseau", "Gestion de systèmes Windows et Linux", "Virtualisation", "Protocoles réseau", "Sécurité informatique"],
+        opportunities: ["Administrateur réseau", "Technicien systèmes", "Responsable infrastructure IT", "Consultant en infrastructure"]
+      },
+      {
         name: "Gestion de Projet Informatique",
         description: "Formation pour acquérir les compétences nécessaires pour gérer efficacement des projets informatiques, de la planification à la réalisation.",
         category: "Management Informatique",
@@ -151,6 +172,20 @@ export const schools: School[] = [
         opportunities: ["Chef de projet informatique", "Assistant chef de projet", "Consultant en gestion de projet", "Responsable de la qualité", "Scrum Master"]
       },
       {
+        name: "Management des Systèmes d'Information",
+        description: "Formation avancée pour gérer stratégiquement les systèmes d'information et aligner les technologies avec les objectifs d'affaires.",
+        category: "Management Informatique",
+        parcours: "Management SI",
+        niveau: "Master",
+        cycle: "Master",
+        duration: "2 ans",
+        diploma: "Master en Management des Systèmes d'Information",
+        admissionRequirements: ["Licence en informatique ou gestion", "Dossier de candidature", "Test d'admission", "Entretien de motivation"],
+        objectives: ["Aligner les SI avec la stratégie d'entreprise", "Gérer la gouvernance IT", "Piloter les projets de transformation numérique", "Optimiser les investissements IT"],
+        skillsDeveloped: ["Gouvernance IT", "Planification stratégique", "Gestion de la transformation numérique", "Business Intelligence", "Management des équipes IT"],
+        opportunities: ["Directeur des systèmes d'information", "Responsable SI", "Consultant en transformation numérique", "Architecte d'entreprise"]
+      },
+      {
         name: "Sécurité des Systèmes d'Information",
         description: "Formation spécialisée dans la protection des systèmes d'information contre les menaces et les attaques, avec une approche pratique et théorique.",
         category: "Sécurité Informatique",
@@ -163,14 +198,28 @@ export const schools: School[] = [
         objectives: ["Identifier les risques et les vulnérabilités des systèmes d'information", "Mettre en place des mesures de sécurité (pare-feu, antivirus, chiffrement)", "Réagir aux incidents de sécurité", "Effectuer des audits de sécurité", "Connaître les normes et les réglementations en matière de sécurité"],
         skillsDeveloped: ["Analyse de risques", "Sécurité des réseaux", "Sécurité des applications", "Cryptographie", "Gestion des incidents de sécurité"],
         opportunities: ["Responsable de la sécurité des systèmes d'information (RSSI)", "Auditeur de sécurité", "Consultant en sécurité", "Analyste de la sécurité", "Ingénieur en sécurité"]
+      },
+      {
+        name: "Certification Cybersécurité",
+        description: "Programme de certification spécialisée en cybersécurité pour les professionnels IT déjà en poste.",
+        category: "Cyber Sécurité",
+        parcours: "Certification Professionnelle",
+        niveau: "Certification",
+        cycle: "Formation Continue",
+        duration: "6 mois",
+        diploma: "Certification Professionnelle en Cybersécurité",
+        admissionRequirements: ["Diplôme en informatique ou expérience professionnelle", "Entretien technique"],
+        objectives: ["Maîtriser les techniques avancées de sécurité", "Détecter et contrer les cyberattaques", "Mettre en place des politiques de sécurité"],
+        skillsDeveloped: ["Ethical hacking", "Analyse forensique", "Gestion de crise", "Tests d'intrusion"],
+        opportunities: ["Expert en cybersécurité", "Pentester", "Analyste SOC", "Consultant en sécurité"]
       }
     ]
   },
   {
     id: "Best-Institut",
-    name: "Best Institut Formmation Professionnelle Privée",
+    name: "Best Institut Formation Professionnelle Privée",
     description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
-    logo: "Images/Best.png", // Mise à jour du chemin
+    logo: "/logos/best.png", 
     address: "45 Boulevard du Commerce, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -211,6 +260,20 @@ export const schools: School[] = [
         opportunities: ["Agent commercial international", "Responsable import-export", "Assistant commercial international", "Consultant en commerce international"]
       },
       {
+        name: "Technicien en Comptabilité",
+        description: "Formation technique aux principes fondamentaux de la comptabilité et aux logiciels de gestion comptable.",
+        category: "Comptabilité",
+        parcours: "Comptabilité",
+        niveau: "Technicien",
+        cycle: "Technicien",
+        duration: "2 ans",
+        diploma: "Diplôme de Technicien en Comptabilité",
+        admissionRequirements: ["Niveau Baccalauréat", "Test d'admission"],
+        objectives: ["Maîtriser les principes comptables", "Utiliser les logiciels de comptabilité", "Préparer les états financiers de base"],
+        skillsDeveloped: ["Comptabilité générale", "Fiscalité de base", "Logiciels comptables", "Gestion administrative"],
+        opportunities: ["Assistant comptable", "Aide-comptable", "Gestionnaire administratif"]
+      },
+      {
         name: "Comptabilité et Finance d'Entreprise",
         description: "Formation pour acquérir les compétences nécessaires pour gérer la comptabilité et les finances d'une entreprise, de la tenue des comptes à l'analyse financière.",
         category: "Comptabilité",
@@ -225,6 +288,20 @@ export const schools: School[] = [
         opportunities: ["Comptable", "Assistant comptable", "Contrôleur de gestion", "Analyste financier", "Auditeur financier"]
       },
       {
+        name: "Master Finance et Audit",
+        description: "Formation avancée en finance d'entreprise et audit financier pour les futurs experts-comptables et auditeurs.",
+        category: "Finances",
+        parcours: "Finance et Audit",
+        niveau: "Master",
+        cycle: "Master",
+        duration: "2 ans",
+        diploma: "Master en Finance et Audit",
+        admissionRequirements: ["Licence en comptabilité ou finance", "Dossier académique", "Entretien"],
+        objectives: ["Maîtriser les normes d'audit internationales", "Élaborer des stratégies financières", "Évaluer les risques financiers"],
+        skillsDeveloped: ["Audit financier", "Consolidation", "Normes IFRS", "Contrôle interne", "Finance d'entreprise avancée"],
+        opportunities: ["Auditeur financier", "Contrôleur financier", "Expert-comptable stagiaire", "Consultant financier"]
+      },
+      {
         name: "Infographie et Multimédia",
         description: "Formation pour maîtriser les outils de création graphique et multimédia, de la conception visuelle à la réalisation de projets interactifs.",
         category: "Multimédia",
@@ -237,6 +314,20 @@ export const schools: School[] = [
         objectives: ["Concevoir des supports visuels (logos, affiches, brochures)", "Réaliser des animations 2D et 3D", "Créer des sites web interactifs", "Monter des vidéos", "Utiliser les logiciels de création graphique (Photoshop, Illustrator, InDesign)"],
         skillsDeveloped: ["Conception graphique", "Web design", "Animation", "Montage vidéo", "Utilisation des logiciels de création graphique"],
         opportunities: ["Infographiste", "Web designer", "Animateur", "Monteur vidéo", "Directeur artistique"]
+      },
+      {
+        name: "Transformation Digitale des Entreprises",
+        description: "Formation continue pour cadres souhaitant piloter la transformation numérique de leur organisation.",
+        category: "Management Informatique",
+        parcours: "Transformation Digitale",
+        niveau: "Formation Professionnelle",
+        cycle: "Formation Continue",
+        duration: "1 an (temps partiel)",
+        diploma: "Certificat de Formation en Transformation Digitale",
+        admissionRequirements: ["Expérience professionnelle", "Poste de management", "Entretien"],
+        objectives: ["Comprendre les enjeux de la digitalisation", "Élaborer une stratégie de transformation", "Gérer le changement organisationnel"],
+        skillsDeveloped: ["Stratégie digitale", "Change management", "Innovation digitale", "Leadership transformationnel"],
+        opportunities: ["Chief Digital Officer", "Responsable transformation digitale", "Consultant en transformation"]
       }
     ]
   },
@@ -244,7 +335,7 @@ export const schools: School[] = [
     id: "CESA",
     name: "CESA Établissement Supérieur de Commerce",
     description: "Un établissement de premier plan spécialisé dans les formations commerciales, marketing et management, offrant des programmes adaptés aux exigences du marché.",
-    logo: "Images/Cesa.jpg", // Mise à jour du chemin
+    logo: "/logos/cesa.png", 
     address: "25 Avenue Hassan II, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -270,6 +361,20 @@ export const schools: School[] = [
       }
     },
     programs: [
+      {
+        name: "Techniques Commerciales",
+        description: "Formation pratique aux techniques de vente et négociation commerciale pour futurs commerciaux et responsables des ventes.",
+        category: "Commerce",
+        parcours: "Commercial",
+        niveau: "Technicien",
+        cycle: "Technicien",
+        duration: "2 ans",
+        diploma: "Diplôme de Technicien en Techniques Commerciales",
+        admissionRequirements: ["Niveau Baccalauréat", "Entretien de motivation"],
+        objectives: ["Maîtriser les techniques de vente", "Gérer un portefeuille clients", "Négocier efficacement"],
+        skillsDeveloped: ["Prospection commerciale", "Techniques de vente", "CRM", "Communication commerciale"],
+        opportunities: ["Commercial", "Représentant", "Assistant commercial", "Conseiller de vente"]
+      },
       {
         name: "Marketing et Communication",
         description: "Formation pour maîtriser les techniques du marketing et de la communication, de la stratégie à la mise en œuvre des campagnes.",
@@ -311,6 +416,20 @@ export const schools: School[] = [
         objectives: ["Analyser les états financiers", "Élaborer des budgets", "Contrôler les coûts", "Gérer la trésorerie", "Évaluer les investissements"],
         skillsDeveloped: ["Analyse financière", "Contrôle de gestion", "Gestion budgétaire", "Gestion de la trésorerie", "Évaluation des investissements"],
         opportunities: ["Contrôleur de gestion", "Analyste financier", "Auditeur interne", "Directeur financier", "Consultant en finance"]
+      },
+      {
+        name: "Mini MBA en Management",
+        description: "Formation intensive pour cadres et dirigeants souhaitant renforcer leurs compétences en management général.",
+        category: "Management & Gestion",
+        parcours: "Executive Education",
+        niveau: "Formation Professionnelle",
+        cycle: "Formation Continue",
+        duration: "6 mois",
+        diploma: "Certificat Mini MBA",
+        admissionRequirements: ["5 ans d'expérience professionnelle", "Position managériale", "Entretien"],
+        objectives: ["Renforcer les compétences de leadership", "Développer une vision stratégique", "Maîtriser les fondamentaux du management"],
+        skillsDeveloped: ["Leadership", "Stratégie", "Finance pour managers", "Management d'équipe"],
+        opportunities: ["Évolution vers des postes de direction", "Transition professionnelle", "Entrepreneuriat"]
       }
     ]
   },
@@ -318,7 +437,7 @@ export const schools: School[] = [
     id: "EDD",
     name: "EDD École de Design",
     description: "Une école innovante spécialisée dans les arts graphiques, le design et les disciplines créatives, formant les talents de demain.",
-    logo: "Images/EDD.jpg", // Mise à jour du chemin
+    logo: "/logos/edd.png", 
     address: "12 Rue des Arts, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -359,6 +478,20 @@ export const schools: School[] = [
         opportunities: ["Designer graphique", "Directeur artistique", "Concepteur de logos", "Illustrateur", "Responsable de communication visuelle"]
       },
       {
+        name: "Design Produit",
+        description: "Formation technique aux principes fondamentaux de conception de produits et prototypage pour futurs designers.",
+        category: "Arts",
+        parcours: "Design Produit",
+        niveau: "Technicien Spécialisé",
+        cycle: "Technicien",
+        duration: "2 ans",
+        diploma: "Diplôme de Technicien Spécialisé en Design Produit",
+        admissionRequirements: ["Niveau Baccalauréat", "Portfolio", "Test créatif"],
+        objectives: ["Concevoir des objets fonctionnels", "Réaliser des prototypes", "Comprendre les contraintes matérielles"],
+        skillsDeveloped: ["Dessin technique", "Modélisation 3D", "Prototypage", "Connaissance des matériaux"],
+        opportunities: ["Designer produit junior", "Prototypiste", "Assistant designer", "Maquettiste"]
+      },
+      {
         name: "Architecture d'Intérieur",
         description: "Formation pour concevoir et aménager des espaces intérieurs, de la planification à la réalisation des projets.",
         category: "Arts",
@@ -385,6 +518,20 @@ export const schools: School[] = [
         objectives: ["Concevoir des interfaces utilisateur (UI)", "Créer des expériences utilisateur (UX)", "Maîtriser les outils de prototypage", "Comprendre les principes de l'ergonomie", "Développer un sens esthétique"],
         skillsDeveloped: ["Design d'interface utilisateur", "Expérience utilisateur", "Prototypage", "Ergonomie", "Logiciels de création digitale"],
         opportunities: ["Designer UI", "Designer UX", "Chef de projet digital", "Consultant en design digital", "Directeur artistique digital"]
+      },
+      {
+        name: "Design Thinking et Innovation",
+        description: "Formation spécialisée pour professionnels souhaitant intégrer la méthodologie design thinking dans leurs projets.",
+        category: "Arts",
+        parcours: "Innovation par le Design",
+        niveau: "Formation Professionnelle",
+        cycle: "Formation Continue",
+        duration: "4 mois",
+        diploma: "Certificat en Design Thinking et Innovation",
+        admissionRequirements: ["Expérience professionnelle", "Lettre de motivation"],
+        objectives: ["Maîtriser la méthodologie design thinking", "Faciliter les ateliers d'idéation", "Mener des recherches utilisateurs"],
+        skillsDeveloped: ["Design thinking", "Co-création", "Prototypage rapide", "Test utilisateur", "Gestion de l'innovation"],
+        opportunities: ["Facilitateur design thinking", "Innovation manager", "Chef de projet innovation", "Consultant en design thinking"]
       }
     ]
   },
@@ -392,7 +539,7 @@ export const schools: School[] = [
     id: "IBEGIS",
     name: "IBEGIS Institut des Hautes Études de Gestion",
     description: "Un institut dédié à l'excellence académique en gestion, économie et administration des entreprises, formant les futurs cadres dirigeants.",
-    logo: "Images/ibegis.png", // Mise à jour du chemin
+    logo: "/logos/ibegis.png", 
     address: "8 Boulevard Mohammed V, 20250 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
@@ -419,6 +566,20 @@ export const schools: School[] = [
     },
     programs: [
       {
+        name: "Assistanat de Direction",
+        description: "Formation pratique aux compétences essentielles d'un assistant de direction performant et polyvalent.",
+        category: "Gestion d'Entreprise",
+        parcours: "Assistanat",
+        niveau: "Technicien Spécialisé",
+        cycle: "Technicien",
+        duration: "2 ans",
+        diploma: "Diplôme de Technicien Spécialisé en Assistanat de Direction",
+        admissionRequirements: ["Niveau Baccalauréat", "Test de langue", "Entretien"],
+        objectives: ["Gérer l'agenda et la communication", "Organiser réunions et déplacements", "Rédiger des documents professionnels"],
+        skillsDeveloped: ["Communication écrite et orale", "Outils bureautiques avancés", "Gestion administrative", "Organisation"],
+        opportunities: ["Assistant(e) de direction", "Assistant(e) de manager", "Office manager", "Secrétaire de direction"]
+      },
+      {
         name: "Gestion des Entreprises",
         description: "Formation pour acquérir les compétences nécessaires pour gérer une entreprise, de la stratégie à la gestion opérationnelle.",
         category: "Management & Gestion",
@@ -431,6 +592,20 @@ export const schools: School[] = [
         objectives: ["Élaborer des stratégies d'entreprise", "Gérer les ressources humaines", "Gérer les finances", "Gérer la production", "Gérer la commercialisation"],
         skillsDeveloped: ["Stratégie d'entreprise", "Gestion des ressources humaines", "Gestion financière", "Gestion de la production", "Gestion commerciale"],
         opportunities: ["Directeur général", "Directeur des ressources humaines", "Directeur financier", "Directeur de production", "Directeur commercial"]
+      },
+      {
+        name: "Gestion Commerciale",
+        description: "Formation complète aux méthodes et outils modernes de gestion commerciale et développement des ventes.",
+        category: "Commerce",
+        parcours: "Gestion Commerciale",
+        niveau: "Licence",
+        cycle: "Licence",
+        duration: "3 ans",
+        diploma: "Licence en Gestion Commerciale",
+        admissionRequirements: ["Baccalauréat", "Test d'admission", "Entretien"],
+        objectives: ["Développer un portefeuille commercial", "Élaborer une stratégie commerciale", "Gérer une équipe de vente"],
+        skillsDeveloped: ["Techniques de vente avancées", "Management commercial", "CRM", "Négociation B2B"],
+        opportunities: ["Responsable commercial", "Chargé d'affaires", "Manager d'équipe de vente", "Business developer"]
       },
       {
         name: "Finance d'Entreprise",
@@ -459,6 +634,20 @@ export const schools: School[] = [
         objectives: ["Élaborer des stratégies de marketing digital", "Mettre en œuvre des campagnes de marketing digital", "Gérer les réseaux sociaux", "Analyser les données marketing", "Utiliser les outils du marketing digital"],
         skillsDeveloped: ["Marketing digital", "Marketing des réseaux sociaux", "Analyse des données marketing", "Publicité en ligne", "Référencement"],
         opportunities: ["Chargé de marketing digital", "Responsable des réseaux sociaux", "Chef de projet digital", "Consultant en marketing digital", "Directeur marketing digital"]
+      },
+      {
+        name: "Leadership et Management Stratégique",
+        description: "Programme exécutif intensif destiné aux cadres dirigeants pour renforcer leurs capacités de leadership et vision stratégique.",
+        category: "Management & Gestion",
+        parcours: "Executive Education",
+        niveau: "Formation Exécutive",
+        cycle: "Formation Continue",
+        duration: "8 mois (part-time)",
+        diploma: "Executive Certificate en Leadership et Management Stratégique",
+        admissionRequirements: ["Minimum 8 ans d'expérience dont 3 en management", "Poste de direction", "Entretien approfondi"],
+        objectives: ["Développer son leadership", "Affiner sa vision stratégique", "Conduire le changement organisationnel"],
+        skillsDeveloped: ["Leadership transformationnel", "Pensée stratégique", "Prise de décision complexe", "Management interculturel"],
+        opportunities: ["Évolution vers comité de direction", "Direction générale", "Conseil d'administration"]
       }
     ]
   }

@@ -12,14 +12,19 @@ import SchoolSidebar from '../components/SchoolSidebar';
 
 // Interface locale pour les composants qui attendent une structure différente
 interface ProgramForComponent {
-  id?: string;
+  id: string;
   name: string;
   description: string;
   category: string;
   parcours: string;
   cycle: string;
   duration: string;
+  niveau?: string;
+  diploma?: string;
   debouche?: string;
+  admissionRequirements?: string[];
+  objectives?: string[];
+  skillsDeveloped?: string[];
 }
 
 interface RegistrationInfoForComponent {
@@ -63,15 +68,21 @@ const SchoolDetail: React.FC = () => {
     .filter(s => s.id !== school.id)
     .slice(0, 3);
   
-  // Adapter les programmes pour les composants
+  // Adapter les programmes pour les composants en conservant toutes les données
   const programsForComponents: ProgramForComponent[] = school.programs.map(program => ({
+    id: Math.random().toString(36).substring(2, 9),
     name: program.name,
     description: program.description,
     category: program.category,
     parcours: program.parcours,
     cycle: program.cycle,
+    niveau: program.niveau,
     duration: program.duration,
-    debouche: program.opportunities && program.opportunities.length > 0 ? program.opportunities.join(", ") : ""
+    diploma: program.diploma,
+    debouche: program.opportunities && program.opportunities.length > 0 ? program.opportunities.join(", ") : "",
+    admissionRequirements: program.admissionRequirements,
+    objectives: program.objectives,
+    skillsDeveloped: program.skillsDeveloped
   }));
   
   // Adapter les informations d'inscription pour les composants
@@ -105,7 +116,6 @@ const SchoolDetail: React.FC = () => {
             <div className="lg:col-span-2">
               {/* Section: Programmes avec onglets par cycle */}
               <SchoolPrograms 
-                // @ts-ignore - Ignorer les erreurs de type pour le moment
                 programs={programsForComponents} 
               />
               
@@ -117,7 +127,6 @@ const SchoolDetail: React.FC = () => {
               
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
-                // @ts-ignore - Ignorer les erreurs de type pour le moment
                 programs={programsForComponents} 
                 registrationInfo={registrationInfoForComponent} 
               />

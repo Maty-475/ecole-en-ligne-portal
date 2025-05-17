@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { schools, School } from '../data/schools';
+import { schools, School, Program } from '../data/schools';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,12 @@ interface ProgramForEditor {
   cycle: string;
   duration: string;
   debouche: string;
+  niveau?: string;
+  diploma?: string;
+  admissionRequirements?: string[];
+  objectives?: string[];
+  skillsDeveloped?: string[];
+  opportunities?: string[];
 }
 
 // Interface locale pour les informations d'inscription dans l'éditeur
@@ -92,7 +98,8 @@ const cycles = [
   "Bachelor",
   "Master",
   "Ingénierie",
-  "Doctorat"
+  "Doctorat",
+  "Formation Continue"
 ];
 
 const SchoolEdit: React.FC = () => {
@@ -106,6 +113,24 @@ const SchoolEdit: React.FC = () => {
     const schoolToEdit = schools.find(s => s.id === id);
     if (schoolToEdit) {
       // Convertir l'école du format de données au format d'édition
+      let registrationInfo: RegistrationInfoForEditor = {
+        deadline: "",
+        requirements: [],
+        fees: "",
+        process: ""
+      };
+      
+      // Récupère les infos d'inscription pour "Tous les parcours" si elles existent
+      if (schoolToEdit.registrationInfo["Tous les parcours"]) {
+        const regInfo = schoolToEdit.registrationInfo["Tous les parcours"];
+        registrationInfo = {
+          deadline: regInfo.description || "",
+          requirements: regInfo.procedure || [],
+          fees: regInfo.fees ? regInfo.fees.toString() : "",
+          process: Array.isArray(regInfo.procedure) ? regInfo.procedure.join("\n") : ""
+        };
+      }
+      
       const schoolForEditor: SchoolForEditor = {
         id: schoolToEdit.id,
         name: schoolToEdit.name,
@@ -118,21 +143,22 @@ const SchoolEdit: React.FC = () => {
           email: schoolToEdit.contact.email,
           website: schoolToEdit.contact.website
         },
-        registrationInfo: {
-          deadline: schoolToEdit.registrationInfo.deadline || "",
-          requirements: schoolToEdit.registrationInfo.requirements || [],
-          fees: schoolToEdit.registrationInfo.fees || "",
-          process: schoolToEdit.registrationInfo.process || ""
-        },
+        registrationInfo: registrationInfo,
         programs: schoolToEdit.programs.map(p => ({
-          id: p.id || `prog-${Math.random().toString(36).substring(2, 9)}`,
+          id: `prog-${Math.random().toString(36).substring(2, 9)}`,
           name: p.name,
           description: p.description,
           category: p.category,
           parcours: p.parcours,
           cycle: p.cycle,
+          niveau: p.niveau || "",
           duration: p.duration,
-          debouche: p.debouche || ""
+          diploma: p.diploma || "",
+          debouche: p.opportunities ? p.opportunities.join(", ") : "",
+          admissionRequirements: p.admissionRequirements || [],
+          objectives: p.objectives || [],
+          skillsDeveloped: p.skillsDeveloped || [],
+          opportunities: p.opportunities || []
         }))
       };
       
@@ -264,7 +290,13 @@ const SchoolEdit: React.FC = () => {
       category: categories[0],
       cycle: cycles[0],
       parcours: "Nouveau parcours",
-      debouche: "Débouchés professionnels"
+      niveau: "Technicien Spécialisé",
+      debouche: "Débouchés professionnels",
+      diploma: "Diplôme",
+      admissionRequirements: ["Baccalauréat"],
+      objectives: ["Objectif 1"],
+      skillsDeveloped: ["Compétence 1"],
+      opportunities: ["Opportunité 1"]
     };
     
     setAvailablePrograms(prev => [...prev, newProgram]);
@@ -291,6 +323,27 @@ const SchoolEdit: React.FC = () => {
       navigate(`/school/${id}`);
     }, 1500);
   };
+  
+  if (!editableSchool) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center p-8">
+            <h2 className="text-2xl font-bold mb-4">Établissement non trouvé</h2>
+            <p className="mb-4">L'établissement que vous recherchez n'existe pas.</p>
+            <Link 
+              to="/"
+              className="bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-md"
+            >
+              Retour à l'accueil
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -595,6 +648,22 @@ const SchoolEdit: React.FC = () => {
                           ))}
                         </select>
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Niveau</Label>
+                      <Input 
+                        value={program.niveau || ''} 
+                        onChange={(e) => handleProgramChange(program.id, 'niveau', e.target.value)}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Diplôme</Label>
+                      <Input 
+                        value={program.diploma || ''} 
+                        onChange={(e) => handleProgramChange(program.id, 'diploma', e.target.value)}
+                      />
                     </div>
                   </CardContent>
                 </Card>

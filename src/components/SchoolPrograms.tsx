@@ -6,11 +6,16 @@ interface Program {
   id: string;
   name: string;
   description: string;
-  debouche: string;
+  debouche?: string;
   duration: string;
   category: string;
   cycle: string;
   parcours: string;
+  niveau?: string;
+  diploma?: string;
+  admissionRequirements?: string[];
+  objectives?: string[];
+  skillsDeveloped?: string[];
 }
 
 interface SchoolProgramsProps {
@@ -49,20 +54,75 @@ const SchoolPrograms: React.FC<SchoolProgramsProps> = ({ programs }) => {
                   .map(program => (
                     <div key={program.id} className="border-l-4 border-secondary pl-4">
                       <h3 className="text-xl font-semibold mb-2">{program.name}</h3>
-                      <h6 className="text font-bold text-primary mb-6 pb-3 border-b">
-                        <span className="font-medium"> Parcours : </span>{program.parcours}
-                      </h6>
-                      <p className="text-gray-600 mb-2">{program.description}</p>
-                      <div className="flex flex-wrap gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <h6 className="text-sm font-bold text-primary mb-2">
+                            <span className="font-medium">Parcours : </span>{program.parcours}
+                          </h6>
+                        </div>
+                        {program.niveau && (
+                          <div>
+                            <h6 className="text-sm font-bold text-primary mb-2">
+                              <span className="font-medium">Niveau : </span>{program.niveau}
+                            </h6>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <p className="text-gray-600 mb-4">{program.description}</p>
+                      
+                      {program.diploma && (
+                        <div className="mb-3">
+                          <h4 className="text-md font-semibold">Diplôme</h4>
+                          <p className="text-gray-700">{program.diploma}</p>
+                        </div>
+                      )}
+                      
+                      {program.objectives && program.objectives.length > 0 && (
+                        <div className="mb-3">
+                          <h4 className="text-md font-semibold">Objectifs</h4>
+                          <ul className="list-disc list-inside text-gray-700 pl-2">
+                            {program.objectives.map((objective, idx) => (
+                              <li key={idx}>{objective}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {program.skillsDeveloped && program.skillsDeveloped.length > 0 && (
+                        <div className="mb-3">
+                          <h4 className="text-md font-semibold">Compétences développées</h4>
+                          <ul className="list-disc list-inside text-gray-700 pl-2">
+                            {program.skillsDeveloped.map((skill, idx) => (
+                              <li key={idx}>{skill}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {program.admissionRequirements && program.admissionRequirements.length > 0 && (
+                        <div className="mb-3">
+                          <h4 className="text-md font-semibold">Conditions d'admission</h4>
+                          <ul className="list-disc list-inside text-gray-700 pl-2">
+                            {program.admissionRequirements.map((req, idx) => (
+                              <li key={idx}>{req}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      <div className="flex flex-wrap gap-3 mt-4">
                         <p className="text-sm bg-gray-100 px-2 py-1 rounded">
                           <span className="font-medium">Durée :</span> {program.duration}
                         </p>
                         <p className="text-sm bg-gray-100 px-2 py-1 rounded">
                           <span className="font-medium">Catégorie :</span> {program.category}
                         </p>
-                         <p className="text-sm bg-gray-100 px-2 py-1 rounded">
-                          <span className="font-medium">Debouchés :</span> {program.debouche}
-                        </p>
+                        {program.debouche && (
+                          <p className="text-sm bg-gray-100 px-2 py-1 rounded">
+                            <span className="font-medium">Débouchés :</span> {program.debouche}
+                          </p>
+                        )}
                       </div>
                     </div>
                   ))
