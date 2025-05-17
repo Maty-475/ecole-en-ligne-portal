@@ -28,10 +28,12 @@ interface ProgramForComponent {
 }
 
 interface RegistrationInfoForComponent {
-  deadline: string;
-  requirements: string[];
-  fees: string;
-  process: string;
+  description?: string;
+  procedure?: string[];
+  fees?: string;
+  process?: string;
+  deadline?: string;
+  requirements?: string[];
 }
 
 const SchoolDetail: React.FC = () => {
@@ -85,17 +87,8 @@ const SchoolDetail: React.FC = () => {
     skillsDeveloped: program.skillsDeveloped
   }));
   
-  // Adapter les informations d'inscription pour les composants
-  const registrationInfoForComponent: RegistrationInfoForComponent = {
-    deadline: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
-      school.registrationInfo["Tous les parcours"].description || "" : "",
-    requirements: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
-      school.registrationInfo["Tous les parcours"].procedure || [] : [],
-    fees: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
-      `${school.registrationInfo["Tous les parcours"].fees} MAD` : "",
-    process: typeof school.registrationInfo["Tous les parcours"] === 'object' ? 
-      school.registrationInfo["Tous les parcours"].procedure?.join(", ") || "" : ""
-  };
+  // Passer les informations d'inscription complètes par parcours
+  const registrationInfoByParcours = school.registrationInfo;
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -128,7 +121,7 @@ const SchoolDetail: React.FC = () => {
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
                 programs={programsForComponents} 
-                registrationInfo={registrationInfoForComponent} 
+                registrationInfo={registrationInfoByParcours} 
               />
             </div>
             
