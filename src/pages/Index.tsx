@@ -81,7 +81,7 @@ const Index: React.FC = () => {
                     value="" 
                     className="rounded-md"
                   >
-                    Tous
+                    VOIR TOUS
                   </ToggleGroupItem>
                   {categories.map((category) => (
                     <ToggleGroupItem 
