@@ -100,7 +100,7 @@ export const schools: School[] = [
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
-      phone: "+212 5 22 27 96 00",
+      phone: "+212 522-279600",
       email: "miagecasa@groupemiage.net",
       website: "www.groupemiage.net"
     },
