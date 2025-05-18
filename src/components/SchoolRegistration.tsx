@@ -31,9 +31,14 @@ interface Program {
 interface SchoolRegistrationProps {
   programs: Program[];
   registrationInfo: Record<string, RegistrationInfo>; // Information d'inscription par parcours
+  schoolName: string; // Nom de l'école
+  schoolContact: {
+    phone?: string;
+    email?: string;
+  };
 }
 
-const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, registrationInfo }) => {
+const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, registrationInfo, schoolName, schoolContact }) => {
   // Les parcours standardisés
   const standardParcours = ["Technicien", "Technicien Spécialisé", "Licence", "Master"];
   
@@ -74,7 +79,7 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
               <Card>
                 <CardHeader>
                   <CardTitle className="text-xl">
-                    <div className="mt-2">Modalités d'inscription pour {parcours}</div>
+                    <div className="mt-2">Modalités d'inscription pour {parcours} à {schoolName}</div>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -95,43 +100,31 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
                     </ul>
                   </div>
                   
-                  {parcoursRegistrationInfo.contact && (
-                    <div className="p-4 bg-gray-50 rounded-lg mt-6">
-                      <h3 className="text-lg font-semibold mb-2">Contact pour les admissions</h3>
-                      {parcoursRegistrationInfo.contact.phone && (
-                        <div className="mb-2">
-                          <span className="font-semibold">Téléphone :</span> {parcoursRegistrationInfo.contact.phone}
-                        </div>
-                      )}
-                      {parcoursRegistrationInfo.contact.email && (
-                        <div className="mb-2">
-                          <span className="font-semibold">Email :</span> {parcoursRegistrationInfo.contact.email}
-                        </div>
-                      )}
+                  <div className="p-4 bg-gray-50 rounded-lg mt-6">
+                    <h3 className="text-lg font-semibold mb-2">Contact pour les admissions</h3>
+                    <div className="mb-2">
+                      <span className="font-semibold">Téléphone :</span> {parcoursRegistrationInfo.contact?.phone || schoolContact.phone || "Information non disponible"}
                     </div>
-                  )}
+                    <div className="mb-2">
+                      <span className="font-semibold">Email :</span> {parcoursRegistrationInfo.contact?.email || schoolContact.email || "Information non disponible"}
+                    </div>
+                  </div>
                   
-                  {(parcoursRegistrationInfo.deadline || parcoursRegistrationInfo.fees) && (
-                    <div className="p-4 bg-gray-50 rounded-lg mt-6">
-                      {parcoursRegistrationInfo.deadline && (
-                        <div className="mb-2">
-                          <span className="font-semibold">Date limite d'inscription :</span> {parcoursRegistrationInfo.deadline}
-                        </div>
-                      )}
-                      
-                      {parcoursRegistrationInfo.fees && (
-                        <div className="mb-2">
-                          <span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees}
-                        </div>
-                      )}
-                      
-                      {parcoursRegistrationInfo.scholarships && (
-                        <div className="mb-2">
-                          <span className="font-semibold">Bourses disponibles :</span> Vérifier à l'école
-                        </div>
-                      )}
+                  <div className="p-4 bg-gray-50 rounded-lg mt-6">
+                    <div className="mb-2">
+                      <span className="font-semibold">Date limite d'inscription :</span> {parcoursRegistrationInfo.deadline || "Contacter l'établissement"}
                     </div>
-                  )}
+                    
+                    <div className="mb-2">
+                      <span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees || "Contacter l'établissement pour plus d'informations"}
+                    </div>
+                    
+                    {parcoursRegistrationInfo.scholarships !== undefined && (
+                      <div className="mb-2">
+                        <span className="font-semibold">Bourses disponibles :</span> {parcoursRegistrationInfo.scholarships ? "Oui" : "Non"} (vérifier à l'école)
+                      </div>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>

@@ -116,12 +116,8 @@ const SchoolDetail: React.FC = () => {
         "Frais de dossier",
         "Entretien pédagogique (si requis)"
       ],
-      fees: "18000",
-      scholarships: true,
-      contact: {
-        phone: "+212 5 22 27 96 00",
-        email: "admission-technicien@groupemiage.net"
-      }
+      fees: "Contacter l'établissement",
+      scholarships: true
     },
     "Technicien Spécialisé": {
       description:
@@ -136,12 +132,8 @@ const SchoolDetail: React.FC = () => {
         "Frais de dossier",
         "Entretien de sélection avec le coordinateur pédagogique"
       ],
-      fees: "22000",
-      scholarships: true,
-      contact: {
-        phone: "+212 5 22 27 96 01",
-        email: "admission-ts@groupemiage.net"
-      }
+      fees: "Contacter l'établissement",
+      scholarships: true
     },
     "Licence": {
       description:
@@ -157,12 +149,8 @@ const SchoolDetail: React.FC = () => {
         "Entretien individuel (présentiel ou visio)",
         "Test de positionnement (langues ou logique selon filière)"
       ],
-      fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
-      scholarships: true,
-      contact: {
-        phone: "+212 5 22 27 96 02",
-        email: "admission-licence@groupemiage.net"
-      }
+      fees: "Contacter l'établissement",
+      scholarships: true
     },
     "Master": {
       description:
@@ -179,12 +167,8 @@ const SchoolDetail: React.FC = () => {
         "Entretien de sélection",
         "Test de langue ou test technique (si requis)"
       ],
-      fees: "35000",
-      scholarships: true,
-      contact: {
-        phone: "+212 5 22 27 96 03",
-        email: "admission-master@groupemiage.net"
-      }
+      fees: "Contacter l'établissement",
+      scholarships: true
     }
   };
   
@@ -238,7 +222,9 @@ const SchoolDetail: React.FC = () => {
               {/* Section: Modalités d'inscription par parcours */}
               <SchoolRegistration 
                 programs={programsForComponents} 
-                registrationInfo={registrationInfoByParcours} 
+                registrationInfo={registrationInfoByParcours}
+                schoolName={school.name}
+                schoolContact={school.contact}
               />
             </div>
             
