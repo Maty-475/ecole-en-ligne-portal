@@ -19,10 +19,8 @@ interface ProgramForComponent {
   parcours: string;
   cycle: string;
   duration: string;
-  niveau?: string;
   diploma?: string;
   debouche?: string;
-  admissionRequirements?: string[];
   objectives?: string[];
   skillsDeveloped?: string[];
 }
@@ -70,25 +68,19 @@ const SchoolDetail: React.FC = () => {
     .filter(s => s.id !== school.id)
     .slice(0, 3);
   
-  // Adapter les programmes pour les composants en conservant toutes les données
-  // et en standardisant les parcours comme demandé
+  // Standardiser les parcours à uniquement: Technicien, Technicien Spécialisé, Licence, Master
   const programsForComponents: ProgramForComponent[] = school.programs.map(program => {
-    // Standardiser le parcours en fonction du niveau
-    let standardParcours = program.niveau;
-    if (!["Technicien", "Technicien Spécialisé", "Licence", "Master"].includes(program.niveau)) {
-      // Utiliser le cycle si le niveau n'est pas standard
-      if (program.cycle === "Technicien") {
-        standardParcours = "Technicien";
-      } else if (program.cycle === "Cycle Initial") {
-        standardParcours = "Technicien Spécialisé";
-      } else if (program.cycle === "Licence") {
-        standardParcours = "Licence";
-      } else if (program.cycle === "Master") {
-        standardParcours = "Master";
-      } else {
-        // Par défaut, utiliser le parcours existant ou "Autres"
-        standardParcours = program.parcours;
-      }
+    // Déterminer le parcours standard en fonction du niveau/cycle
+    let standardParcours = "Technicien Spécialisé"; // valeur par défaut
+    
+    if (program.niveau === "Technicien" || program.cycle === "Technicien") {
+      standardParcours = "Technicien";
+    } else if (program.niveau === "Technicien Spécialisé" || program.cycle === "Cycle Initial") {
+      standardParcours = "Technicien Spécialisé";
+    } else if (program.niveau === "Licence" || program.cycle === "Licence") {
+      standardParcours = "Licence";
+    } else if (program.niveau === "Master" || program.cycle === "Master") {
+      standardParcours = "Master";
     }
 
     return {
@@ -96,13 +88,11 @@ const SchoolDetail: React.FC = () => {
       name: program.name,
       description: program.description,
       category: program.category,
-      parcours: standardParcours, // Utiliser le parcours standardisé
+      parcours: standardParcours, // Utiliser uniquement le parcours standardisé
       cycle: program.cycle,
-      niveau: program.niveau,
       duration: program.duration,
       diploma: program.diploma,
       debouche: program.opportunities && program.opportunities.length > 0 ? program.opportunities.join(", ") : "",
-      admissionRequirements: program.admissionRequirements,
       objectives: program.objectives,
       skillsDeveloped: program.skillsDeveloped
     };
@@ -111,14 +101,34 @@ const SchoolDetail: React.FC = () => {
   // Adapter les informations d'inscription pour qu'elles soient au bon format
   const registrationInfoByParcours: Record<string, RegistrationInfoForComponent> = {};
   
-  // Convertir les fees de number à string
-  for (const parcours in school.registrationInfo) {
-    const info = school.registrationInfo[parcours];
-    registrationInfoByParcours[parcours] = {
-      ...info,
-      fees: info.fees?.toString() || "",
-    };
-  }
+  // Si l'école a des informations d'inscription spécifiques par parcours, les utiliser
+  // Sinon, utiliser les informations générales pour tous les parcours standardisés
+  const standardParcours = ["Technicien", "Technicien Spécialisé", "Licence", "Master"];
+  
+  standardParcours.forEach(parcours => {
+    if (school.registrationInfo[parcours]) {
+      // Utiliser les informations spécifiques au parcours si elles existent
+      const info = school.registrationInfo[parcours];
+      registrationInfoByParcours[parcours] = {
+        ...info,
+        fees: info.fees?.toString() || "",
+      };
+    } else if (school.registrationInfo["Tous les parcours"]) {
+      // Sinon, copier les informations générales pour ce parcours
+      const info = school.registrationInfo["Tous les parcours"];
+      registrationInfoByParcours[parcours] = {
+        ...info,
+        fees: info.fees?.toString() || "",
+      };
+    } else {
+      // Si aucune information n'est disponible, créer une entrée vide
+      registrationInfoByParcours[parcours] = {
+        description: "Information non disponible",
+        procedure: ["Information non disponible"],
+        fees: "Non spécifié",
+      };
+    }
+  });
   
   return (
     <div className="min-h-screen flex flex-col">

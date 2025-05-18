@@ -18,12 +18,11 @@ const SchoolBanner: React.FC<SchoolBannerProps> = ({name, description, logo, web
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center mb-6">
           <div className="bg-white p-2 rounded-lg shadow-md mb-6 md:mb-0 md:mr-8">
-           <img 
-             src={logoPath}
-            alt={`Logo de ${name}`} 
-            className="w-32 h-32 object-contain"
-          />
-
+            <img 
+              src={logoPath}
+              alt={`Logo de ${name}`} 
+              className="w-32 h-32 object-contain"
+            />
           </div>
           <div className="text-center md:text-left text-white">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">{name}</h1>

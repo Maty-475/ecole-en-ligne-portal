@@ -11,9 +11,7 @@ interface Program {
   category: string;
   cycle: string;
   parcours: string;
-  niveau?: string;
   diploma?: string;
-  admissionRequirements?: string[];
   objectives?: string[];
   skillsDeveloped?: string[];
 }
@@ -60,13 +58,6 @@ const SchoolPrograms: React.FC<SchoolProgramsProps> = ({ programs }) => {
                             <span className="font-medium">Parcours : </span>{program.parcours}
                           </h6>
                         </div>
-                        {program.niveau && (
-                          <div>
-                            <h6 className="text-sm font-bold text-primary mb-2">
-                              <span className="font-medium">Niveau : </span>{program.niveau}
-                            </h6>
-                          </div>
-                        )}
                       </div>
                       
                       <p className="text-gray-600 mb-4">{program.description}</p>
@@ -95,17 +86,6 @@ const SchoolPrograms: React.FC<SchoolProgramsProps> = ({ programs }) => {
                           <ul className="list-disc list-inside text-gray-700 pl-2">
                             {program.skillsDeveloped.map((skill, idx) => (
                               <li key={idx}>{skill}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      
-                      {program.admissionRequirements && program.admissionRequirements.length > 0 && (
-                        <div className="mb-3">
-                          <h4 className="text-md font-semibold">Conditions d'admission</h4>
-                          <ul className="list-disc list-inside text-gray-700 pl-2">
-                            {program.admissionRequirements.map((req, idx) => (
-                              <li key={idx}>{req}</li>
                             ))}
                           </ul>
                         </div>
