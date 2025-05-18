@@ -32,6 +32,11 @@ interface RegistrationInfoForComponent {
   process?: string;
   deadline?: string;
   requirements?: string[];
+  scholarships?: boolean;
+  contact?: {
+    phone?: string;
+    email?: string;
+  };
 }
 
 const SchoolDetail: React.FC = () => {
@@ -98,37 +103,109 @@ const SchoolDetail: React.FC = () => {
     };
   });
   
-  // Adapter les informations d'inscription pour qu'elles soient au bon format
-  const registrationInfoByParcours: Record<string, RegistrationInfoForComponent> = {};
+  // Configurer les informations d'inscription standardisées pour tous les parcours
+  const registrationInfoByParcours: Record<string, RegistrationInfoForComponent> = {
+    "Technicien": {
+      description:
+        "Les inscriptions pour le cycle Technicien ouvrent chaque année du 1ᵉʳ juin au 30 septembre. Les dossiers peuvent être déposés en ligne ou au bureau des admissions.",
+      procedure: [
+        "Remplir le formulaire de candidature en ligne",
+        "Attestation de scolarité de la classe terminale",
+        "Relevé de notes de la classe terminale",
+        "Copie de la carte d'identité ou passeport",
+        "Frais de dossier",
+        "Entretien pédagogique (si requis)"
+      ],
+      fees: "18000",
+      scholarships: true,
+      contact: {
+        phone: "+212 5 22 27 96 00",
+        email: "admission-technicien@groupemiage.net"
+      }
+    },
+    "Technicien Spécialisé": {
+      description:
+        "Le cycle Technicien Spécialisé accueille les candidats titulaires d'un baccalauréat. Les inscriptions s'effectuent du 1ᵉʳ juin au 30 septembre chaque année.",
+      procedure: [
+        "Formulaire de candidature en ligne dûment complété",
+        "Baccalauréat original + copies certifiées conformes",
+        "Relevés de notes du baccalauréat",
+        "Copie de la carte d'identité ou passeport",
+        "Curriculum vitæ (facultatif mais recommandé)",
+        "Lettre de motivation précisant votre projet professionnel",
+        "Frais de dossier",
+        "Entretien de sélection avec le coordinateur pédagogique"
+      ],
+      fees: "22000",
+      scholarships: true,
+      contact: {
+        phone: "+212 5 22 27 96 01",
+        email: "admission-ts@groupemiage.net"
+      }
+    },
+    "Licence": {
+      description:
+        "Pour le cycle Licence / Bachelor, deux voies sont possibles : entrée en 1ʳᵉ année après le baccalauréat ou admission parallèle en 3ᵉ année après un Bac + 2. Les inscriptions sont ouvertes du 1ᵉʳ juin au 30 septembre.",
+      procedure: [
+        "Formulaire d'inscription en ligne",
+        "Baccalauréat ou diplôme Bac + 2 (DUT, BTS, DEUG…) + relevés de notes certifiés",
+        "Photocopie légalisée de la carte d'identité ou passeport",
+        "Lettre de motivation détaillant vos objectifs académiques et professionnels",
+        "Curriculum vitæ",
+        "Deux photos d'identité récentes",
+        "Frais de dossier",
+        "Entretien individuel (présentiel ou visio)",
+        "Test de positionnement (langues ou logique selon filière)"
+      ],
+      fees: "30000",
+      scholarships: true,
+      contact: {
+        phone: "+212 5 22 27 96 02",
+        email: "admission-licence@groupemiage.net"
+      }
+    },
+    "Master": {
+      description:
+        "Le cycle Master propose une admission en 1ʳᵉ année pour les titulaires d'un Bac + 2 et une admission directe en Master 2 pour les détenteurs d'une Licence ou Bachelor pertinent. Dépôt des dossiers du 1ᵉʳ juin au 30 septembre.",
+      procedure: [
+        "Formulaire de demande d'admission",
+        "Diplôme Bac + 2 ou Licence/Bachelor + relevés de notes certifiés",
+        "Lettre de motivation exposant votre projet professionnel",
+        "Curriculum vitæ détaillé",
+        "Deux lettres de recommandation académiques ou professionnelles",
+        "Copie légalisée de la carte d'identité ou passeport",
+        "Projet de mémoire ou étude de cas (selon spécialité)",
+        "Frais de dossier",
+        "Entretien de sélection",
+        "Test de langue ou test technique (si requis)"
+      ],
+      fees: "35000",
+      scholarships: true,
+      contact: {
+        phone: "+212 5 22 27 96 03",
+        email: "admission-master@groupemiage.net"
+      }
+    }
+  };
   
   // Si l'école a des informations d'inscription spécifiques par parcours, les utiliser
-  // Sinon, utiliser les informations générales pour tous les parcours standardisés
-  const standardParcours = ["Technicien", "Technicien Spécialisé", "Licence", "Master"];
-  
-  standardParcours.forEach(parcours => {
-    if (school.registrationInfo[parcours]) {
-      // Utiliser les informations spécifiques au parcours si elles existent
-      const info = school.registrationInfo[parcours];
-      registrationInfoByParcours[parcours] = {
-        ...info,
-        fees: info.fees?.toString() || "",
-      };
-    } else if (school.registrationInfo["Tous les parcours"]) {
-      // Sinon, copier les informations générales pour ce parcours
-      const info = school.registrationInfo["Tous les parcours"];
-      registrationInfoByParcours[parcours] = {
-        ...info,
-        fees: info.fees?.toString() || "",
-      };
-    } else {
-      // Si aucune information n'est disponible, créer une entrée vide
-      registrationInfoByParcours[parcours] = {
-        description: "Information non disponible",
-        procedure: ["Information non disponible"],
-        fees: "Non spécifié",
-      };
-    }
-  });
+  // pour remplacer ou compléter les informations standardisées
+  if (school.registrationInfo) {
+    Object.keys(school.registrationInfo).forEach(parcours => {
+      if (parcours !== "Tous les parcours" && registrationInfoByParcours[parcours]) {
+        const schoolInfo = school.registrationInfo[parcours];
+        if (schoolInfo) {
+          // Fusionner avec les infos standardisées en conservant les infos spécifiques de l'école
+          registrationInfoByParcours[parcours] = {
+            ...registrationInfoByParcours[parcours],
+            ...(schoolInfo.description ? { description: schoolInfo.description } : {}),
+            ...(schoolInfo.procedure ? { procedure: schoolInfo.procedure } : {}),
+            ...(schoolInfo.fees ? { fees: schoolInfo.fees.toString() } : {})
+          };
+        }
+      }
+    });
+  }
   
   return (
     <div className="min-h-screen flex flex-col">

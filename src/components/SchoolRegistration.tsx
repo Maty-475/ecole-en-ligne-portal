@@ -10,6 +10,11 @@ interface RegistrationInfo {
   requirements?: string[];
   deadline?: string;
   fees?: string;
+  scholarships?: boolean;
+  contact?: {
+    phone?: string;
+    email?: string;
+  };
 }
 
 interface Program {
@@ -29,7 +34,7 @@ interface SchoolRegistrationProps {
 }
 
 const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, registrationInfo }) => {
-  // Les parcours standardisés comme demandé
+  // Les parcours standardisés
   const standardParcours = ["Technicien", "Technicien Spécialisé", "Licence", "Master"];
   
   // Filtrer pour n'afficher que les parcours qui existent dans cette école
@@ -73,39 +78,60 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
-                    <p className="text-gray-600">
-                      {parcoursRegistrationInfo.process || 
-                       Array.isArray(parcoursRegistrationInfo.procedure) ? 
-                       parcoursRegistrationInfo.procedure?.join(", ") : 
-                       "Information non disponible"}
-                    </p>
-                  </div>
+                  {parcoursRegistrationInfo.description && (
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Description</h3>
+                      <p className="text-gray-600">{parcoursRegistrationInfo.description}</p>
+                    </div>
+                  )}
                   
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Documentation requise</h3>
+                    <h3 className="text-lg font-semibold mb-2">Processus d'admission</h3>
                     <ul className="list-disc list-inside text-gray-600">
-                      {parcoursRegistrationInfo.requirements?.map((req, index) => (
-                        <li key={index} className="mb-1">{req}</li>
-                      )) || 
-                      parcoursRegistrationInfo.procedure?.map((proc, index) => (
+                      {parcoursRegistrationInfo.procedure?.map((proc, index) => (
                         <li key={index} className="mb-1">{proc}</li>
                       )) || 
                       <li>Information non disponible</li>}
                     </ul>
                   </div>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg mt-6">
-                    <div className="mb-2">
-                      <span className="font-semibold">Date limite d'inscription :</span> {parcoursRegistrationInfo.deadline || parcoursRegistrationInfo.description || "Non spécifiée"}
+                  {parcoursRegistrationInfo.contact && (
+                    <div className="p-4 bg-gray-50 rounded-lg mt-6">
+                      <h3 className="text-lg font-semibold mb-2">Contact pour les admissions</h3>
+                      {parcoursRegistrationInfo.contact.phone && (
+                        <div className="mb-2">
+                          <span className="font-semibold">Téléphone :</span> {parcoursRegistrationInfo.contact.phone}
+                        </div>
+                      )}
+                      {parcoursRegistrationInfo.contact.email && (
+                        <div className="mb-2">
+                          <span className="font-semibold">Email :</span> {parcoursRegistrationInfo.contact.email}
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  <div className="p-4 bg-gray-50 rounded-lg mt-6">
-                    <div className="mb-2">
-                      <span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees ? `${parcoursRegistrationInfo.fees} MAD` : "Non spécifiés"}
+                  )}
+                  
+                  {(parcoursRegistrationInfo.deadline || parcoursRegistrationInfo.fees) && (
+                    <div className="p-4 bg-gray-50 rounded-lg mt-6">
+                      {parcoursRegistrationInfo.deadline && (
+                        <div className="mb-2">
+                          <span className="font-semibold">Date limite d'inscription :</span> {parcoursRegistrationInfo.deadline}
+                        </div>
+                      )}
+                      
+                      {parcoursRegistrationInfo.fees && (
+                        <div className="mb-2">
+                          <span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees} MAD
+                        </div>
+                      )}
+                      
+                      {parcoursRegistrationInfo.scholarships && (
+                        <div className="mb-2">
+                          <span className="font-semibold">Bourses disponibles :</span> Oui
+                        </div>
+                      )}
                     </div>
-                  </div>
+                  )}
                 </CardContent>
               </Card>
             </TabsContent>
