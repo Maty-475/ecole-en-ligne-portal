@@ -1,13 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <!--
-      Redirige immédiatement toutes les URLs inconnues
-      vers l’index de l’application React.
-      React-Router récupère ensuite l’URL (/school/IBEGIS, etc.)
-      et affiche la bonne page.
-    -->
-  <meta http-equiv="refresh" content="0; url=/index.html" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirection</title>
+    <script>
+      // Récupère l'URL complète
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+      
+      // Conserve le chemin d'origine
+      var path = l.pathname.split('/');
+      path.length = Math.max(pathSegmentsToKeep, 0);
+      
+      // Si le chemin inclut "school", conserve cette partie
+      if (l.pathname.includes('/school/')) {
+        redirectUrl = redirectUrl + '/#' + l.pathname;
+      } else {
+        redirectUrl = redirectUrl + '/';
+      }
+      
+      // Redirige vers l'application React
+      window.location.replace(redirectUrl);
+    </script>
   </head>
-  <body></body>
+  <body>
+    <h1>Redirection en cours...</h1>
+    <p>Si vous n'êtes pas redirigé automatiquement, <a href="/">cliquez ici</a>.</p>
+  </body>
 </html>
