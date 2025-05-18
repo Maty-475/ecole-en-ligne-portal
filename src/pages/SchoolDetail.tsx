@@ -157,7 +157,7 @@ const SchoolDetail: React.FC = () => {
         "Entretien individuel (présentiel ou visio)",
         "Test de positionnement (langues ou logique selon filière)"
       ],
-      fees: "30000",
+      fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
       scholarships: true,
       contact: {
         phone: "+212 5 22 27 96 02",

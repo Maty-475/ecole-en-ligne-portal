@@ -121,13 +121,13 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
                       
                       {parcoursRegistrationInfo.fees && (
                         <div className="mb-2">
-                          <span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees} MAD
+                          <span className="font-semibold">Frais de Scolarité et D'inscription :</span> {parcoursRegistrationInfo.fees}
                         </div>
                       )}
                       
                       {parcoursRegistrationInfo.scholarships && (
                         <div className="mb-2">
-                          <span className="font-semibold">Bourses disponibles :</span> Oui
+                          <span className="font-semibold">Bourses disponibles :</span> Vérifier à l'école
                         </div>
                       )}
                     </div>

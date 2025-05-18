@@ -9,7 +9,7 @@ interface SchoolCardProps {
 
 const SchoolCard: React.FC<SchoolCardProps> = ({ school }) => {
   // Obtenir les parcours uniques des programmes de l'école
-  const schoolParcours = [...new Set(school.programs.map(program => program.parcours))];
+  const schoolParcours = [...new Set(school.programs.map(program => program.niveau))];
   
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 animate-fade-in">
