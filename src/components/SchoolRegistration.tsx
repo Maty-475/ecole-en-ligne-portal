@@ -29,8 +29,16 @@ interface SchoolRegistrationProps {
 }
 
 const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, registrationInfo }) => {
-  // Obtenir les parcours uniques pour cette école
-  const schoolParcours = [...new Set(programs.map(program => program.parcours))];
+  // Les parcours standardisés comme demandé
+  const standardParcours = ["Technicien", "Technicien Spécialisé", "Licence", "Master"];
+  
+  // Filtrer pour n'afficher que les parcours qui existent dans cette école
+  const availableParcours = standardParcours.filter(parcours => 
+    programs.some(program => program.parcours === parcours)
+  );
+  
+  // Si aucun parcours standardisé n'est trouvé, utiliser "Tous les parcours"
+  const schoolParcours = availableParcours.length > 0 ? availableParcours : ["Tous les parcours"];
   
   return (
     <section className="bg-white rounded-lg shadow-md p-6">
@@ -52,7 +60,8 @@ const SchoolRegistration: React.FC<SchoolRegistrationProps> = ({ programs, regis
         </TabsList>
         
         {schoolParcours.map(parcours => {
-          // Utiliser les informations d'inscription spécifiques au parcours
+          // Utiliser les informations d'inscription spécifiques au parcours si disponibles,
+          // sinon utiliser les informations générales "Tous les parcours"
           const parcoursRegistrationInfo = registrationInfo[parcours] || registrationInfo["Tous les parcours"] || {};
           
           return (

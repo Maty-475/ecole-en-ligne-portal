@@ -71,24 +71,54 @@ const SchoolDetail: React.FC = () => {
     .slice(0, 3);
   
   // Adapter les programmes pour les composants en conservant toutes les données
-  const programsForComponents: ProgramForComponent[] = school.programs.map(program => ({
-    id: Math.random().toString(36).substring(2, 9),
-    name: program.name,
-    description: program.description,
-    category: program.category,
-    parcours: program.parcours,
-    cycle: program.cycle,
-    niveau: program.niveau,
-    duration: program.duration,
-    diploma: program.diploma,
-    debouche: program.opportunities && program.opportunities.length > 0 ? program.opportunities.join(", ") : "",
-    admissionRequirements: program.admissionRequirements,
-    objectives: program.objectives,
-    skillsDeveloped: program.skillsDeveloped
-  }));
+  // et en standardisant les parcours comme demandé
+  const programsForComponents: ProgramForComponent[] = school.programs.map(program => {
+    // Standardiser le parcours en fonction du niveau
+    let standardParcours = program.niveau;
+    if (!["Technicien", "Technicien Spécialisé", "Licence", "Master"].includes(program.niveau)) {
+      // Utiliser le cycle si le niveau n'est pas standard
+      if (program.cycle === "Technicien") {
+        standardParcours = "Technicien";
+      } else if (program.cycle === "Cycle Initial") {
+        standardParcours = "Technicien Spécialisé";
+      } else if (program.cycle === "Licence") {
+        standardParcours = "Licence";
+      } else if (program.cycle === "Master") {
+        standardParcours = "Master";
+      } else {
+        // Par défaut, utiliser le parcours existant ou "Autres"
+        standardParcours = program.parcours;
+      }
+    }
+
+    return {
+      id: Math.random().toString(36).substring(2, 9),
+      name: program.name,
+      description: program.description,
+      category: program.category,
+      parcours: standardParcours, // Utiliser le parcours standardisé
+      cycle: program.cycle,
+      niveau: program.niveau,
+      duration: program.duration,
+      diploma: program.diploma,
+      debouche: program.opportunities && program.opportunities.length > 0 ? program.opportunities.join(", ") : "",
+      admissionRequirements: program.admissionRequirements,
+      objectives: program.objectives,
+      skillsDeveloped: program.skillsDeveloped
+    };
+  });
   
-  // Passer les informations d'inscription complètes par parcours
-  const registrationInfoByParcours = school.registrationInfo;
+  // Adapter les informations d'inscription pour qu'elles soient au bon format
+  const registrationInfoByParcours: Record<string, RegistrationInfoForComponent> = {};
+  
+  // Convertir les fees de number à string
+  for (const parcours in school.registrationInfo) {
+    const info = school.registrationInfo[parcours];
+    registrationInfoByParcours[parcours] = {
+      ...info,
+      fees: info.fees?.toString() || "",
+    };
+  }
   
   return (
     <div className="min-h-screen flex flex-col">

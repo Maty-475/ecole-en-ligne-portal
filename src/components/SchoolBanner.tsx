@@ -10,13 +10,16 @@ interface SchoolBannerProps {
 }
 
 const SchoolBanner: React.FC<SchoolBannerProps> = ({name, description, logo, website }) => {
+  // Vérifier si le chemin du logo commence par "/" pour s'assurer qu'il est bien relatif à la racine publique
+  const logoPath = logo.startsWith('/') ? logo : `/${logo}`;
+  
   return (
     <div className="bg-primary py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center mb-6">
           <div className="bg-white p-2 rounded-lg shadow-md mb-6 md:mb-0 md:mr-8">
            <img 
-             src={logo}  // "/Images/logo.jpg"
+             src={logoPath}
             alt={`Logo de ${name}`} 
             className="w-32 h-32 object-contain"
           />
