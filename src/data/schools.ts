@@ -82,6 +82,7 @@ export const niveau = [
   "Bachelor",
   "Master",
   "Ingénierie",
+  "Formation Continue",
   "Doctorat"
 ];
 
@@ -686,7 +687,7 @@ export const schools: School[] = [
   },
   {
     id: "EDD",
-    name: "EDD École des Déclarations des Douane",
+    name: "EDD École des Déclarations en Douane",
     description: "EDD s'est créée une très bonne reputation dans le domaine de la formation professionnelle grâce à son sérieux et à son corps professoral qui est constitué d'éminents formateurs... Avec une expertisse dans le domaine du transport, Logistiqueu, Douane, Gestion...",
     logo: "Images/EDD.jpg", 
     address: "12 Rue des Arts, 20000 Casablanca",
@@ -714,77 +715,77 @@ export const schools: School[] = [
       }
     },
     programs: [
-      {
-        name: "Design Graphique",
-        description: "Formation pour maîtriser les outils du design graphique, de la création de logos à la conception de supports de communication.",
-        category: "Arts",
-        parcours: "Design Graphique",
-        niveau: "Licence",
-        cycle: "Licence",
-        duration: "3 ans",
-        diploma: "Licence en Design Graphique",
-        admissionRequirements: ["Baccalauréat toutes séries", "Dossier de candidature", "Entretien de motivation", "Portfolio de travaux artistiques"],
-        objectives: ["Concevoir des logos et des identités visuelles", "Créer des supports de communication (affiches, brochures, packaging)", "Maîtriser les logiciels de création graphique (Photoshop, Illustrator, InDesign)", "Comprendre les principes de la typographie et de la couleur", "Développer un sens esthétique"],
-        skillsDeveloped: ["Design graphique", "Identité visuelle", "Communication visuelle", "Typographie", "Logiciels de création graphique"],
-        opportunities: ["Designer graphique", "Directeur artistique", "Concepteur de logos", "Illustrateur", "Responsable de communication visuelle"]
-      },
-      {
-        name: "Design Produit",
-        description: "Formation technique aux principes fondamentaux de conception de produits et prototypage pour futurs designers.",
-        category: "Arts",
-        parcours: "Design Produit",
-        niveau: "Technicien Spécialisé",
-        cycle: "Technicien",
-        duration: "2 ans",
-        diploma: "Diplôme de Technicien Spécialisé en Design Produit",
-        admissionRequirements: ["Niveau Baccalauréat", "Portfolio", "Test créatif"],
-        objectives: ["Concevoir des objets fonctionnels", "Réaliser des prototypes", "Comprendre les contraintes matérielles"],
-        skillsDeveloped: ["Dessin technique", "Modélisation 3D", "Prototypage", "Connaissance des matériaux"],
-        opportunities: ["Designer produit junior", "Prototypiste", "Assistant designer", "Maquettiste"]
-      },
-      {
-        name: "Architecture d'Intérieur",
-        description: "Formation pour concevoir et aménager des espaces intérieurs, de la planification à la réalisation des projets.",
-        category: "Arts",
-        parcours: "Architecture Intérieure",
-        niveau: "Licence",
-        cycle: "Licence",
-        duration: "3 ans",
-        diploma: "Licence en Architecture d'Intérieur",
-        admissionRequirements: ["Baccalauréat toutes séries", "Dossier de candidature", "Entretien de motivation", "Portfolio de travaux artistiques"],
-        objectives: ["Concevoir des plans d'aménagement", "Choisir les matériaux et les couleurs", "Créer des ambiances", "Gérer les projets d'aménagement", "Connaître les normes de sécurité"],
-        skillsDeveloped: ["Conception d'espaces", "Dessin technique", "Choix des matériaux", "Gestion de projet", "Normes de sécurité"],
-        opportunities: ["Architecte d'intérieur", "Décorateur", "Concepteur d'espaces", "Chef de projet aménagement", "Consultant en aménagement"]
-      },
-      {
-        name: "Design Digital",
-        description: "Formation pour concevoir des interfaces numériques innovantes et intuitives, de la conception à la réalisation des projets.",
-        category: "Arts",
-        parcours: "Design Digital",
-        niveau: "Licence",
-        cycle: "Licence",
-        duration: "3 ans",
-        diploma: "Licence en Design Digital",
-        admissionRequirements: ["Baccalauréat toutes séries", "Dossier de candidature", "Entretien de motivation", "Portfolio de travaux artistiques"],
-        objectives: ["Concevoir des interfaces utilisateur (UI)", "Créer des expériences utilisateur (UX)", "Maîtriser les outils de prototypage", "Comprendre les principes de l'ergonomie", "Développer un sens esthétique"],
-        skillsDeveloped: ["Design d'interface utilisateur", "Expérience utilisateur", "Prototypage", "Ergonomie", "Logiciels de création digitale"],
-        opportunities: ["Designer UI", "Designer UX", "Chef de projet digital", "Consultant en design digital", "Directeur artistique digital"]
-      },
-      {
-        name: "Design Thinking et Innovation",
-        description: "Formation spécialisée pour professionnels souhaitant intégrer la méthodologie design thinking dans leurs projets.",
-        category: "Arts",
-        parcours: "Innovation par le Design",
-        niveau: "Formation Professionnelle",
-        cycle: "Formation Continue",
-        duration: "4 mois",
-        diploma: "Certificat en Design Thinking et Innovation",
-        admissionRequirements: ["Expérience professionnelle", "Lettre de motivation"],
-        objectives: ["Maîtriser la méthodologie design thinking", "Faciliter les ateliers d'idéation", "Mener des recherches utilisateurs"],
-        skillsDeveloped: ["Design thinking", "Co-création", "Prototypage rapide", "Test utilisateur", "Gestion de l'innovation"],
-        opportunities: ["Facilitateur design thinking", "Innovation manager", "Chef de projet innovation", "Consultant en design thinking"]
-      }
-    ]
+        {
+          name: "Technicien Déclarant en Douane",
+          description: "Prépare des professionnels capables de traiter les formalités douanières, optimiser les régimes suspensifs et sécuriser la chaîne d’approvisionnement internationale.",
+          category: "Douane & Commerce International",
+          parcours: "Déclarant en Douane",
+          niveau: "Technicien",
+          cycle: "Technicien",
+          duration: "2 ans",
+          diploma: "Diplôme de Technicien Déclarant en Douane",
+          admissionRequirements: ["Attestation de scolarité terminale", "Relevé de notes terminale", "Dossier + entretien"],
+          objectives: ["Remplir déclarations import-export", "Appliquer réglementations tarifaires", "Gérer régimes douaniers spéciaux", "Conseiller clients sur classification & origine"],
+          skillsDeveloped: ["Incoterms", "Tarif douanier harmonisé", "Système BADR/Bayan", "Gestion documentaire", "Veille réglementaire"],
+          opportunities: ["Déclarant en douane", "Agent transit", "Courtier en douane", "Assistant compliance trade"]
+        },
+        {
+          name: "Technicien Spécialisé – Gestion de Transport & Logistique",
+          description: "Forme des techniciens capables de planifier les opérations de transport, gérer les stocks et optimiser les coûts logistiques dans un contexte digitalisé.",
+          category: "Logistique & Transport",
+          parcours: "Gestion de Transport & Logistique",
+          niveau: "Technicien Spécialisé",
+          cycle: "Cycle Initial",
+          duration: "2 ans",
+          diploma: "Diplôme de Technicien Spécialisé GTL",
+          admissionRequirements: ["Baccalauréat toutes séries", "Relevés de notes Bac", "Dossier + test logique & entretien"],
+          objectives: ["Élaborer plans de transport", "Gérer entrepôts & stocks", "Planifier tournées via TMS/GPS", "Suivre indicateurs OTIF & coût/km"],
+          skillsDeveloped: ["TMS & WMS", "Optimisation de tournées", "Gestion d’inventaire", "Tableaux de bord logistiques", "Normes HSE transport"],
+          opportunities: ["Agent d’exploitation transport", "Gestionnaire entrepôt", "Assistant supply-chain", "Coordinateur logistique"]
+        },
+        {
+          name: "Licence Professionnelle – Transport & Logistique",
+          description: "Approfondit la conception de réseaux logistiques, la réglementation internationale et la maîtrise des outils numériques pour piloter la supply-chain.",
+          category: "Logistique",
+          parcours: "Transport & Logistique",
+          niveau: "Licence",
+          cycle: "Licence Professionnelle",
+          duration: "3 ans",
+          diploma: "Bachelor Européen Transport & Logistique",
+          admissionRequirements: ["Baccalauréat pour 3 ans ou Bac +2 pour entrée directe", "Dossier académique", "Entretien"],
+          objectives: ["Analyser coûts & flux", "Négocier contrats transport", "Mettre en œuvre logistique durable", "Utiliser outils APS & ERP"],
+          skillsDeveloped: ["Incoterms 2020", "Lean logistics", "ERP (SAP/Odoo)", "Data supply-chain", "Gestion des risques transport"],
+          opportunities: ["Responsable logistique junior", "Coordinateur import-export", "Planificateur supply-chain", "Acheteur transport"]
+        },
+        {
+          name: "Master Européen Logistique",
+          description: "Spécialise en stratégie supply-chain mondiale, digitalisation 4.0 et logistique verte pour répondre aux défis de la compétitivité et du développement durable.",
+          category: "Logistique & Supply Chain",
+          parcours: "Supply Chain Strategy",
+          niveau: "Master",
+          cycle: "Master",
+          duration: "5 ans",
+          diploma: "Master Européen Logistique",
+          admissionRequirements: ["Licence logistique ou génie industriel", "Test maths/statistiques", "Dossier + entretien"],
+          objectives: ["Concevoir réseaux logistiques internationaux", "Optimiser flux physiques & informationnels", "Intégrer technologies 4.0 (IoT, blockchain)", "Mettre en œuvre logistique durable"],
+          skillsDeveloped: ["APS & Demand planning", "Lean Six Sigma", "ERP/SAP WM", "Transport multimodal", "IoT & data supply-chain"],
+          opportunities: ["Supply-chain manager", "Consultant logistique", "Responsable entrepôt", "Directeur opérations"]
+        },
+        {
+          name: "Formation Entreprise – Logistique & Douane",
+          description: "Parcours court et modulable destiné aux salariés et cadres visant à mettre à jour leurs compétences en gestion douanière, incoterms et optimisation logistique.",
+          category: "Formation Continue",
+          parcours: "Logistique & Douane",
+          niveau: "Formation Entreprise",
+          cycle: "Formation Continue",
+          duration: "3–6 mois (modules à la carte)",
+          diploma: "Certificat Professionnel Logistique & Douane",
+          admissionRequirements: ["Expérience ≥ 1 an supply-chain", "Formulaire d’inscription", "Accord employeur (le cas échéant)"],
+          objectives: ["Actualiser connaissances Incoterms & TARIC", "Réduire coûts de dédouanement", "Améliorer processus transport & entrepôt", "Mettre en place KPI & audit logistique"],
+          skillsDeveloped: ["Compliance douanière", "Pilotage KPI", "Process mapping", "Digitalisation flux EDI", "Management HSE transport"],
+          opportunities: ["Évolution interne responsable douane", "Chef de projet amélioration continue", "Consultant logistique", "Coordinateur conformité"]
+        }
+]
   },
   {
     id: "IBEGIS",
