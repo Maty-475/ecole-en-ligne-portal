@@ -686,8 +686,8 @@ export const schools: School[] = [
   },
   {
     id: "EDD",
-    name: "EDD École de Design",
-    description: "Une école innovante spécialisée dans les arts graphiques, le design et les disciplines créatives, formant les talents de demain.",
+    name: "EDD École des Déclarations des Douane",
+    description: "EDD s'est créée une très bonne reputation dans le domaine de la formation professionnelle grâce à son sérieux et à son corps professoral qui est constitué d'éminents formateurs... Avec une expertisse dans le domaine du transport, Logistiqueu, Douane, Gestion...",
     logo: "Images/EDD.jpg", 
     address: "12 Rue des Arts, 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
