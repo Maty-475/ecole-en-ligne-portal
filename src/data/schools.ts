@@ -141,7 +141,7 @@ export const schools: School[] = [
         category: "Informatique",
         parcours: "Technicien Spécialisé Développement",
         niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
+        cycle: "Technicien Spécialisé",
         duration: "2 ans",
         diploma: "Diplôme de Technicien Spécialisé en Développement Informatique",
         admissionRequirements: ["Baccalauréat scientifique ou technique", "Dossier de candidature", "Test logique & motivation", "Entretien"], objectives: ["Maîtriser les langages front-end et back-end", "Concevoir des bases de données", "Utiliser frameworks MVC & API REST", "Déployer et maintenir des applications"], skillsDeveloped: ["Programmation orientée objet", "Frameworks (Laravel, Spring, .NET)", "SQL / NoSQL", "Versioning (Git)", "Tests unitaires"], opportunities: ["Développeur full-stack", "Intégrateur web", "Testeur logiciel", "Assistant chef de projet IT"]
@@ -152,7 +152,7 @@ export const schools: School[] = [
         category: "Informatique",
         parcours: "Technicien Spécialisé Réseaux",
         niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
+        cycle: "Technicien Spécialisé",
         duration: "2 ans",
         diploma: "Diplôme de Technicien Spécialisé en Systèmes & Réseaux",
         admissionRequirements: ["Baccalauréat scientifique/technique", "Dossier + entretien", "Test réseau de base"], objectives: ["Installer et configurer serveurs Windows/Linux", "Déployer des réseaux LAN/WAN sécurisés", "Gérer AD, DNS, DHCP", "Mettre en place sauvegarde & cybersécurité"], skillsDeveloped: ["TCP/IP & routage", "Virtualisation", "Firewall & VLAN", "Monitoring réseau", "Scripts d’automatisation"], opportunities: ["Administrateur systèmes", "Technicien réseau", "Support IT N2", "Assistant ingénieur sécurité"]
@@ -163,7 +163,7 @@ export const schools: School[] = [
         category: "Gestion Financière",
         parcours: "Technicien Spécialisé Finance-Comptabilité",
         niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
+        cycle: "Technicien Spécialisé",
         duration: "2 ans",
         diploma: "Diplôme de Technicien Spécialisé en Finance & Comptabilité",
         admissionRequirements: ["Bac économique ou scientifique", "Dossier scolaire", "Test de math financières", "Entretien"], objectives: ["Tenir la comptabilité générale et analytique", "Établir bilans et comptes de résultat", "Réaliser déclarations fiscales", "Assister contrôle de gestion"], skillsDeveloped: ["Plan comptable marocain & IFRS", "ERP (Sage…)", "Analyse financière", "Gestion de trésorerie", "Paie"], opportunities: ["Comptable", "Assistant financier", "Gestionnaire de paie", "Aide-contrôleur de gestion"]
@@ -469,25 +469,20 @@ export const schools: School[] = [
   },
   {
     id: "Best-Institut",
-    name: "Best Institut Formation Professionnelle Privée",
-    description: "Formation d'excellence en commerce, Comptabilité, marketing international Infographie, Multimédia, Programmation etc avec un accent sur un bonne application.",
+    name: "Best Institut ECOLE DE FORMATION PROFESSIONELLE PRIVÉE",
+    description: "BEST INSTITUT porte une attention particulière sur l’avenir de ses étudiants, et leurs responsabilités. C’est pourquoi, nous mettons tout en œuvre pour donner à chacun un métier, mais aussi une vraie capacité d’intégration professionnelle en lui assurant une meilleure opportunité de recrutement en entreprise.",
     logo: "Images/Best.png", 
-    address: "45 Boulevard du Commerce, 20000 Casablanca",
+    address: "95 Bd Mohammed V, Casablanca 20250",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
-      phone: "+212 5 22 44 88 00",
-      email: "contact@best-institut.ma",
-      website: "www.best-institut.ma"
+      phone: "+212 5 22 54 15 47",
+      email: "Contact@bestinstitut.com",
+      website: "bestinstitut.com"
     },
     registrationInfo: {
       "Tous les parcours": {
         description: "Les inscriptions sont ouvertes toute l'année, mais il est conseillé de s'inscrire avant le début des sessions pour garantir une place. Les dossiers peuvent être soumis en ligne ou directement au bureau des admissions.",
-        procedure: [
-          "Remplir le formulaire de candidature en ligne",
-          "Soumettre les copies certifiées conformes des diplômes",
-          "Fournir une pièce d'identité",
-          "Payer les frais d'inscription"
-        ],
+        procedure: ["Remplir le formulaire de candidature en ligne", "Soumettre les copies certifiées conformes des diplômes", "Fournir une pièce d'identité", "Payer les frais d'inscription" ],
         fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
         scholarships: false,
         contact: {
@@ -497,90 +492,210 @@ export const schools: School[] = [
       }
     },
     programs: [
-      {
-        name: "Techniques de Commerce International",
-        description: "Formation pratique pour maîtriser les techniques du commerce international, de l'import-export à la gestion des douanes.",
-        category: "Commerce",
-        parcours: "Commerce International",
-        niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
-        duration: "2 ans",
-        diploma: "Diplôme de Technicien Spécialisé en Commerce International",
-        admissionRequirements: ["Baccalauréat toutes séries", "Test d'admission", "Entretien de motivation"],
-        objectives: ["Connaître les réglementations du commerce international", "Gérer les opérations d'import-export", "Négocier avec les fournisseurs et les clients étrangers", "Utiliser les outils du commerce international"],
-        skillsDeveloped: ["Commerce international", "Marketing international", "Gestion des douanes", "Négociation", "Langues étrangères"],
-        opportunities: ["Agent commercial international", "Responsable import-export", "Assistant commercial international", "Consultant en commerce international"]
-      },
-      {
-        name: "Technicien en Comptabilité",
-        description: "Formation technique aux principes fondamentaux de la comptabilité et aux logiciels de gestion comptable.",
-        category: "Comptabilité",
-        parcours: "Comptabilité",
-        niveau: "Technicien",
-        cycle: "Technicien",
-        duration: "2 ans",
-        diploma: "Diplôme de Technicien en Comptabilité",
-        admissionRequirements: ["Niveau Baccalauréat", "Test d'admission"],
-        objectives: ["Maîtriser les principes comptables", "Utiliser les logiciels de comptabilité", "Préparer les états financiers de base"],
-        skillsDeveloped: ["Comptabilité générale", "Fiscalité de base", "Logiciels comptables", "Gestion administrative"],
-        opportunities: ["Assistant comptable", "Aide-comptable", "Gestionnaire administratif"]
-      },
-      {
-        name: "Comptabilité et Finance d'Entreprise",
-        description: "Formation pour acquérir les compétences nécessaires pour gérer la comptabilité et les finances d'une entreprise, de la tenue des comptes à l'analyse financière.",
-        category: "Comptabilité",
-        parcours: "Comptabilité et Finance",
-        niveau: "Licence",
-        cycle: "Licence",
-        duration: "3 ans",
-        diploma: "Licence en Comptabilité et Finance d'Entreprise",
-        admissionRequirements: ["Baccalauréat scientifique ou économique", "Dossier de candidature", "Test d'admission", "Entretien de motivation"],
-        objectives: ["Tenir la comptabilité d'une entreprise", "Établir les états financiers", "Analyser les performances financières", "Gérer la trésorerie", "Contrôler les coûts"],
-        skillsDeveloped: ["Comptabilité générale", "Comptabilité analytique", "Analyse financière", "Gestion de la trésorerie", "Contrôle de gestion"],
-        opportunities: ["Comptable", "Assistant comptable", "Contrôleur de gestion", "Analyste financier", "Auditeur financier"]
-      },
-      {
-        name: "Master Finance et Audit",
-        description: "Formation avancée en finance d'entreprise et audit financier pour les futurs experts-comptables et auditeurs.",
-        category: "Finances",
-        parcours: "Finance et Audit",
-        niveau: "Master",
-        cycle: "Master",
-        duration: "2 ans",
-        diploma: "Master en Finance et Audit",
-        admissionRequirements: ["Licence en comptabilité ou finance", "Dossier académique", "Entretien"],
-        objectives: ["Maîtriser les normes d'audit internationales", "Élaborer des stratégies financières", "Évaluer les risques financiers"],
-        skillsDeveloped: ["Audit financier", "Consolidation", "Normes IFRS", "Contrôle interne", "Finance d'entreprise avancée"],
-        opportunities: ["Auditeur financier", "Contrôleur financier", "Expert-comptable stagiaire", "Consultant financier"]
-      },
-      {
-        name: "Infographie et Multimédia",
-        description: "Formation pour maîtriser les outils de création graphique et multimédia, de la conception visuelle à la réalisation de projets interactifs.",
-        category: "Multimédia",
-        parcours: "Infographie et Multimédia",
-        niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
-        duration: "2 ans",
-        diploma: "Diplôme de Technicien Spécialisé en Infographie et Multimédia",
-        admissionRequirements: ["Baccalauréat toutes séries", "Dossier de candidature", "Test d'admission", "Entretien de motivation"],
-        objectives: ["Concevoir des supports visuels (logos, affiches, brochures)", "Réaliser des animations 2D et 3D", "Créer des sites web interactifs", "Monter des vidéos", "Utiliser les logiciels de création graphique (Photoshop, Illustrator, InDesign)"],
-        skillsDeveloped: ["Conception graphique", "Web design", "Animation", "Montage vidéo", "Utilisation des logiciels de création graphique"],
-        opportunities: ["Infographiste", "Web designer", "Animateur", "Monteur vidéo", "Directeur artistique"]
-      },
-      {
-        name: "Transformation Digitale des Entreprises",
-        description: "Formation continue pour cadres souhaitant piloter la transformation numérique de leur organisation.",
-        category: "Management Informatique",
-        parcours: "Transformation Digitale",
-        niveau: "Formation Professionnelle",
-        cycle: "Formation Continue",
-        duration: "1 an (temps partiel)",
-        diploma: "Certificat de Formation en Transformation Digitale",
-        admissionRequirements: ["Expérience professionnelle", "Poste de management", "Entretien"],
-        objectives: ["Comprendre les enjeux de la digitalisation", "Élaborer une stratégie de transformation", "Gérer le changement organisationnel"],
-        skillsDeveloped: ["Stratégie digitale", "Change management", "Innovation digitale", "Leadership transformationnel"],
-        opportunities: ["Chief Digital Officer", "Responsable transformation digitale", "Consultant en transformation"]
-      }
+     /* ─────────────  TECHNICIENS  ───────────── */
+
+  {
+    name: "Technicien Gestion Informatisée",
+    description: "Initie à l’administration de bases de données, aux ERP et à la bureautique avancée pour gérer les informations de l’entreprise.",
+    category: "Gestion Informatisée",
+    parcours: "Technicien Gestion Informatisée",
+    niveau: "Technicien",
+    cycle: "Technicien",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien en Gestion Informatisée",
+    admissionRequirements: ["Attestation de scolarité terminale", "Relevé de notes terminale", "Dossier + entretien"],
+    objectives: ["Créer bases de données Access/SQL", "Automatiser reporting Excel/Power Query", "Assurer support utilisateurs", "Paramétrer modules ERP"],
+    skillsDeveloped: ["SQL basique", "Suite Office avancée", "ERP (Odoo/SAGE)", "Gestion documentaire", "Support help-desk"],
+    opportunities: ["Assistant ERP", "Technicien support", "Gestionnaire base de données", "Opérateur saisie"]
+  },
+  {
+    name: "Technicien en Infographie",
+    description: "Forme à la création de supports visuels (print & digital), au pré-presse et à la retouche photo pour la communication graphique.",
+    category: "Arts Graphiques",
+    parcours: "Infographie",
+    niveau: "Technicien",
+    cycle: "Technicien",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien Infographiste",
+    admissionRequirements: ["Attestation de scolarité terminale", "Portfolio créatif", "Dossier + entretien"],
+    objectives: ["Concevoir affiches et brochures", "Maîtriser chaîne graphique", "Préparer fichiers pour impression", "Adapter visuels aux réseaux sociaux"],
+    skillsDeveloped: ["Adobe Photoshop", "Illustrator", "InDesign", "Colorimétrie", "PAO"],
+    opportunities: ["Infographiste", "Opérateur PAO", "Assistant studio créa", "Designer visuel junior"]
+  },
+  {
+    name: "Technicien Action Commerciale & Marketing",
+    description: "Prépare des commerciaux capables de prospecter, négocier et promouvoir des offres grâce aux techniques de vente et outils CRM.",
+    category: "Commerce & Marketing",
+    parcours: "Action Commerciale",
+    niveau: "Technicien",
+    cycle: "Technicien",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien Action Commerciale & Marketing",
+    admissionRequirements: ["Attestation de scolarité terminale", "Relevé de notes terminale", "Dossier + entretien"],
+    objectives: ["Identifier prospects", "Conduire argumentaire de vente", "Gérer portefeuille clients", "Renseigner données CRM"],
+    skillsDeveloped: ["Techniques de vente", "CRM (HubSpot)", "Prospection téléphonique", "Négociation", "Reporting ventes"],
+    opportunities: ["Commercial terrain", "Télé-conseiller", "Assistant marketing", "Chargé clientèle"]
+  },
+
+  /* ─────────────  TECHNICIENS SPÉCIALISÉS  ───────────── */
+
+  {
+    name: "Technicien Spécialisé Finance & Comptabilité",
+    description: "Développe les compétences pour gérer la comptabilité générale, établir les états financiers et réaliser l’analyse budgétaire.",
+    category: "Gestion Financière",
+    parcours: "Finance & Comptabilité",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Finance & Comptabilité",
+    admissionRequirements: ["Baccalauréat (toutes séries)", "Relevés de notes Bac", "Dossier + entretien"],
+    objectives: ["Tenir comptabilité journalière", "Établir bilans & liasses fiscales", "Analyser coûts & marges", "Utiliser logiciels comptables"],
+    skillsDeveloped: ["SAGE Comptabilité", "Fiscalité", "Analyse financière", "Tableaux de bord", "Paie"],
+    opportunities: ["Comptable", "Assistant financier", "Gestionnaire paie", "Technicien audit"]
+  },
+  {
+    name: "Technicien Spécialisé Commerce International",
+    description: "Forme à la gestion des opérations import-export, négociation internationale et logistique douanière.",
+    category: "Commerce International",
+    parcours: "Commerce International",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Commerce International",
+    admissionRequirements: ["Baccalauréat", "Relevés Bac", "Dossier + entretien"],
+    objectives: ["Préparer documents douaniers", "Négocier contrats d’achat/vente", "Maîtriser Incoterms", "Suivre acheminement des marchandises"],
+    skillsDeveloped: ["Tarif douanier", "Incoterms 2020", "Anglais affaires", "Gestion transit", "Commerce digital B2B"],
+    opportunities: ["Agent export", "Assistant achat international", "Déclarant transit", "Commercial import-export"]
+  },
+  {
+    name: "Technicien Spécialisé Développement Multimédia",
+    description: "Apprend à concevoir sites web interactifs, animations et contenus digitaux via les langages front-end et outils de motion design.",
+    category: "Multimédia",
+    parcours: "Développement Multimédia",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Développement Multimédia",
+    admissionRequirements: ["Baccalauréat", "Test logique/HTML-CSS", "Dossier + entretien"],
+    objectives: ["Développer front-end responsive", "Intégrer animations CSS/GSAP", "Optimiser UX/UI", "Gérer CMS WordPress"],
+    skillsDeveloped: ["HTML/CSS/JS", "React basics", "Figma", "After Effects", "SEO technique"],
+    opportunities: ["Développeur web junior", "Intégrateur front-end", "Webdesigner", "Animateur digital"]
+  },
+
+  /* ─────────────  BACHELOR (LICENCE PRO)  ───────────── */
+
+  {
+    name: "Bachelor Gestion & Management de la Distribution",
+    description: "Prépare à la gestion d’unités commerciales (GMS/retail) : merchandising, supply-chain et management d’équipe.",
+    category: "Commerce & Distribution",
+    parcours: "Retail Management",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Retail Management",
+    admissionRequirements: ["Baccalauréat pour 3 ans ou Bac +2 commerce pour entrée directe", "Dossier + entretien"],
+    objectives: ["Optimiser linéaires & merchandising", "Gérer stocks magasin", "Analyser KPI retail", "Animer équipe de vente"],
+    skillsDeveloped: ["Merchandising", "Gestion point de vente", "Tableaux de bord retail", "Lean store", "Leadership"],
+    opportunities: ["Chef de rayon", "Manager de magasin", "Responsable approvisionnement", "Category manager"]
+  },
+  {
+    name: "Bachelor Management & Gestion des PME",
+    description: "Donne les outils pour piloter la stratégie, la finance et les RH d’une petite ou moyenne entreprise.",
+    category: "Gestion d’Entreprise",
+    parcours: "Management PME",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Management PME",
+    admissionRequirements: ["Baccalauréat ou Bac +2 gestion", "Dossier + entretien"],
+    objectives: ["Élaborer business-plan", "Gérer trésorerie", "Superviser obligations légales", "Manager équipes"],
+    skillsDeveloped: ["Comptabilité PME", "Tableaux de bord", "Droit des affaires", "GRH", "Outils collaboratifs"],
+    opportunities: ["Assistant manager", "Chef de projet PME", "Responsable administratif", "Adjoint de direction"]
+  },
+  {
+    name: "Bachelor Webmaster",
+    description: "Forme à la création, la maintenance et l’optimisation de sites web, incluant HTML/CSS, CMS et web-analytics.",
+    category: "Web & Digital",
+    parcours: "Webmaster",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Webmaster",
+    admissionRequirements: ["Baccalauréat ou Bac +2 informatique", "Dossier + test web", "Entretien"],
+    objectives: ["Intégrer maquettes web", "Administrer CMS", "Optimiser performance & SEO", "Mettre en place tracking analytics"],
+    skillsDeveloped: ["HTML/CSS/JS", "WordPress/Drupal", "SEO on-page", "Google Analytics", "Git"],
+    opportunities: ["Webmaster", "Intégrateur web", "Administrateur CMS", "Consultant SEO junior"]
+  },
+  {
+    name: "Bachelor Informatique & Réseaux",
+    description: "Couvre réseaux, systèmes et développement pour administrer infrastructures IT et assurer la cybersécurité.",
+    category: "Informatique & Réseaux",
+    parcours: "IT Networks",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Informatique & Réseaux",
+    admissionRequirements: ["Baccalauréat scientifique/technique ou Bac +2 IT", "Test technique réseau", "Entretien"],
+    objectives: ["Installer équipements Cisco/HP", "Mettre en place VLAN/VPN", "Détecter intrusions", "Superviser SI"],
+    skillsDeveloped: ["Switching & routing", "Linux server", "Firewalling", "Scripting Bash/Python", "Monitoring"],
+    opportunities: ["Admin réseau junior", "Technicien sécurité", "Support NOC", "Opérateur SOC niveau 1"]
+  },
+  {
+    name: "Bachelor Marketing",
+    description: "Explore le marketing stratégique et opérationnel, l’étude de marché et la communication digitale.",
+    category: "Marketing",
+    parcours: "Marketing",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Marketing",
+    admissionRequirements: ["Baccalauréat ou Bac +2 commerce/marketing", "Dossier + entretien"],
+    objectives: ["Réaliser études de marché", "Élaborer mix-marketing", "Piloter campagnes 360°", "Mesurer ROI"],
+    skillsDeveloped: ["Études quantitatives", "Plan marketing", "CRM", "SEO/SEA basics", "Data-visualisation"],
+    opportunities: ["Assistant marketing", "Chef de produit junior", "Chargé communication", "Traffic manager"]
+  },
+  {
+    name: "Bachelor Transport & Logistique",
+    description: "Prépare à l’organisation des flux, la réglementation internationale et l’optimisation des coûts logistiques.",
+    category: "Logistique",
+    parcours: "Transport & Logistique",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Transport & Logistique",
+    admissionRequirements: ["Baccalauréat ou Bac +2 logistique", "Dossier + entretien"],
+    objectives: ["Planifier transport multimodal", "Optimiser stockage", "Gérer incoterms & douane", "Mettre en place KPIs supply-chain"],
+    skillsDeveloped: ["TMS/WMS", "Gestion stock", "Incoterms 2020", "Lean logistics", "Data supply-chain"],
+    opportunities: ["Coordinateur logistique", "Agent transit", "Planificateur supply-chain", "Acheteur transport"]
+  },
+  {
+    name: "Bachelor Finance",
+    description: "Initie aux fondamentaux de la comptabilité, de la gestion de trésorerie et de l’analyse financière.",
+    category: "Finance",
+    parcours: "Finance d’Entreprise",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Finance",
+    admissionRequirements: ["Baccalauréat ou Bac +2 économie/gestion", "Test logique", "Entretien"],
+    objectives: ["Tenir comptabilité", "Établir états financiers", "Analyser ratios", "Gérer trésorerie"],
+    skillsDeveloped: ["Comptabilité générale", "Excel avancé", "Analyse financière", "Budget", "Fiscalité de base"],
+    opportunities: ["Assistant comptable", "Analyste junior", "Contrôleur de gestion junior", "Caissier back-office banque"]
+  },
+  {
+    name: "Bachelor Techniques Numériques & Multimédia",
+    description: "Combine développement web, audiovisuel et design interactif pour produire des contenus innovants.",
+    category: "Multimédia",
+    parcours: "Techniques Numériques",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Multimédia",
+    admissionRequirements: ["Baccalauréat ou Bac +2 multimédia/design", "Portfolio digital", "Entretien"],
+    objectives: ["Développer sites & apps", "Créer vidéos & motion design", "Intégrer AR/VR", "Gérer projet multimédia"],
+    skillsDeveloped: ["HTML/CSS/JS", "Premiere/After Effects", "3D basics", "UX/UI", "Gestion projet agile"],
+    opportunities: ["Développeur multimédia", "Webdesigner", "Motion designer", "Chef de projet digital junior"]
+  }
     ]
   },
   {
@@ -593,7 +708,7 @@ export const schools: School[] = [
     contact: {
       phone: "+212 5 22 26 54 98",
       email: "contact@cesa.ma",
-      website: "www.cesa.ma"
+      website: "cesasup.ma"
     },
     registrationInfo: {
       "Tous les parcours": {
@@ -613,76 +728,269 @@ export const schools: School[] = [
       }
     },
     programs: [
-      {
-        name: "Techniques Commerciales",
-        description: "Formation pratique aux techniques de vente et négociation commerciale pour futurs commerciaux et responsables des ventes.",
-        category: "Commerce",
-        parcours: "Commercial",
-        niveau: "Technicien",
-        cycle: "Technicien",
-        duration: "2 ans",
-        diploma: "Diplôme de Technicien en Techniques Commerciales",
-        admissionRequirements: ["Niveau Baccalauréat", "Entretien de motivation"],
-        objectives: ["Maîtriser les techniques de vente", "Gérer un portefeuille clients", "Négocier efficacement"],
-        skillsDeveloped: ["Prospection commerciale", "Techniques de vente", "CRM", "Communication commerciale"],
-        opportunities: ["Commercial", "Représentant", "Assistant commercial", "Conseiller de vente"]
-      },
-      {
-        name: "Marketing et Communication",
-        description: "Formation pour maîtriser les techniques du marketing et de la communication, de la stratégie à la mise en œuvre des campagnes.",
-        category: "Marketing",
-        parcours: "Marketing et Communication",
-        niveau: "Licence",
-        cycle: "Licence",
-        duration: "3 ans",
-        diploma: "Licence en Marketing et Communication",
-        admissionRequirements: ["Baccalauréat toutes séries", "Dossier de candidature", "Test d'admission", "Entretien de motivation"],
-        objectives: ["Élaborer des stratégies marketing", "Mettre en œuvre des campagnes de communication", "Gérer la relation client", "Analyser les données marketing", "Utiliser les outils du marketing digital"],
-        skillsDeveloped: ["Marketing stratégique", "Marketing opérationnel", "Communication", "Marketing digital", "Gestion de la relation client"],
-        opportunities: ["Chargé de marketing", "Chargé de communication", "Chef de produit", "Responsable marketing", "Consultant en marketing"]
-      },
-      {
-        name: "Management des Ressources Humaines",
-        description: "Formation pour acquérir les compétences nécessaires pour gérer les ressources humaines d'une entreprise, du recrutement à la formation en passant par la gestion des carrières.",
-        category: "Ressources Humaines",
-        parcours: "Management des RH",
-        niveau: "Master",
-        cycle: "Master",
-        duration: "2 ans",
-        diploma: "Master en Management des Ressources Humaines",
-        admissionRequirements: ["Licence en gestion ou équivalent", "Dossier de candidature", "Test d'admission", "Entretien de motivation"],
-        objectives: ["Recruter les meilleurs talents", "Former et développer les compétences des collaborateurs", "Gérer les carrières", "Mettre en place une politique de rémunération", "Gérer les relations sociales"],
-        skillsDeveloped: ["Recrutement", "Formation", "Gestion des carrières", "Rémunération", "Relations sociales"],
-        opportunities: ["Responsable des ressources humaines", "Chargé de recrutement", "Responsable formation", "Consultant en ressources humaines", "Directeur des ressources humaines"]
-      },
-      {
-        name: "Finance et Contrôle de Gestion",
-        description: "Formation pour maîtriser les outils de la finance et du contrôle de gestion, de l'analyse financière à la gestion budgétaire.",
-        category: "Finances",
-        parcours: "Finance et Contrôle",
-        niveau: "Master",
-        cycle: "Master",
-        duration: "2 ans",
-        diploma: "Master en Finance et Contrôle de Gestion",
-        admissionRequirements: ["Licence en économie ou gestion", "Dossier de candidature", "Test d'admission", "Entretien de motivation"],
-        objectives: ["Analyser les états financiers", "Élaborer des budgets", "Contrôler les coûts", "Gérer la trésorerie", "Évaluer les investissements"],
-        skillsDeveloped: ["Analyse financière", "Contrôle de gestion", "Gestion budgétaire", "Gestion de la trésorerie", "Évaluation des investissements"],
-        opportunities: ["Contrôleur de gestion", "Analyste financier", "Auditeur interne", "Directeur financier", "Consultant en finance"]
-      },
-      {
-        name: "Mini MBA en Management",
-        description: "Formation intensive pour cadres et dirigeants souhaitant renforcer leurs compétences en management général.",
-        category: "Management & Gestion",
-        parcours: "Executive Education",
-        niveau: "Formation Professionnelle",
-        cycle: "Formation Continue",
-        duration: "6 mois",
-        diploma: "Certificat Mini MBA",
-        admissionRequirements: ["5 ans d'expérience professionnelle", "Position managériale", "Entretien"],
-        objectives: ["Renforcer les compétences de leadership", "Développer une vision stratégique", "Maîtriser les fondamentaux du management"],
-        skillsDeveloped: ["Leadership", "Stratégie", "Finance pour managers", "Management d'équipe"],
-        opportunities: ["Évolution vers des postes de direction", "Transition professionnelle", "Entrepreneuriat"]
-      }
+       /* ─────────────  TECHNICIENS  ───────────── */
+
+  {
+    name: "Technicien Marketing & Action Commerciale",
+    description: "Initie aux techniques de prospection, de négociation et de promotion des ventes pour soutenir la force commerciale.",
+    category: "Commerce & Marketing",
+    parcours: "Action Commerciale",
+    niveau: "Technicien",
+    cycle: "Technicien",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien Marketing & Action Commerciale",
+    admissionRequirements: ["Attestation de scolarité terminale", "Relevé de notes terminale", "Dossier + entretien"],
+    objectives: ["Identifier prospects", "Conduire argumentaire de vente", "Renseigner CRM", "Suivre indicateurs de performance"],
+    skillsDeveloped: ["Techniques de vente", "CRM (HubSpot)", "Prospection téléphonique", "Négociation", "Reporting ventes"],
+    opportunities: ["Commercial terrain", "Télé-conseiller", "Assistant marketing", "Chargé clientèle"]
+  },
+  {
+    name: "Technicien Gestion Informatisée",
+    description: "Forme à la gestion de bases de données et à la bureautique avancée pour optimiser les flux d’information en entreprise.",
+    category: "Gestion Informatisée",
+    parcours: "Gestion Informatisée",
+    niveau: "Technicien",
+    cycle: "Technicien",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien en Gestion Informatisée",
+    admissionRequirements: ["Attestation de scolarité terminale", "Relevé de notes terminale", "Dossier + entretien"],
+    objectives: ["Créer bases SQL", "Automatiser reporting", "Assurer support utilisateurs", "Paramétrer modules ERP"],
+    skillsDeveloped: ["SQL basique", "Suite Office", "ERP (Odoo/Sage)", "Support help-desk", "Gestion documentaire"],
+    opportunities: ["Assistant ERP", "Technicien support", "Gestionnaire base de données", "Opérateur saisie"]
+  },
+  {
+    name: "Technicien Maintenance & Support Technique",
+    description: "Prépare à diagnostiquer et dépanner le matériel informatique, installer OS et assurer le support technique N1/N2.",
+    category: "Informatique",
+    parcours: "Maintenance IT",
+    niveau: "Technicien",
+    cycle: "Technicien",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien Maintenance & Support",
+    admissionRequirements: ["Attestation de scolarité terminale", "Test logique", "Dossier + entretien"],
+    objectives: ["Diagnostiquer pannes PC", "Installer systèmes Windows/Linux", "Assurer support utilisateurs", "Maintenir parc informatique"],
+    skillsDeveloped: ["Hardware PC", "Imaging & déploiement", "Ticketing (GLPI)", "Réseau de base", "Sécurité poste de travail"],
+    opportunities: ["Technicien help-desk", "Support N1", "Mainteneur parc IT", "Pré-installateur matériel"]
+  },
+
+  /* ─────────────  TECHNICIENS SPÉCIALISÉS  ───────────── */
+
+  {
+    name: "Technicien Spécialisé Analyste Marketing",
+    description: "Développe la capacité d’analyser données marché, segmenter clientèle et piloter campagnes ciblées.",
+    category: "Marketing",
+    parcours: "Analyse Marketing",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Analyste Marketing",
+    admissionRequirements: ["Baccalauréat", "Relevés Bac", "Dossier + entretien"],
+    objectives: ["Collecter data clients", "Construire tableaux de bord KPIs", "Réaliser études quantitatives", "Recommander actions marketing"],
+    skillsDeveloped: ["Excel/Power BI", "Statistiques SPSS", "Segmentation RFM", "Google Analytics", "Outils CRM"],
+    opportunities: ["Assistant études", "Analyste marketing junior", "Chargé data CRM", "Consultant études terrain"]
+  },
+  {
+    name: "Technicien Spécialisé Commerce International",
+    description: "Forme à la gestion des opérations import-export, négociation internationale et logistique douanière.",
+    category: "Commerce International",
+    parcours: "Commerce International",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Commerce International",
+    admissionRequirements: ["Baccalauréat", "Relevés Bac", "Dossier + entretien"],
+    objectives: ["Préparer documents douaniers", "Négocier contrats", "Maîtriser Incoterms", "Suivre transport international"],
+    skillsDeveloped: ["Tarif douanier", "Incoterms 2020", "Anglais affaires", "Gestion transit", "Commerce digital B2B"],
+    opportunities: ["Agent export", "Assistant achat international", "Déclarant transit", "Commercial import-export"]
+  },
+  {
+    name: "Technicien Spécialisé Finance & Comptabilité",
+    description: "Initie à la tenue de comptabilité, l’établissement des états financiers et l’analyse budgétaire.",
+    category: "Finance & Comptabilité",
+    parcours: "Finance & Comptabilité",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Finance & Comptabilité",
+    admissionRequirements: ["Baccalauréat", "Relevés Bac", "Dossier + entretien"],
+    objectives: ["Tenir comptabilité", "Établir bilans", "Analyser coûts", "Gérer paie"],
+    skillsDeveloped: ["Sage Comptabilité", "Fiscalité", "Analyse financière", "Tableaux de bord", "Paie"],
+    opportunities: ["Comptable", "Assistant financier", "Gestionnaire paie", "Technicien audit"]
+  },
+  {
+    name: "Technicien Spécialisé Systèmes & Réseaux Informatique",
+    description: "Couvre l’installation, la sécurisation et la supervision d’infrastructures réseau et serveurs.",
+    category: "Informatique & Réseaux",
+    parcours: "Systèmes & Réseaux",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Systèmes & Réseaux",
+    admissionRequirements: ["Baccalauréat scientifique/technique", "Test réseau", "Entretien"],
+    objectives: ["Configurer VLAN/VPN", "Administrer serveurs Windows/Linux", "Mettre en place sauvegardes", "Superviser réseau"],
+    skillsDeveloped: ["Switching & routing", "Active Directory", "Firewall", "Bash/Python", "Monitoring Zabbix"],
+    opportunities: ["Admin réseau junior", "Technicien sécurité", "Support NOC", "Opérateur SOC"]
+  },
+  {
+    name: "Technicien Spécialisé Marketing Digital",
+    description: "Apprend à déployer campagnes SEO/SEA, gérer réseaux sociaux et analyser données web.",
+    category: "Marketing Digital",
+    parcours: "Marketing Digital",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Marketing Digital",
+    admissionRequirements: ["Baccalauréat", "Portfolio digital", "Dossier + entretien"],
+    objectives: ["Optimiser SEO on/off page", "Gérer campagnes Google Ads", "Animer réseaux sociaux", "Mesurer KPIs"],
+    skillsDeveloped: ["SEO", "Google Ads", "Meta Business Suite", "Content marketing", "GA4"],
+    opportunities: ["Community manager", "Traffic manager", "Assistant SEA", "Chargé e-marketing"]
+  },
+  {
+    name: "Technicien Spécialisé Développeur Full Stack",
+    description: "Forme à la conception d’applications web front-end & back-end en environnement JavaScript.",
+    category: "Développement Web",
+    parcours: "Full-Stack JS",
+    niveau: "Technicien Spécialisé",
+    cycle: "Technicien Spécialisé",
+    duration: "2 ans",
+    diploma: "Diplôme TS Développeur Full Stack",
+    admissionRequirements: ["Baccalauréat", "Test logique/JS", "Dossier + entretien"],
+    objectives: ["Développer apps Node/Express", "Concevoir interfaces React", "Gérer bases MongoDB", "Déployer sur cloud"],
+    skillsDeveloped: ["HTML/CSS/JS", "React", "Node.js", "Git/GitHub", "CI/CD"],
+    opportunities: ["Développeur full-stack junior", "Intégrateur web", "DevOps junior", "Consultant JS"]
+  },
+
+  /* ─────────────  BACHELORS (LICENCE PRO)  ───────────── */
+
+  {
+    name: "Bachelor Informatique & Réseaux",
+    description: "Couvre réseaux, systèmes et cybersécurité pour administrer infrastructures IT complexes.",
+    category: "Informatique & Réseaux",
+    parcours: "IT Networks",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Informatique & Réseaux",
+    admissionRequirements: ["Bac scientifique/technique ou Bac +2 IT", "Test réseau", "Entretien"],
+    objectives: ["Installer équipements Cisco/HP", "Mettre en place VLAN/VPN", "Détecter intrusions", "Superviser SI"],
+    skillsDeveloped: ["Switching/routing", "Linux server", "Firewalling", "Scripting Bash/Python", "Monitoring"],
+    opportunities: ["Admin réseau junior", "Technicien sécurité", "Support NOC", "Opérateur SOC niveau 1"]
+  },
+  {
+    name: "Bachelor Marketing International",
+    description: "Développe les compétences pour élaborer stratégies marketing globales, adapter produits et gérer exportations.",
+    category: "Marketing International",
+    parcours: "Marketing International",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Marketing International",
+    admissionRequirements: ["Baccalauréat ou Bac +2 commerce/marketing", "Dossier + entretien"],
+    objectives: ["Analyser marchés étrangers", "Adapter mix-marketing", "Négocier contrats export", "Piloter communication interculturelle"],
+    skillsDeveloped: ["Études internationales", "Gestion export", "Anglais affaires", "Intercultural marketing", "CRM"],
+    opportunities: ["Assistant export", "Chef de produit junior", "Chargé marketing zone", "Commercial international"]
+  },
+  {
+    name: "Bachelor Transport Logistique",
+    description: "Forme à la planification des flux, à la réglementation internationale et aux outils digitaux de la supply-chain.",
+    category: "Logistique",
+    parcours: "Transport & Logistique",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Transport & Logistique",
+    admissionRequirements: ["Baccalauréat ou Bac +2 logistique", "Dossier + entretien"],
+    objectives: ["Planifier transport multimodal", "Optimiser stock", "Gérer incoterms & douane", "Mettre en place KPIs"],
+    skillsDeveloped: ["TMS/WMS", "Lean logistics", "Incoterms 2020", "Data supply-chain", "ERP"],
+    opportunities: ["Coordinateur logistique", "Agent transit", "Planificateur supply-chain", "Acheteur transport"]
+  },
+  {
+    name: "Bachelor Finance & Contrôle de Gestion",
+    description: "Apprend à maîtriser la comptabilité, l’analyse financière et le pilotage de la performance.",
+    category: "Finance",
+    parcours: "Finance & Contrôle",
+    niveau: "Licence",
+    cycle: "Licence Professionnelle",
+    duration: "3 ans",
+    diploma: "Bachelor Européen Finance & Contrôle",
+    admissionRequirements: ["Baccalauréat ou Bac +2 économie/gestion", "Test logique", "Entretien"],
+    objectives: ["Établir états financiers", "Analyser ratios", "Élaborer budgets", "Contrôler écarts"],
+    skillsDeveloped: ["Comptabilité générale", "Excel avancé", "Analyse financière", "Contrôle budgétaire", "Reporting"],
+    opportunities: ["Contrôleur de gestion junior", "Assistant comptable", "Analyste junior", "Auditeur interne"]
+  },
+
+  /* ─────────────  MASTERS  ───────────── */
+
+  {
+    name: "Master Informatique",
+    description: "Spécialise en développement logiciel, IA et cybersécurité pour concevoir des solutions innovantes.",
+    category: "Informatique",
+    parcours: "Master Informatique",
+    niveau: "Master",
+    cycle: "Master",
+    duration: "5 ans",
+    diploma: "Master Européen Informatique",
+    admissionRequirements: ["Licence informatique ou Bac +2 IT pour 3 ans", "Test technique", "Entretien"],
+    objectives: ["Concevoir architectures logicielles", "Implémenter IA & data science", "Sécuriser applications", "Gérer projets agiles"],
+    skillsDeveloped: ["Microservices", "Python/Java avancé", "Machine learning", "DevSecOps", "Cloud AWS/Azure"],
+    opportunities: ["Ingénieur logiciel", "Data engineer", "Consultant cybersécurité", "Chef de projet IT"]
+  },
+  {
+    name: "Master Management & Stratégie d’Entreprise",
+    description: "Prépare à piloter la stratégie, le changement organisationnel et la performance globale.",
+    category: "Management",
+    parcours: "Stratégie d’Entreprise",
+    niveau: "Master",
+    cycle: "Master",
+    duration: "5 ans",
+    diploma: "Master Européen Management & Stratégie",
+    admissionRequirements: ["Licence gestion ou Bac +2 pour 3 ans", "Dossier + entretien"],
+    objectives: ["Élaborer plans stratégiques", "Conduire changement", "Manager équipes pluridisciplinaires", "Gérer indicateurs de performance"],
+    skillsDeveloped: ["Diagnostic stratégique", "Balanced Scorecard", "Leadership", "Gestion du changement", "Business analytics"],
+    opportunities: ["Consultant stratégie", "Directeur adjoint", "Chef de projet organisation", "Entrepreneur"]
+  },
+  {
+    name: "Master E-communication",
+    description: "Spécialise en communication digitale, UX et médias sociaux pour construire la visibilité des marques.",
+    category: "Communication Digitale",
+    parcours: "E-communication",
+    niveau: "Master",
+    cycle: "Master",
+    duration: "5 ans",
+    diploma: "Master Européen E-communication",
+    admissionRequirements: ["Licence communication/marketing ou Bac +2 pour 3 ans", "Portfolio digital", "Entretien"],
+    objectives: ["Définir stratégies digitales", "Produire contenus multiplateformes", "Gérer e-réputation", "Mesurer KPI Social Media"],
+    skillsDeveloped: ["Content strategy", "UX writing", "SEO/SEA", "Analytics", "Growth hacking"],
+    opportunities: ["Responsable communication digitale", "Social media manager", "Chef de projet web", "Consultant e-marketing"]
+  },
+  {
+    name: "Master Logistique",
+    description: "Couvre la stratégie supply-chain, la digitalisation 4.0 et la logistique durable à l’échelle mondiale.",
+    category: "Logistique & Supply Chain",
+    parcours: "Logistique",
+    niveau: "Master",
+    cycle: "Master",
+    duration: "5 ans",
+    diploma: "Master Européen Logistique",
+    admissionRequirements: ["Licence logistique/ingénierie ou Bac +2 pour 3 ans", "Test maths/stat", "Entretien"],
+    objectives: ["Concevoir réseaux logistiques internationaux", "Optimiser flux physiques & info", "Mettre en place ERP", "Intégrer logistique verte"],
+    skillsDeveloped: ["APS", "Lean Six Sigma", "ERP/SAP WM", "IoT supply-chain", "Risk management"],
+    opportunities: ["Supply-chain manager", "Consultant logistique", "Responsable entrepôt", "Directeur opérations"]
+  },
+  {
+    name: "Master Finance Internationale",
+    description: "Forme des experts capables de gérer la trésorerie, l’investissement et les risques sur les marchés mondiaux.",
+    category: "Finance",
+    parcours: "Finance Internationale",
+    niveau: "Master",
+    cycle: "Master",
+    duration: "5 ans",
+    diploma: "Master Européen Finance Internationale",
+    admissionRequirements: ["Licence finance/éco ou Bac +2 pour 3 ans", "Test GMAT-like", "Entretien"],
+    objectives: ["Évaluer investissements internationaux", "Gérer risques de change", "Structurer produits dérivés", "Analyser marchés financiers"],
+    skillsDeveloped: ["Analyse quantitative", "Gestion de portefeuille", "Fintech & blockchain", "Risk management", "Modélisation Excel/VBA"],
+    opportunities: ["Analyste financier", "Trésorier corporate", "Gestionnaire de portefeuille", "Consultant en finance"]
+  }
     ]
   },
   {
@@ -735,7 +1043,7 @@ export const schools: School[] = [
           category: "Logistique & Transport",
           parcours: "Gestion de Transport & Logistique",
           niveau: "Technicien Spécialisé",
-          cycle: "Cycle Initial",
+          cycle: "Technicien Spécialisé",
           duration: "2 ans",
           diploma: "Diplôme de Technicien Spécialisé GTL",
           admissionRequirements: ["Baccalauréat toutes séries", "Relevés de notes Bac", "Dossier + test logique & entretien"],
@@ -887,7 +1195,7 @@ export const schools: School[] = [
         category: "Finance & Comptabilité",
         parcours: "Finance-Comptabilité",
         niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
+        cycle: "Technicien Spécialisé",
         duration: "2 ans",
         diploma: "DTS Financier Comptable",
         admissionRequirements: ["Baccalauréat toutes séries", "Relevés de notes Bac", "Lettre de motivation", "Entretien"],
@@ -902,7 +1210,7 @@ export const schools: School[] = [
         category: "Commerce International",
         parcours: "Trade & Logistics",
         niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
+        cycle: "Technicien Spécialisé",
         duration: "2 ans",
         diploma: "DTS Commerce International",
         admissionRequirements: ["Baccalauréat", "Relevés de notes", "Test d’anglais", "Entretien"],
@@ -917,7 +1225,7 @@ export const schools: School[] = [
         category: "Informatique",
         parcours: "Développement Informatique",
         niveau: "Technicien Spécialisé",
-        cycle: "Cycle Initial",
+        cycle: "Technicien Spécialisé",
         duration: "2 ans",
         diploma: "DTS Développement Informatique",
         admissionRequirements: ["Baccalauréat scientifique ou technique", "Test de logique & programmation", "Entretien"],
@@ -1047,20 +1355,6 @@ export const schools: School[] = [
         skillsDeveloped: ["Google Ads", "GA4", "SEO on/off page", "Content marketing", "Automatisation email"],
         opportunities: ["Traffic manager", "Chargé e-marketing", "SEO/SEA junior", "Community manager"]
       },
-      {
-        name: "Leadership et Management Stratégique",
-        description: "Programme exécutif intensif destiné aux cadres dirigeants pour renforcer leurs capacités de leadership et vision stratégique.",
-        category: "Management & Gestion",
-        parcours: "Executive Education",
-        niveau: "Formation Exécutive",
-        cycle: "Formation Continue",
-        duration: "8 mois (part-time)",
-        diploma: "Executive Certificate en Leadership et Management Stratégique",
-        admissionRequirements: ["Minimum 8 ans d'expérience dont 3 en management", "Poste de direction", "Entretien approfondi"],
-        objectives: ["Développer son leadership", "Affiner sa vision stratégique", "Conduire le changement organisationnel"],
-        skillsDeveloped: ["Leadership transformationnel", "Pensée stratégique", "Prise de décision complexe", "Management interculturel"],
-        opportunities: ["Évolution vers comité de direction", "Direction générale", "Conseil d'administration"]
-      },
        /* ──────────────── Licences Professionnelles Européennes ──────────────── */
           {
         name: "Communication – Stratégie Publicitaire & Communication Numérique",
@@ -1160,6 +1454,97 @@ export const schools: School[] = [
       skillsDeveloped: ["APS", "Lean Six Sigma", "ERP/SAP WM", "Transport multimodal", "IoT & data"],
       opportunities: ["Supply chain manager", "Consultant logistique", "Responsable entrepôt", "Directeur opérations"]
     }
+    ]
+  },
+  {
+    id: "Group-IPCS",
+    name: "Group IPCS Institut Professionnel des Carrières de Santé",
+    description: "l’Institut IPCS bénéficie d’une forte expérience et de compétences reconnues dans la formation des professionnels de santé.",
+    logo: "Images/IPCS.png", 
+    address: "131, Bd de la Résistance (En face du Lycée Jaber Ben Hayane) - Casablanca",
+    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    contact: {
+      phone: "+212 522 44 70 72",
+      email: "group.ipcs@live.fr",
+      website: "ipcsgroupe.com"
+    },
+    registrationInfo: {
+      "Tous les parcours": {
+        description: "Les inscriptions sont ouvertes de février à Aout. Les dossiers peuvent être soumis en ligne ou déposés au service des admissions.",
+        procedure: [
+          "Remplir le formulaire de candidature",
+          "Fournir les copies des diplômes et relevés de notes",
+          "Passer un test d'aptitude",
+          "Participer à un entretien de motivation"
+        ],
+        fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
+        scholarships: true,
+        contact: {
+          phone: "+212 522 44 70 72",
+          email: "group.ipcs@live.fr"
+        }
+      }
+    },
+    programs: [
+
+        /* ─────────────  SANTÉ & PARAMÉDICAL  ───────────── */
+
+  {
+    name: "Infirmier∙e Polyvalent∙e",
+    description: "Forme des professionnels capables d’évaluer les besoins en soins, d’exécuter prescriptions médicales et d’assurer l’éducation sanitaire auprès des patients, familles et communautés.",
+    category: "Santé",
+    parcours: "Soins Infirmiers",
+    niveau: "Diplôme d’État",
+    cycle: "Cycle Santé",
+    duration: "3 ans",
+    diploma: "Diplôme d’Infirmier∙e Polyvalent∙e",
+    admissionRequirements: ["Baccalauréat sciences expérimentales ou équivalent", "Dossier + test scientifique", "Entretien de motivation"],
+    objectives: ["Définir besoins en soins", "Planifier & exécuter soins infirmiers", "Appliquer prescriptions médicales", "Promouvoir l’éducation sanitaire", "Participer à la recherche et aux programmes de santé"],
+    skillsDeveloped: ["Évaluation clinique", "Techniques de soins", "Communication thérapeutique", "Gestion dossiers patients", "Éducation santé"],
+    opportunities: ["Infirmier polyvalent hôpital/clinique", "Infirmier communautaire", "Éducateur santé", "Coordinateur programmes de santé"]
+  },
+  {
+    name: "Diététique & Nutrition",
+    description: "Prépare des spécialistes capables d’évaluer, de planifier et de surveiller les régimes nutritionnels à toutes les étapes de la vie, de la grossesse à la petite enfance.",
+    category: "Santé",
+    parcours: "Diététique",
+    niveau: "Diplôme d’État",
+    cycle: "Cycle Santé",
+    duration: "3 ans",
+    diploma: "Diplôme de Diététicien∙ne Nutritionniste",
+    admissionRequirements: ["Baccalauréat sciences (SVT/PC)", "Dossier + test biologie", "Entretien"],
+    objectives: ["Diagnostiquer état nutritionnel", "Élaborer régimes personnalisés", "Assurer suivi grossesse & nourrisson", "Mettre en œuvre programmes d’éducation nutritionnelle"],
+    skillsDeveloped: ["Analyse nutritionnelle", "Éducation alimentaire", "Suivi materno-infantile", "Conseil diététique", "Planification menu hospitalier"],
+    opportunities: ["Diététicien clinique", "Conseiller nutrition", "Éducateur santé publique", "Consultant bien-être"]
+  },
+  {
+    name: "Infirmier∙e Auxiliaire",
+    description: "Forme des auxiliaires de soins chargés d’assurer l’hygiène, le confort et l’assistance quotidienne des patients sous la supervision d’un infirmier diplômé.",
+    category: "Santé",
+    parcours: "Soins de Base",
+    niveau: "Certificat",
+    cycle: "Cycle Santé",
+    duration: "2 ans",
+    diploma: "Certificat d’Infirmier∙e Auxiliaire",
+    admissionRequirements: ["Niveau terminal ou Bac", "Dossier + test aptitude", "Entretien"],
+    objectives: ["Fournir soins d’hygiène & confort", "Appliquer prescriptions simples", "Assister infirmier diplômé", "Informer & éduquer familles"],
+    skillsDeveloped: ["Gestes soins de base", "Aide à la mobilité", "Mesures vitales", "Hygiène hospitalière", "Relation d’aide"],
+    opportunities: ["Aide-soignant hôpital", "Auxiliaire clinique", "Assistant soins à domicile", "Agent de santé communautaire"]
+  },
+  {
+    name: "Délégué Médical",
+    description: "Prépare des commerciaux spécialisés capables de promouvoir médicaments, dispositifs et produits para-pharmaceutiques auprès des médecins et pharmaciens.",
+    category: "Santé",
+    parcours: "Visite Médicale",
+    niveau: "Certificat Professionnel",
+    cycle: "Cycle Court",
+    duration: "6 mois",
+    diploma: "Certificat de Délégué Médical",
+    admissionRequirements: ["Bac toutes séries", "Expérience commerciale (atout)", "Dossier + entretien"],
+    objectives: ["Présenter produits pharmaceutiques", "Négocier ventes en officine", "Conseiller professionnels de santé", "Assurer veille concurrentielle"],
+    skillsDeveloped: ["Communication médicale", "Techniques de vente B2B", "Réglementation pharmaceutique", "CRM & reporting", "Marketing produit"],
+    opportunities: ["Représentant pharmaceutique", "Visiteur médical", "Commercial para-pharma", "Key account manager santé"]
+  }
     ]
   }
 ];
