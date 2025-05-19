@@ -10,9 +10,9 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4 bg-blue-400 px-2 py-1">🟡 RézoCampus</h3>
+           <img src="/faviconn.png" alt="Logo" className="mr-4 w-12 h-12" /> RézoCampus
             <p className="text-sm text-gray-300">
-              Plateforme de gestion des établissements scolaires permettant d'accéder facilement
+              Est une plateforme de gestion des établissements scolaires permettant d'accéder facilement
               aux informations sur les programmes, modalités d'inscription et parcours.
             </p>
           </div>

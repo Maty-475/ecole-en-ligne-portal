@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     <header className="bg-primary py-4 shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="text-white text-2xl font-bold flex items-center bg-blue-400 px-3 py-2">
-          <span className="mr-2">🟡</span>
+            <img src="/faviconn.png" alt="Logo" className="mr-4 w-12 h-12" />
           RézoCampus
         </Link>
         
