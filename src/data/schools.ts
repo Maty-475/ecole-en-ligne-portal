@@ -1556,7 +1556,7 @@ export const schools: School[] = [
         video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
         contact: {
           phone: "+212 670-502053",
-          email: "",
+          email: "mondialmedia@gmail.com",
           website: "rezocampus.fr"
         },
         registrationInfo: {
