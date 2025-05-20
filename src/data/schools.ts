@@ -699,14 +699,14 @@ export const schools: School[] = [
     ]
   },
   {
-    id: "CESA",
-    name: "CESA Établissement Supérieur de Commerce",
+    id: "CESA-Sup",
+    name: "CESA Centre d'Enseignement des Sciences Appliquées Sup",
     description: "Un établissement de premier plan spécialisé dans les formations commerciales, marketing et management, offrant des programmes adaptés aux exigences du marché.",
     logo: "Images/Cesa2.png", 
-    address: "25 Avenue Hassan II, 20000 Casablanca",
+    address: "15 Rue de champigny (Rond point Cimicolor), 20000 Casablanca",
     video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
     contact: {
-      phone: "+212 5 22 26 54 98",
+      phone: "+212 522-444180",
       email: "contact@cesa.ma",
       website: "cesasup.ma"
     },
@@ -722,7 +722,7 @@ export const schools: School[] = [
         fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
         scholarships: true,
         contact: {
-          phone: "+212 5 22 26 54 98",
+          phone: "+212 522-444180",
           email: "contact@cesa.ma"
         }
       }
