@@ -1546,5 +1546,39 @@ export const schools: School[] = [
     opportunities: ["Représentant pharmaceutique", "Visiteur médical", "Commercial para-pharma", "Key account manager santé"]
   }
     ]
+  },
+  {
+        id: "Mondial-Media",
+        name: "Ecole Internationale des Métiers de l'Audiovisuel et de Journalisme",
+        description: "MONDIAL MEDIA est une école Internationale des métiers de l'audiovisuel et de journalisme formation.",
+        logo: "Images/Mondial.jpg", 
+        address: "Bd Mohamed V,97 passage Gallinari,3éme Etage , Casablanca, Morocco",
+        video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+        contact: {
+          phone: "+212 670-502053",
+          email: "",
+          website: "rezocampus.fr"
+        },
+        registrationInfo: {
+          "Tous les parcours": {
+            description: "Les inscriptions sont ouvertes de février à Aout. Les dossiers peuvent être soumis en ligne ou déposés au service des admissions.",
+            procedure: [
+              "Remplir le formulaire de candidature",
+              "Fournir les copies des diplômes et relevés de notes",
+              "Passer un test d'aptitude",
+              "Participer à un entretien de motivation"
+            ],
+            fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
+            scholarships: true,
+            contact: {
+              phone: "+212 670-502053",
+              email: "mondialmedia@gmail.com"
+            }
+          }
+        },
+        programs: [
+
+
+        ]
   }
 ];
