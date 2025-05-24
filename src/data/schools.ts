@@ -109,7 +109,7 @@ export const schools: School[] = [
     contact: {
       phone: "+212 522-279600",
       email: "miagecasa@groupemiage.net",
-      website: "www.groupemiage.net"
+      website: "groupemiage.net"
     },
     registrationInfo: {
       "Tous les parcours": {
