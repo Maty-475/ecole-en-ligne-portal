@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface SchoolBannerProps {
   logo: string;
@@ -10,8 +10,16 @@ interface SchoolBannerProps {
 }
 
 const SchoolBanner: React.FC<SchoolBannerProps> = ({name, description, logo, website }) => {
+  const navigate = useNavigate();
+  
   // Vérifier si le chemin du logo commence par "/" pour s'assurer qu'il est bien relatif à la racine publique
   const logoPath = logo.startsWith('/') ? logo : `/${logo}`;
+  
+  const handleWebsiteClick = () => {
+    // Rediriger vers le formulaire avec l'URL de destination en paramètre
+    const websiteUrl = `https://${website}`;
+    navigate(`/formulaire?redirect=${encodeURIComponent(websiteUrl)}&school=${encodeURIComponent(name)}`);
+  };
   
   return (
     <div className="bg-primary py-12">
@@ -27,13 +35,12 @@ const SchoolBanner: React.FC<SchoolBannerProps> = ({name, description, logo, web
           <div className="text-center md:text-left text-white">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">{name}</h1>
             <p className="text-lg md:text-xl opacity-90">{description}</p>
-            <a 
-              href={`https://${website}`} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center bg-secondary hover:bg-red-400 font-bold text-white px-4 py-2 rounded-md">
+            <button 
+              onClick={handleWebsiteClick}
+              className="mt-4 inline-flex items-center bg-secondary hover:bg-red-400 font-bold text-white px-4 py-2 rounded-md transition-colors"
+            >
               Accédez au site de l'établissement
-            </a>
+            </button>
           </div>
         </div>
         

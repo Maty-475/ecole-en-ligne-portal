@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { supabase } from "../lib/supabaseClient";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 interface FormData {
   Nom: string;
@@ -9,6 +10,7 @@ interface FormData {
   Formation: string;
   AdresseMail: string;
   Pays: string;
+  EcoleInteresse?: string;
 }
 
 const FormulaireInscription: React.FC = () => {
@@ -19,9 +21,21 @@ const FormulaireInscription: React.FC = () => {
     Formation: "",
     AdresseMail: "",
     Pays: "",
+    EcoleInteresse: "",
   });
 
-  const navigate = useNavigate(); // Pour la redirection
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  
+  // Récupérer les paramètres d'URL
+  const redirectUrl = searchParams.get('redirect');
+  const schoolName = searchParams.get('school');
+
+  useEffect(() => {
+    if (schoolName) {
+      setFormData(prev => ({ ...prev, EcoleInteresse: schoolName }));
+    }
+  }, [schoolName]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,20 +51,107 @@ const FormulaireInscription: React.FC = () => {
       console.error(error);
     } else {
       alert("Inscription réussie !");
-      navigate("/merci"); // Redirection après validation
+      
+      // Si une URL de redirection est fournie, rediriger vers celle-ci
+      if (redirectUrl) {
+        window.open(redirectUrl, '_blank');
+        navigate("/merci");
+      } else {
+        navigate("/merci");
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <input type="text" name="Nom" placeholder="Nom" onChange={handleChange} required />
-      <input type="text" name="Prenom" placeholder="Prénom" onChange={handleChange} required />
-      <input type="text" name="Der_Dip" placeholder="Dernier Diplôme" onChange={handleChange} required />
-      <input type="text" name="Formation" placeholder="Formation souhaitée" onChange={handleChange} required />
-      <input type="email" name="AdresseMail" placeholder="Adresse Email" onChange={handleChange} required />
-      <input type="text" name="Pays" placeholder="Pays" onChange={handleChange} required />
-      <button type="submit">Envoyer</button>
-    </form>
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="container mx-auto px-4">
+        <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-bold text-center mb-6">
+            {schoolName ? `Inscription pour ${schoolName}` : "Formulaire d'inscription"}
+          </h2>
+          
+          {schoolName && (
+            <p className="text-center text-gray-600 mb-6">
+              Veuillez remplir ce formulaire pour accéder au site de l'établissement
+            </p>
+          )}
+          
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input 
+              type="text" 
+              name="Nom" 
+              placeholder="Nom" 
+              onChange={handleChange}
+              value={formData.Nom}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            <input 
+              type="text" 
+              name="Prenom" 
+              placeholder="Prénom" 
+              onChange={handleChange}
+              value={formData.Prenom}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            <input 
+              type="text" 
+              name="Der_Dip" 
+              placeholder="Dernier Diplôme" 
+              onChange={handleChange}
+              value={formData.Der_Dip}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            <input 
+              type="text" 
+              name="Formation" 
+              placeholder="Formation souhaitée" 
+              onChange={handleChange}
+              value={formData.Formation}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            <input 
+              type="email" 
+              name="AdresseMail" 
+              placeholder="Adresse Email" 
+              onChange={handleChange}
+              value={formData.AdresseMail}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            <input 
+              type="text" 
+              name="Pays" 
+              placeholder="Pays" 
+              onChange={handleChange}
+              value={formData.Pays}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            
+            {schoolName && (
+              <input 
+                type="text" 
+                name="EcoleInteresse" 
+                value={formData.EcoleInteresse}
+                readOnly
+                className="w-full p-3 border border-gray-300 rounded-md bg-gray-100"
+              />
+            )}
+            
+            <button 
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition-colors"
+            >
+              {schoolName ? "S'inscrire et accéder au site" : "Envoyer"}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
