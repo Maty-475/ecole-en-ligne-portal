@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 import { supabase } from "../lib/supabaseClient";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 interface FormData {
@@ -64,6 +66,7 @@ const FormulaireInscription: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+       <Header />
       <div className="container mx-auto px-4">
         <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-center mb-6">
@@ -164,6 +167,7 @@ const FormulaireInscription: React.FC = () => {
           </form>
         </div>
       </div>
+       <Footer />
     </div>
   );
 };
