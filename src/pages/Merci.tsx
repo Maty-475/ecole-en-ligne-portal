@@ -22,10 +22,10 @@ const Merci = () => {
         </p>
         
         <Link 
-          to="/"
+          to="/index"
           className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition-colors"
         >
-          Retour à l'accueil
+          Retour au choix d'établissement
         </Link>
       </div>
     </div>

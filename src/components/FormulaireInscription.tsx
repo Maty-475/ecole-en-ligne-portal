@@ -37,7 +37,7 @@ const FormulaireInscription: React.FC = () => {
     }
   }, [schoolName]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -95,24 +95,37 @@ const FormulaireInscription: React.FC = () => {
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required 
             />
-            <input 
-              type="text" 
-              name="Der_Dip" 
-              placeholder="Dernier Diplôme" 
-              onChange={handleChange}
+            <select
+              name="Der_Dip"
               value={formData.Der_Dip}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required 
-            />
-            <input 
-              type="text" 
-              name="Formation" 
-              placeholder="Formation souhaitée" 
               onChange={handleChange}
-              value={formData.Formation}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required 
-            />
+              required
+            >
+              <option value="">-- Sélectionnez votre dernier diplôme --</option>
+              <option value="Baccalauréat">Baccalauréat</option>
+              <option value="Licence">Licence</option>
+              <option value="Master">Master</option>
+              <option value="Doctorat">Doctorat</option>
+              <option value="Autre">Autre</option>
+            </select>
+
+            <select
+                name="Formation"
+                value={formData.Formation}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              >
+                <option value="">-- Choisissez une formation --</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+                <option value="Droit">Droit</option>
+                <option value="Médecine">Médecine</option>
+                <option value="Autre">Autre</option>
+          </select>
+
             <input 
               type="email" 
               name="AdresseMail" 
