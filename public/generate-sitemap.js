@@ -37,7 +37,7 @@ staticRoutes.forEach(route => {
 
 // 🔁 Ajouter les pages d’établissement
 schools.forEach(slug => {
-  sitemap += `  <url>\n    <loc>${baseUrl}/etablissement/${slug}</loc>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
+  sitemap += `  <url>\n    <loc>${baseUrl}/school/${slug}</loc>\n    <changefreq>monthly</changefreq>\n  </url>\n`;
 });
 
 // 📄 Fin du sitemap
