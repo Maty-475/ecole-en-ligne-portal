@@ -1580,5 +1580,70 @@ export const schools: School[] = [
 
 
         ]
+  },
+   {
+    id: "IPM",
+    name: "Institut Parcours et Métiers | Une Formation, Un Metier, Un Avenir",
+    description: "IPM offre des formations de qualité en gestion d'entreprise et en gestion administrative et comptable. En nous choisissant, vous bénéficiez d'un enseignement rigoureux.",
+    logo: "Images/ipemf.jpg", 
+    address: "66 Bd Hassan Premier, Casablanca 20250",
+    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    contact: {
+      phone: "+(212) 05 22 27 78 68 | 06 36 30 12 12",
+      email: "ipemipemcom@gmail.com",
+      website: "ipemfp.net"
+    },
+    registrationInfo: {
+      "Tous les parcours": {
+        description: "Les inscriptions sont ouvertes de février à Aout. Les dossiers peuvent être soumis en ligne ou déposés au service des admissions.",
+        procedure: [
+          "Remplir le formulaire de candidature",
+          "Fournir les copies des diplômes et relevés de notes",
+          "Passer un test d'aptitude",
+          "Participer à un entretien de motivation"
+        ],
+        fees: "Pour toutes informations des inscription veuillez vous adressez à l'école",
+        scholarships: true,
+        contact: {
+          phone: "+212 636-301212",
+          email: "ipemipemcom@gmail.com"
+        }
+      }
+    },
+    programs: [
+
+        /* ─────────────  SANTÉ & PARAMÉDICAL  ───────────── */
+
+  {
+    name: "Technicien Spécialisé en Gestion d’Entreprise",
+    description: "Prépare des gestionnaires polyvalents capables d’assurer l’administration, la planification, le suivi des opérations et la gestion courante d’une PME ou d’un service.",
+    category: "Gestion",
+    parcours: "Management opérationnel",
+    niveau: "Technicien Spécialisé",
+    cycle: "Cycle Technique",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien Spécialisé en Gestion d’Entreprise",
+    admissionRequirements: ["Bac toutes séries ou Bac +2 (gestion/économie souhaité)", "Dossier de candidature", "Entretien de motivation"],
+    objectives: ["Maîtriser les outils de gestion d’une entreprise", "Gérer l’administration quotidienne et les ressources", "Participer à la prise de décision managériale", "Assurer la coordination entre services"],
+    skillsDeveloped: ["Comptabilité générale", "Gestion administrative", "Organisation & planification", "Communication professionnelle", "Initiation à la stratégie"],
+    opportunities: ["Assistant de direction", "Gestionnaire administratif", "Chargé de la logistique interne", "Coordinateur de projet PME"]
+  },
+  {
+    name: "Technicien Spécialisé en Gestion Administrative et Comptable",
+    description: "Forme des techniciens aptes à assurer la gestion comptable, le suivi administratif et le respect des obligations fiscales et sociales d’une entreprise.",
+    category: "Comptabilité & Finances",
+    parcours: "Gestion administrative",
+    niveau: "Technicien Spécialisé",
+    cycle: "Cycle Technique",
+    duration: "2 ans",
+    diploma: "Diplôme de Technicien Spécialisé en Gestion Administrative et Comptable",
+    admissionRequirements: ["Bac série économique, sciences ou équivalent", "Connaissances de base en comptabilité souhaitées", "Dossier + test écrit + entretien"],
+    objectives: ["Tenir la comptabilité générale et analytique", "Élaborer les déclarations fiscales", "Suivre la facturation et les règlements", "Préparer les états financiers"],
+    skillsDeveloped: ["Saisie & contrôle comptable", "Déclarations fiscales et sociales", "Utilisation d’ERP comptables", "Reporting financier", "Gestion des documents administratifs"],
+    opportunities: ["Assistant comptable", "Gestionnaire administratif", "Technicien paie", "Aide-comptable en entreprise ou cabinet"]
   }
+ 
+    ]
+  } 
+  
 ];
