@@ -15,6 +15,9 @@ const Footer: React.FC = () => {
               Est une plateforme de gestion des établissements scolaires permettant d'accéder facilement
               aux informations sur les programmes, modalités d'inscription et parcours.
             </p>
+            <p>
+              Contact WhatsApp : <img src="Images/code.jpg" alt="Lien WhatsApp" className="mr-4 w-16 h-18"/>
+            </p>
           </div>
           
           <div>
@@ -43,7 +46,7 @@ const Footer: React.FC = () => {
             <address className="not-italic text-gray-300">
               <p>444 Boulevard Grande Ceinture</p>
               <p>20350 Casablanca, Morocco </p>
-              <p className="mt-2">Email: divinmister@hotmail.com</p>
+              <p className="mt-2">Email: contact@rezocampus.fr</p>
               <p>Tél: +212 617-725867</p>
             </address>
           </div>

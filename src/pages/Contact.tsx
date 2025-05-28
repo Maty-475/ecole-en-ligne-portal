@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
                   
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Email</h3>
-                    <p>divinmister@hotmail.com</p>
+                    <p>contact@rezocampus.fr</p>
                   </div>
                   
                   <div>
@@ -61,8 +61,11 @@ const Contact: React.FC = () => {
                     <p>+212 617-725867 </p>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Whatsapp</h3>
-                    <p>+242 06 814 38 84 </p>
+                    <h3 className="text-lg font-semibold mb-2">Contact Whatsapp</h3>
+                    <p>
+                      <img src="Images/code.jpg" alt="Lien WhatsApp"/>
+                    </p>
+
                   </div>
                 </div>
               </div>
