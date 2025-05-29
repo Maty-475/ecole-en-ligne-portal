@@ -41,38 +41,41 @@ export interface Program {
 }
 
 export const categories = [  
-  "Arts",
-  "Banque et Assurance",
+  // "Arts",
+  // "Banque-Assurance",
   "Commerce",  
   "Communication",
   "Comptabilité",
-  "Cyber Sécurité",
+  "Cyber-Sécurité",
+  "Digital-Innovation",
   "Douane",
-  "Droit",
-  "Economie",
-  "Environnement et Energie",
+  // "Droit",
+  "Data-IA",
+  // "Economie",
+  "Environnement-Energie",
   "Finances",
-  "Gestion Comptable",  
-  "Gestion d'Entreprise",
-  "Gestion Financière",
-  "Gestion Informatisée",
+  // "Gestion-Comptable",  
+  "Gestion-Entreprise",
+  "Gestion-Financière",
+  "Gestion-Informatisée",
   "Infographie",
-  "Informatique & Digital",
+  // "Informatique-Digital",
   "Informatique",
-  "Ingénierie",
-  "Langues",
+  // "Ingénierie",
+  // "Langues",
   "Logistique",
-  "Management & Gestion",
-  "Management Informatique",
-  "Marketing Digital",
+  // "Management-Gestion",
+  "Management-Informatique",
+  "Marketing-Digital",
   "Marketing",
   "Multimédia",
-  "Réseaux et Télécommunications",
-  "Ressources Humaines",
+  // "Réseaux-Télécommunications",
+  "Ressources-Humaines",
   "Santé",  
-  "Sciences",
-  "Sécurité Informatique",
-  "Transport et Logistique"
+  // "Sciences",
+  "Sécurité-Informatique",
+  "Transport-Logistique",
+  "Formation-Continue"
 ];
 
 export const niveau = [
@@ -160,7 +163,7 @@ export const schools: School[] = [
       {
         name: "Finance & Comptabilité",
         description: "Prépare des professionnels capables de tenir la comptabilité, de réaliser l’analyse financière et d’appuyer la gestion budgétaire d’une PME ou d’un cabinet comptable.",
-        category: "Gestion Financière",
+        category: "Gestion-Financière",
         parcours: "Technicien Spécialisé Finance-Comptabilité",
         niveau: "Technicien Spécialisé",
         cycle: "Technicien Spécialisé",
@@ -171,21 +174,21 @@ export const schools: School[] = [
 
       /* ─────────────── Technicien (Bac + 2) ─────────────── */
 
-      {
-        name: "Infographiste",
-        description: "Apprend à créer des supports visuels print et web, à maîtriser la chaîne graphique et à produire des contenus multimédias attractifs.",
-        category: "Arts & Multimédia",
-        parcours: "Technicien Infographiste",
-        niveau: "Technicien",
-        cycle: "Technicien",
-        duration: "2 ans",
-        diploma: "Diplôme de Technicien Infographiste",
-        admissionRequirements: ["Baccalauréat toutes séries", "Portfolio ou test de dessin", "Entretien"], objectives: ["Maîtriser Photoshop, Illustrator, InDesign", "Réaliser mises en page print & web", "Gérer colorimétrie et impression", "Produire animations simples"], skillsDeveloped: ["Design graphique", "Typographie", "Retouche photo", "Maquettes UI", "Pré-presse"], opportunities: ["Graphiste", "Maquettiste PAO", "Webdesigner junior", "Assistant créatif"]
-      },
+      // {
+      //   name: "Infographiste",
+      //   description: "Apprend à créer des supports visuels print et web, à maîtriser la chaîne graphique et à produire des contenus multimédias attractifs.",
+      //   category: "Arts & Multimédia",
+      //   parcours: "Technicien Infographiste",
+      //   niveau: "Technicien",
+      //   cycle: "Technicien",
+      //   duration: "2 ans",
+      //   diploma: "Diplôme de Technicien Infographiste",
+      //   admissionRequirements: ["Baccalauréat toutes séries", "Portfolio ou test de dessin", "Entretien"], objectives: ["Maîtriser Photoshop, Illustrator, InDesign", "Réaliser mises en page print & web", "Gérer colorimétrie et impression", "Produire animations simples"], skillsDeveloped: ["Design graphique", "Typographie", "Retouche photo", "Maquettes UI", "Pré-presse"], opportunities: ["Graphiste", "Maquettiste PAO", "Webdesigner junior", "Assistant créatif"]
+      // },
       {
         name: "Gestion Informatisée",
         description: "Combine informatique de gestion, bureautique avancée et bases de données pour automatiser les processus administratifs d’une entreprise.",
-        category: "Gestion Informatisée",
+        category: "Gestion-Informatisée",
         parcours: "Technicien Gestion Informatisée",
         niveau: "Technicien",
         cycle: "Technicien",
@@ -213,8 +216,8 @@ export const schools: School[] = [
       {
         name: "Management & Gestion des PME",
         description: "Forme des cadres intermédiaires capables de gérer les fonctions clés (finance, marketing, RH) et d’accompagner la croissance des petites et moyennes entreprises.",
-        category: "Gestion d’Entreprise",
-        parcours: "Management des PME",
+        category: "Gestion-Entreprise",
+        parcours: "Management PME",
         niveau: "Licence",
         cycle: "Bachelor européen",
         duration: "3 ans",
@@ -227,7 +230,7 @@ export const schools: School[] = [
       {
         name: "Assistant de Gestion Ressources Humaines",
         description: "Prépare à la gestion administrative du personnel, au recrutement et à la formation dans des environnements digitaux et en mutation.",
-        category: "Ressources Humaines",
+        category: "Ressources-Humaines",
         parcours: "Gestion RH",
         niveau: "Licence",
         cycle: "Bachelor européen",
@@ -241,7 +244,7 @@ export const schools: School[] = [
       {
         name: "Finance",
         description: "Spécialise en comptabilité financière, analyse de performance et gestion de trésorerie pour accompagner la prise de décision des organisations.",
-        category: "Finance",
+        category: "Finances",
         parcours: "Finance d’Entreprise",
         niveau: "Licence",
         cycle: "Bachelor européen",
@@ -255,7 +258,7 @@ export const schools: School[] = [
       {
         name: "Informatique Réseau & Sécurité",
         description: "Donne les bases solides pour installer, administrer et sécuriser des réseaux et des systèmes, répondant aux besoins des entreprises connectées.",
-        category: "Informatique & Réseaux",
+        category: "Sécurité-Informatique",
         parcours: "Réseau & Sécurité",
         niveau: "Licence",
         cycle: "Bachelor européen",
@@ -269,7 +272,7 @@ export const schools: School[] = [
       {
         name: "Marketing Digital",
         description: "Couvre les leviers web (SEO, SEA, social media, email) pour concevoir et piloter des campagnes marketing performantes orientées ROI.",
-        category: "Marketing",
+        category: "Marketing-Digital",
         parcours: "Marketing Digital",
         niveau: "Licence",
         cycle: "Bachelor européen",
@@ -297,7 +300,7 @@ export const schools: School[] = [
       {
         name: "Informatique & Réseau – Option B Administration Système & Réseau",
         description: "Approfondit l’administration des serveurs, la virtualisation et la sécurité pour assurer la haute disponibilité des infrastructures.",
-        category: "Informatique & Réseaux",
+        category: "Sécurité-Informatique",
         parcours: "Administration Système & Réseau",
         niveau: "Licence",
         cycle: "Bachelor européen",
@@ -311,7 +314,7 @@ export const schools: School[] = [
       {
         name: "Informatique & Réseau – Option A Développement de Bases de Données",
         description: "Spécialise en conception, optimisation et administration de bases de données relationnelles et NoSQL au service des applications.",
-        category: "Informatique & BDD",
+        category: "Informatique",
         parcours: "Développement Bases de Données",
         niveau: "Licence",
         cycle: "Bachelor européen",
@@ -342,7 +345,7 @@ export const schools: School[] = [
       {
     name: "Manager de Projet Informatique",
     description: "Formation de haut niveau pour piloter des projets IT complexes : cadrage des besoins, planification, gestion d’équipes techniques et déploiement de solutions numériques.",
-    category: "Informatique & Management",
+    category: "Management-Informatique",
     parcours: "Management de Projet IT",
     niveau: "Master",
     cycle: "Master",
@@ -356,7 +359,7 @@ export const schools: School[] = [
   {
     name: "Expert IT Cybersécurité",
     description: "Programme spécialisé pour prévenir, détecter et contrer les menaces numériques : audit de sécurité, cryptographie, réponse à incident et conformité réglementaire.",
-    category: "Cybersécurité",
+    category: "Cyber-Sécurité",
     parcours: "Expertise Cybersécurité",
     niveau: "Master",
     cycle: "Master",
@@ -370,7 +373,7 @@ export const schools: School[] = [
   {
     name: "Expert IT Applications Intelligence Artificielle & Big Data",
     description: "Formation pointue sur la data science, le machine learning et les architectures Big Data pour concevoir des solutions basées sur l’IA et exploiter des volumes massifs de données.",
-    category: "Data & Intelligence Artificielle",
+    category: "Data-IA",
     parcours: "Big Data & IA",
     niveau: "Master",
     cycle: "Master",
@@ -384,7 +387,7 @@ export const schools: School[] = [
   {
     name: "Management Environnemental & Énergie",
     description: "Prépare des cadres capables de concilier performance économique et développement durable : audits environnementaux, transition énergétique, normes ISO 14001 et stratégie RSE.",
-    category: "Environnement & Énergie",
+    category: "Environnement-Energie",
     parcours: "Management Durable",
     niveau: "Master",
     cycle: "Master",
@@ -398,7 +401,7 @@ export const schools: School[] = [
   {
     name: "Management et Stratégie d'Entreprise",
     description: "Forme des dirigeants capables de définir et piloter la stratégie globale d’une organisation, d’analyser les marchés et de conduire le changement.",
-    category: "Management & Stratégie",
+    category: "Gestion-Entreprise",
     parcours: "Management Global",
     niveau: "Master",
     cycle: "Master",
@@ -412,7 +415,7 @@ export const schools: School[] = [
   {
     name: "Communication & Marketing Numérique",
     description: "Couvre le branding, la publicité digitale, les médias sociaux et l’analyse de données pour élaborer des campagnes 360° performantes.",
-    category: "Communication & Marketing",
+    category: "Communication",
     parcours: "Digital Communication",
     niveau: "Master",
     cycle: "Master",
@@ -426,7 +429,7 @@ export const schools: School[] = [
   {
     name: "Management et Stratégie Financière",
     description: "Prépare des experts à la décision financière stratégique, à la gestion des risques, au contrôle interne et aux fusions-acquisitions.",
-    category: "Finance",
+    category: "Finances",
     parcours: "Finance Stratégique",
     niveau: "Master",
     cycle: "Master",
@@ -440,7 +443,7 @@ export const schools: School[] = [
   {
     name: "Management des Ressources Humaines",
     description: "Développe les compétences pour attirer, fidéliser et développer les talents, gérer la relation sociale et accompagner la transformation des organisations.",
-    category: "Ressources Humaines",
+    category: "Ressources-Humaines",
     parcours: "RH Stratégique",
     niveau: "Master",
     cycle: "Master",
@@ -454,7 +457,7 @@ export const schools: School[] = [
   {
     name: "Logistique et Supply Chain",
     description: "Forme des experts capables d’optimiser les flux physiques et d’information, d’intégrer les technologies 4.0 et de piloter des réseaux logistiques internationaux.",
-    category: "Logistique & Supply Chain",
+    category: "Logistique",
     parcours: "Supply Chain Management",
     niveau: "Master",
     cycle: "Master",
@@ -497,7 +500,7 @@ export const schools: School[] = [
   {
     name: "Technicien Gestion Informatisée",
     description: "Initie à l’administration de bases de données, aux ERP et à la bureautique avancée pour gérer les informations de l’entreprise.",
-    category: "Gestion Informatisée",
+    category: "Gestion-Informatisée",
     parcours: "Technicien Gestion Informatisée",
     niveau: "Technicien",
     cycle: "Technicien",
@@ -511,7 +514,7 @@ export const schools: School[] = [
   {
     name: "Technicien en Infographie",
     description: "Forme à la création de supports visuels (print & digital), au pré-presse et à la retouche photo pour la communication graphique.",
-    category: "Arts Graphiques",
+    category: "Infographie",
     parcours: "Infographie",
     niveau: "Technicien",
     cycle: "Technicien",
@@ -525,7 +528,7 @@ export const schools: School[] = [
   {
     name: "Technicien Action Commerciale & Marketing",
     description: "Prépare des commerciaux capables de prospecter, négocier et promouvoir des offres grâce aux techniques de vente et outils CRM.",
-    category: "Commerce & Marketing",
+    category: "Marketing",
     parcours: "Action Commerciale",
     niveau: "Technicien",
     cycle: "Technicien",
@@ -542,7 +545,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Finance & Comptabilité",
     description: "Développe les compétences pour gérer la comptabilité générale, établir les états financiers et réaliser l’analyse budgétaire.",
-    category: "Gestion Financière",
+    category: "Gestion-Financière",
     parcours: "Finance & Comptabilité",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -556,7 +559,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Commerce International",
     description: "Forme à la gestion des opérations import-export, négociation internationale et logistique douanière.",
-    category: "Commerce International",
+    category: "Commerce",
     parcours: "Commerce International",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -587,7 +590,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Gestion & Management de la Distribution",
     description: "Prépare à la gestion d’unités commerciales (GMS/retail) : merchandising, supply-chain et management d’équipe.",
-    category: "Commerce & Distribution",
+    category: "Commerce",
     parcours: "Retail Management",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -601,7 +604,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Management & Gestion des PME",
     description: "Donne les outils pour piloter la stratégie, la finance et les RH d’une petite ou moyenne entreprise.",
-    category: "Gestion d’Entreprise",
+    category: "Gestion-Entreprise",
     parcours: "Management PME",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -615,7 +618,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Webmaster",
     description: "Forme à la création, la maintenance et l’optimisation de sites web, incluant HTML/CSS, CMS et web-analytics.",
-    category: "Web & Digital",
+    category: "Informatique",
     parcours: "Webmaster",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -629,7 +632,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Informatique & Réseaux",
     description: "Couvre réseaux, systèmes et développement pour administrer infrastructures IT et assurer la cybersécurité.",
-    category: "Informatique & Réseaux",
+    category: "Sécurité-Informatique",
     parcours: "IT Networks",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -671,7 +674,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Finance",
     description: "Initie aux fondamentaux de la comptabilité, de la gestion de trésorerie et de l’analyse financière.",
-    category: "Finance",
+    category: "Finances",
     parcours: "Finance d’Entreprise",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -733,7 +736,7 @@ export const schools: School[] = [
   {
     name: "Technicien Marketing & Action Commerciale",
     description: "Initie aux techniques de prospection, de négociation et de promotion des ventes pour soutenir la force commerciale.",
-    category: "Commerce & Marketing",
+    category: "Commerce",
     parcours: "Action Commerciale",
     niveau: "Technicien",
     cycle: "Technicien",
@@ -747,7 +750,7 @@ export const schools: School[] = [
   {
     name: "Technicien Gestion Informatisée",
     description: "Forme à la gestion de bases de données et à la bureautique avancée pour optimiser les flux d’information en entreprise.",
-    category: "Gestion Informatisée",
+    category: "Gestion-Informatisée",
     parcours: "Gestion Informatisée",
     niveau: "Technicien",
     cycle: "Technicien",
@@ -792,7 +795,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Commerce International",
     description: "Forme à la gestion des opérations import-export, négociation internationale et logistique douanière.",
-    category: "Commerce International",
+    category: "Commerce",
     parcours: "Commerce International",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -806,7 +809,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Finance & Comptabilité",
     description: "Initie à la tenue de comptabilité, l’établissement des états financiers et l’analyse budgétaire.",
-    category: "Finance & Comptabilité",
+    category: "Comptabilité",
     parcours: "Finance & Comptabilité",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -820,7 +823,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Systèmes & Réseaux Informatique",
     description: "Couvre l’installation, la sécurisation et la supervision d’infrastructures réseau et serveurs.",
-    category: "Informatique & Réseaux",
+    category: "Sécurité-Informatique",
     parcours: "Systèmes & Réseaux",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -834,7 +837,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Marketing Digital",
     description: "Apprend à déployer campagnes SEO/SEA, gérer réseaux sociaux et analyser données web.",
-    category: "Marketing Digital",
+    category: "Marketing-Digital",
     parcours: "Marketing Digital",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -848,7 +851,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé Développeur Full Stack",
     description: "Forme à la conception d’applications web front-end & back-end en environnement JavaScript.",
-    category: "Développement Web",
+    category: "Informatique",
     parcours: "Full-Stack JS",
     niveau: "Technicien Spécialisé",
     cycle: "Technicien Spécialisé",
@@ -865,7 +868,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Informatique & Réseaux",
     description: "Couvre réseaux, systèmes et cybersécurité pour administrer infrastructures IT complexes.",
-    category: "Informatique & Réseaux",
+    category: "Sécurité-Informatique",
     parcours: "IT Networks",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -879,7 +882,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Marketing International",
     description: "Développe les compétences pour élaborer stratégies marketing globales, adapter produits et gérer exportations.",
-    category: "Marketing International",
+    category: "Marketing",
     parcours: "Marketing International",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -907,7 +910,7 @@ export const schools: School[] = [
   {
     name: "Bachelor Finance & Contrôle de Gestion",
     description: "Apprend à maîtriser la comptabilité, l’analyse financière et le pilotage de la performance.",
-    category: "Finance",
+    category: "Finances",
     parcours: "Finance & Contrôle",
     niveau: "Licence",
     cycle: "Licence Professionnelle",
@@ -938,7 +941,7 @@ export const schools: School[] = [
   {
     name: "Master Management & Stratégie d’Entreprise",
     description: "Prépare à piloter la stratégie, le changement organisationnel et la performance globale.",
-    category: "Management",
+    category: "Gestion-Entreprise",
     parcours: "Stratégie d’Entreprise",
     niveau: "Master",
     cycle: "Master",
@@ -952,7 +955,7 @@ export const schools: School[] = [
   {
     name: "Master E-communication",
     description: "Spécialise en communication digitale, UX et médias sociaux pour construire la visibilité des marques.",
-    category: "Communication Digitale",
+    category: "Communication",
     parcours: "E-communication",
     niveau: "Master",
     cycle: "Master",
@@ -966,7 +969,7 @@ export const schools: School[] = [
   {
     name: "Master Logistique",
     description: "Couvre la stratégie supply-chain, la digitalisation 4.0 et la logistique durable à l’échelle mondiale.",
-    category: "Logistique & Supply Chain",
+    category: "Logistique",
     parcours: "Logistique",
     niveau: "Master",
     cycle: "Master",
@@ -980,7 +983,7 @@ export const schools: School[] = [
   {
     name: "Master Finance Internationale",
     description: "Forme des experts capables de gérer la trésorerie, l’investissement et les risques sur les marchés mondiaux.",
-    category: "Finance",
+    category: "Finances",
     parcours: "Finance Internationale",
     niveau: "Master",
     cycle: "Master",
@@ -1026,7 +1029,7 @@ export const schools: School[] = [
         {
           name: "Technicien Déclarant en Douane",
           description: "Prépare des professionnels capables de traiter les formalités douanières, optimiser les régimes suspensifs et sécuriser la chaîne d’approvisionnement internationale.",
-          category: "Douane & Commerce International",
+          category: "Douane",
           parcours: "Déclarant en Douane",
           niveau: "Technicien",
           cycle: "Technicien",
@@ -1040,7 +1043,7 @@ export const schools: School[] = [
         {
           name: "Technicien Spécialisé – Gestion de Transport & Logistique",
           description: "Forme des techniciens capables de planifier les opérations de transport, gérer les stocks et optimiser les coûts logistiques dans un contexte digitalisé.",
-          category: "Logistique & Transport",
+          category: "Transport-Logistique",
           parcours: "Gestion de Transport & Logistique",
           niveau: "Technicien Spécialisé",
           cycle: "Technicien Spécialisé",
@@ -1068,7 +1071,7 @@ export const schools: School[] = [
         {
           name: "Master Européen Logistique",
           description: "Spécialise en stratégie supply-chain mondiale, digitalisation 4.0 et logistique verte pour répondre aux défis de la compétitivité et du développement durable.",
-          category: "Logistique & Supply Chain",
+          category: "Logistique",
           parcours: "Supply Chain Strategy",
           niveau: "Master",
           cycle: "Master",
@@ -1082,7 +1085,7 @@ export const schools: School[] = [
         {
           name: "Formation Entreprise – Logistique & Douane",
           description: "Parcours court et modulable destiné aux salariés et cadres visant à mettre à jour leurs compétences en gestion douanière, incoterms et optimisation logistique.",
-          category: "Formation Continue",
+          category: "Formation-Continue",
           parcours: "Logistique & Douane",
           niveau: "Formation Entreprise",
           cycle: "Formation Continue",
@@ -1130,7 +1133,7 @@ export const schools: School[] = [
       {
         name: "Technicien Infographiste",
         description: "Initie à la création visuelle (print & web) : maîtrise des logiciels Adobe, mise en page, retouche photo et animation graphique.",
-        category: "Arts & Multimédia",
+        category: "Infographie",
         parcours: "Design Graphique",
         niveau: "Technicien",
         cycle: "Technicien",
@@ -1145,7 +1148,7 @@ export const schools: School[] = [
       {
         name: "Technicien en Gestion Informatisée",
         description: "Allie bureautique avancée, bases de données et ERP pour automatiser les processus administratifs d’une PME.",
-        category: "Gestion Informatisée",
+        category: "Gestion-Informatisée",
         parcours: "Informatique de Gestion",
         niveau: "Technicien",
         cycle: "Technicien",
@@ -1160,7 +1163,7 @@ export const schools: School[] = [
       {
         name: "Technicien Assistant en Gestion Administrative & Comptable",
         description: "Prépare à la tenue des écritures comptables, à la gestion administrative et aux bases de la paie.",
-        category: "Comptabilité & Administration",
+        category: "Comptabilité",
         parcours: "Secrétariat Comptable",
         niveau: "Technicien",
         cycle: "Technicien",
@@ -1175,7 +1178,7 @@ export const schools: School[] = [
       {
         name: "Technicien en Action Commerciale & Marketing",
         description: "Donne les bases de la vente, de la négociation et du marketing opérationnel en environnement multicanal.",
-        category: "Commerce & Marketing",
+        category: "Commerce",
         parcours: "Action Commerciale",
         niveau: "Technicien",
         cycle: "Technicien",
@@ -1192,7 +1195,7 @@ export const schools: School[] = [
       {
         name: "Technicien Spécialisé Financier Comptable",
         description: "Forme des professionnels capables de tenir la comptabilité, d’élaborer bilans et d’appuyer l’analyse financière.",
-        category: "Finance & Comptabilité",
+        category: "Comptabilité",
         parcours: "Finance-Comptabilité",
         niveau: "Technicien Spécialisé",
         cycle: "Technicien Spécialisé",
@@ -1207,7 +1210,7 @@ export const schools: School[] = [
       {
         name: "Technicien Spécialisé Commerce International",
         description: "Couvre les opérations d’import-export, la logistique douanière et la gestion des contrats internationaux.",
-        category: "Commerce International",
+        category: "Commerce",
         parcours: "Trade & Logistics",
         niveau: "Technicien Spécialisé",
         cycle: "Technicien Spécialisé",
@@ -1239,7 +1242,7 @@ export const schools: School[] = [
       {
         name: "Management & Gestion des Entreprises",
         description: "Forme des cadres intermédiaires capables de piloter la performance et le développement d’une PME/ETI : finance, marketing, RH, stratégie.",
-        category: "Gestion d’Entreprise",
+        category: "Gestion-Entreprise",
         parcours: "Management des Organisations",
         niveau: "Licence",
         cycle: "Licence Professionnelle",
@@ -1254,7 +1257,7 @@ export const schools: School[] = [
       {
         name: "Marketing & Commerce International",
         description: "Couvre les études de marché, la négociation export-import et la gestion de marques à l’international.",
-        category: "Commerce & Marketing",
+        category: "Marketing",
         parcours: "Marketing & Commerce International",
         niveau: "Licence",
         cycle: "Licence Professionnelle",
@@ -1269,7 +1272,7 @@ export const schools: School[] = [
       {
         name: "Finance",
         description: "Spécialise en gestion financière, comptabilité internationale et analyse d’investissement pour accompagner la prise de décision.",
-        category: "Finance",
+        category: "Finances",
         parcours: "Finance d’Entreprise",
         niveau: "Licence",
         cycle: "Licence Professionnelle",
@@ -1329,7 +1332,7 @@ export const schools: School[] = [
       {
         name: "Informatique, Réseaux & Sécurité",
         description: "Donne les compétences pour administrer, sécuriser et dépanner des infrastructures réseau de PME/ETI.",
-        category: "Informatique & Réseaux",
+        category: "Sécurité-Informatique",
         parcours: "Réseau & Sécurité",
         niveau: "Licence",
         cycle: "Licence Professionnelle",
@@ -1344,7 +1347,7 @@ export const schools: School[] = [
       {
         name: "Marketing Digital",
         description: "Couvre les leviers SEO, SEA, Social Ads et data analytics pour développer la visibilité et le ROI des marques en ligne.",
-        category: "Marketing",
+        category: "Marketing-Digital",
         parcours: "Marketing Digital",
         niveau: "Licence",
         cycle: "Licence Professionnelle",
@@ -1359,7 +1362,7 @@ export const schools: School[] = [
           {
         name: "Communication – Stratégie Publicitaire & Communication Numérique",
         description: "Développe une expertise pointue en branding, storytelling et campagnes 360°. Combine data-driven marketing, création de contenus et media planning pour bâtir des marques fortes à l’ère numérique.",
-        category: "Communication & Marketing",
+        category: "Communication",
         parcours: "Communication Digitale",
         niveau: "Master",
         cycle: "Master",
@@ -1387,7 +1390,7 @@ export const schools: School[] = [
     {
       name: "Management Digital",
       description: "Prépare des leaders capables de piloter la transformation numérique et l’innovation : stratégie data, e-business, UX et change management.",
-      category: "Digital & Innovation",
+      category: "Digital-Innovation",
       parcours: "Digital Business Management",
       niveau: "Master",
       cycle: "Master",
@@ -1401,7 +1404,7 @@ export const schools: School[] = [
     {
       name: "Management & Stratégie d’Entreprise",
       description: "Fournit une vision 360° pour élaborer et mettre en œuvre la stratégie globale, optimiser la performance et conduire le changement dans un environnement international.",
-      category: "Gestion d’Entreprise",
+      category: "Gestion-Entreprise",
       parcours: "Business Strategy",
       niveau: "Master",
       cycle: "Master",
@@ -1415,7 +1418,7 @@ export const schools: School[] = [
     {
       name: "Management & Stratégie Financière",
       description: "Spécialise en ingénierie financière, gestion des risques et pilotage de la rentabilité pour soutenir la croissance et la création de valeur.",
-      category: "Finance d’Entreprise",
+      category: "Finances",
       parcours: "Corporate Finance",
       niveau: "Master",
       cycle: "Master",
@@ -1429,7 +1432,7 @@ export const schools: School[] = [
     {
       name: "Management des Ressources Humaines",
       description: "Forme des experts capables d’attirer, développer et fidéliser les talents tout en alignant la politique RH sur la stratégie globale.",
-      category: "Ressources Humaines",
+      category: "Ressources-Humaines",
       parcours: "Human Resources Management",
       niveau: "Master",
       cycle: "Master",
@@ -1443,7 +1446,7 @@ export const schools: School[] = [
     {
       name: "Logistique",
       description: "Spécialise en conception, optimisation et digitalisation de la chaîne logistique mondiale, avec un focus sur l’industrie 4.0 et la logistique verte.",
-      category: "Logistique & Supply Chain",
+      category: "Logistique",
       parcours: "Supply Chain Strategy",
       niveau: "Master",
       cycle: "Master",
@@ -1581,7 +1584,7 @@ export const schools: School[] = [
 
         ]
   },
-   {
+  {
     id: "IPM",
     name: "Institut Parcours et Métiers | Une Formation, Un Metier, Un Avenir",
     description: "IPM offre des formations de qualité en gestion d'entreprise et en gestion administrative et comptable. En nous choisissant, vous bénéficiez d'un enseignement rigoureux.",
@@ -1617,7 +1620,7 @@ export const schools: School[] = [
   {
     name: "Technicien Spécialisé en Gestion d’Entreprise",
     description: "Prépare des gestionnaires polyvalents capables d’assurer l’administration, la planification, le suivi des opérations et la gestion courante d’une PME ou d’un service.",
-    category: "Gestion",
+    category: "Gestion-Entreprise",
     parcours: "Management opérationnel",
     niveau: "Technicien Spécialisé",
     cycle: "Cycle Technique",
