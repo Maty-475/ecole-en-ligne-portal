@@ -12,6 +12,7 @@ interface Article {
   content: string;
   created_at: string;
   comment_count?: number;
+   logo_url?: string;
 }
 
 const Blog: React.FC = () => {
@@ -109,22 +110,22 @@ const Blog: React.FC = () => {
                 />
               </div>
             ) : (
-              <div className="grid gap-6">
+             <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                 {articles.map((article) => (
                   <Card key={article.article_id} className="hover:shadow-lg transition-shadow">
                     <CardHeader>
                       <div className="flex items-start gap-4">
                         <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                          <img 
-                            src="/Images/images.jpeg"
-                            alt="Logo école"
-                            className="w-48 h-50 object-contain rounded"
-                            onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                              const sibling = e.currentTarget.nextElementSibling as HTMLElement;
-                              if (sibling) sibling.style.display = 'flex';
-                            }}
-                          />
+                         <img 
+                          src={article.logo_url || '/Images/images.jpeg'}
+                          alt="Logo école"
+                          className="w-12 h-12 object-contain rounded"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const sibling = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (sibling) sibling.style.display = 'flex';
+                          }}
+                        />
                         </div>
                         <div className="flex-1">
                           <CardTitle className="text-xl">{article.title}</CardTitle>

@@ -11,6 +11,7 @@ interface Article {
   created_at: string;
   comment_count?: number;
   image_url?: string;
+  logo_url?: string;
 }
 
 interface BlogArticleProps {
@@ -63,8 +64,8 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) =>
           {/* Titre avec logo de l'école */}
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-             <img 
-                src="/Images/images.jpeg"
+              <img 
+                src={article.logo_url || '/Images/images.jpeg'}
                 alt="Logo école"
                 className="w-12 h-12 object-contain rounded"
                 onError={(e) => {
@@ -72,7 +73,8 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) =>
                   const sibling = e.currentTarget.nextElementSibling as HTMLElement;
                   if (sibling) sibling.style.display = 'flex';
                 }}
-              />
+             />
+
               <div className="w-12 h-12 bg-blue-500 rounded text-white text-xs font-bold flex items-center justify-center" style={{display: 'none'}}>
                 ÉCOLE
               </div>
