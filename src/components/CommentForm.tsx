@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { supabase } from '../lib/supabaseClient';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,33 +25,14 @@ const CommentForm: React.FC<CommentFormProps> = ({ articleId, onCommentSubmitted
 
     setIsSubmitting(true);
 
-    try {
-      const { error } = await supabase
-        .from('Comments')
-        .insert([
-          {
-            id_article: articleId,
-            author: author.trim(),
-            content: content.trim()
-          }
-        ]);
-
-      if (error) throw error;
-
-      // Réinitialiser le formulaire
+    // Simulation d'envoi (pour la démonstration)
+    setTimeout(() => {
       setAuthor('');
       setContent('');
-      
-      // Notifier le parent que le commentaire a été ajouté
-      onCommentSubmitted();
-      
-      alert('Votre commentaire a été ajouté avec succès !');
-    } catch (error) {
-      console.error('Erreur lors de l\'ajout du commentaire:', error);
-      alert('Erreur lors de l\'ajout du commentaire. Veuillez réessayer.');
-    } finally {
       setIsSubmitting(false);
-    }
+      onCommentSubmitted();
+      alert('Votre commentaire a été ajouté avec succès ! (Mode démonstration)');
+    }, 1000);
   };
 
   return (

@@ -1,6 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import CommentForm from './CommentForm';
 
@@ -25,32 +24,29 @@ interface BlogArticleProps {
 }
 
 const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) => {
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchComments();
-  }, [article.article_id]);
-
-  const fetchComments = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('Comments')
-        .select('*')
-        .eq('id_article', article.article_id)
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      setComments(data || []);
-    } catch (error) {
-      console.error('Erreur lors du chargement des commentaires:', error);
-    } finally {
-      setLoading(false);
+  // Commentaires d'exemple pour la démonstration
+  const [comments] = useState<Comment[]>([
+    {
+      id: 1,
+      author: "Marie Dupont",
+      content: "Excellente école ! J'ai suivi la formation marketing et j'ai trouvé un travail 2 mois après. Les professeurs sont très compétents.",
+      created_at: new Date(Date.now() - 86400000).toISOString() // Il y a 1 jour
+    },
+    {
+      id: 2,
+      author: "Pierre Martin",
+      content: "Campus très moderne et bien équipé. L'accompagnement est vraiment personnalisé comme promis.",
+      created_at: new Date(Date.now() - 172800000).toISOString() // Il y a 2 jours
+    },
+    {
+      id: 3,
+      author: "Sophie Bernard",
+      content: "Les stages en entreprise sont un vrai plus. J'ai pu mettre en pratique directement ce que j'apprenais en cours.",
+      created_at: new Date(Date.now() - 259200000).toISOString() // Il y a 3 jours
     }
-  };
+  ]);
 
   const handleNewComment = () => {
-    fetchComments();
     onCommentAdded();
   };
 
@@ -83,27 +79,21 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) =>
           Commentaires ({comments.length})
         </h3>
         
-        {loading ? (
-          <p className="text-gray-600">Chargement des commentaires...</p>
-        ) : comments.length === 0 ? (
-          <p className="text-gray-600">Aucun commentaire pour le moment. Soyez le premier à donner votre avis !</p>
-        ) : (
-          <div className="space-y-4">
-            {comments.map((comment) => (
-              <Card key={comment.id}>
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-blue-600">{comment.author}</h4>
-                    <span className="text-sm text-gray-500">
-                      {new Date(comment.created_at).toLocaleDateString('fr-FR')}
-                    </span>
-                  </div>
-                  <p className="text-gray-800">{comment.content}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+        <div className="space-y-4">
+          {comments.map((comment) => (
+            <Card key={comment.id}>
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-semibold text-blue-600">{comment.author}</h4>
+                  <span className="text-sm text-gray-500">
+                    {new Date(comment.created_at).toLocaleDateString('fr-FR')}
+                  </span>
+                </div>
+                <p className="text-gray-800">{comment.content}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
