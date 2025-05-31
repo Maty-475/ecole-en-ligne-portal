@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabaseClient';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BlogArticle from '../components/BlogArticle';
+import SeedDataButton from '../components/SeedDataButton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Article {
@@ -111,6 +112,9 @@ const Blog: React.FC = () => {
               </div>
             ) : (
               <div className="grid gap-6">
+                {/* Bouton pour ajouter des articles de démonstration */}
+                <SeedDataButton />
+                
                 {articles.length === 0 ? (
                   <div className="text-center py-8">
                     <p className="text-gray-600">Aucun article disponible pour le moment.</p>
