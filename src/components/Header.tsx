@@ -8,7 +8,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="text-white text-2xl font-bold flex items-center px-3 py-2">
             <img src="/faviconn.png" alt="Logo" className="mr-4 w-28 h-30" />
-           Rézo Campus – L’éducation à portée de clic.
+           Rézo Campus – L'éducation à portée de clic.
         </Link>
         
         <nav className="hidden md:flex space-x-6">
@@ -17,6 +17,9 @@ const Header: React.FC = () => {
           </Link>
           <Link to="/index" className="text-white hover:text-secondary transition-colors">
             Schools
+          </Link>
+          <Link to="/blog" className="text-white hover:text-secondary transition-colors">
+            Blog
           </Link>
           <Link to="/about" className="text-white hover:text-secondary transition-colors">
             About

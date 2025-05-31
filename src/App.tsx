@@ -14,7 +14,7 @@ import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import FormulaireInscription from "./components/FormulaireInscription";
 import Merci from "./pages/Merci";
-
+import Blog from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/school/edit/:id" element={<SchoolEdit />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/formulaire" element={<FormulaireInscription />} />
           <Route path="/merci" element={<Merci />} />
