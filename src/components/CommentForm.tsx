@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { supabase } from '@/lib/supabaseClient';
+import { useToast } from '@/hooks/use-toast';
 
 interface CommentFormProps {
   articleId: number;
@@ -14,31 +16,65 @@ const CommentForm: React.FC<CommentFormProps> = ({ articleId, onCommentSubmitted
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!author.trim() || !content.trim()) {
-      alert('Veuillez remplir tous les champs.');
+      toast({
+        title: "Erreur",
+        description: "Veuillez remplir tous les champs.",
+        variant: "destructive",
+      });
       return;
     }
 
     setIsSubmitting(true);
 
-    // Simulation d'envoi (pour la démonstration)
-    setTimeout(() => {
+    try {
+      // Insérer le commentaire dans la base de données
+      const { error } = await supabase
+        .from('Comments')
+        .insert([
+          {
+            id_article: articleId,
+            author: author.trim(),
+            content: content.trim(),
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) throw error;
+
+      // Réinitialiser le formulaire
       setAuthor('');
       setContent('');
-      setIsSubmitting(false);
+      
+      toast({
+        title: "Succès",
+        description: "Votre commentaire a été ajouté avec succès !",
+      });
+
+      // Notifier le parent que le commentaire a été ajouté
       onCommentSubmitted();
-      alert('Votre commentaire a été ajouté avec succès ! (Mode démonstration)');
-    }, 1000);
+
+    } catch (error) {
+      console.error('Erreur lors de l\'ajout du commentaire:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'ajout de votre commentaire.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Laisser un commentaire</CardTitle>
+        <CardTitle>Laisser un avis</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -75,7 +111,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ articleId, onCommentSubmitted
             disabled={isSubmitting}
             className="w-full"
           >
-            {isSubmitting ? 'Envoi en cours...' : 'Publier le commentaire'}
+            {isSubmitting ? 'Envoi en cours...' : 'Publier l\'avis'}
           </Button>
         </form>
       </CardContent>

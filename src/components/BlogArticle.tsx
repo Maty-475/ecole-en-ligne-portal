@@ -1,7 +1,8 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import CommentForm from './CommentForm';
+import { supabase } from '@/lib/supabaseClient';
 
 interface Article {
   article_id: number;
@@ -11,58 +12,79 @@ interface Article {
   comment_count?: number;
 }
 
-interface Comment {
-  id: number;
-  author: string;
-  content: string;
-  created_at: string;
-}
-
 interface BlogArticleProps {
   article: Article;
   onCommentAdded: () => void;
 }
 
 const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) => {
-  // Commentaires d'exemple pour la démonstration
-  const [comments] = useState<Comment[]>([
-    {
-      id: 1,
-      author: "Marie Dupont",
-      content: "Excellente école ! J'ai suivi la formation marketing et j'ai trouvé un travail 2 mois après. Les professeurs sont très compétents.",
-      created_at: new Date(Date.now() - 86400000).toISOString() // Il y a 1 jour
-    },
-    {
-      id: 2,
-      author: "Pierre Martin",
-      content: "Campus très moderne et bien équipé. L'accompagnement est vraiment personnalisé comme promis.",
-      created_at: new Date(Date.now() - 172800000).toISOString() // Il y a 2 jours
-    },
-    {
-      id: 3,
-      author: "Sophie Bernard",
-      content: "Les stages en entreprise sont un vrai plus. J'ai pu mettre en pratique directement ce que j'apprenais en cours.",
-      created_at: new Date(Date.now() - 259200000).toISOString() // Il y a 3 jours
+  const [commentCount, setCommentCount] = useState(0);
+
+  // Charger le nombre de commentaires depuis la base de données
+  const loadCommentCount = async () => {
+    try {
+      const { count, error } = await supabase
+        .from('Comments')
+        .select('*', { count: 'exact', head: true })
+        .eq('id_article', article.article_id);
+
+      if (error) throw error;
+      setCommentCount(count || 0);
+    } catch (error) {
+      console.error('Erreur lors du chargement du nombre de commentaires:', error);
     }
-  ]);
+  };
+
+  useEffect(() => {
+    loadCommentCount();
+  }, [article.article_id]);
 
   const handleNewComment = () => {
+    loadCommentCount(); // Recharger le compteur
     onCommentAdded();
   };
 
   return (
     <div className="space-y-6">
-      {/* Article principal */}
+      {/* Article principal avec image et logo */}
       <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">{article.title}</CardTitle>
-          <p className="text-gray-600">
-            Publié le {new Date(article.created_at).toLocaleDateString('fr-FR')}
-          </p>
+        <CardHeader className="pb-4">
+          {/* Image de l'événement */}
+          <div className="w-full h-64 mb-4 rounded-lg overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1200&q=80"
+              alt="Événement école"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          {/* Titre avec logo de l'école */}
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <img 
+                src="/Images/logo.jpg"
+                alt="Logo école"
+                className="w-12 h-12 object-contain rounded"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-12 h-12 bg-blue-500 rounded text-white text-xs font-bold flex items-center justify-center" style={{display: 'none'}}>
+                ÉCOLE
+              </div>
+            </div>
+            <div className="flex-1">
+              <CardTitle className="text-2xl mb-2">{article.title}</CardTitle>
+              <p className="text-gray-600">
+                Publié le {new Date(article.created_at).toLocaleDateString('fr-FR')}
+              </p>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="prose max-w-none">
-            <p className="text-gray-800 whitespace-pre-line">{article.content}</p>
+            <p className="text-gray-800 whitespace-pre-line leading-relaxed">{article.content}</p>
           </div>
         </CardContent>
       </Card>
@@ -73,28 +95,24 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) =>
         onCommentSubmitted={handleNewComment}
       />
 
-      {/* Liste des commentaires */}
-      <div>
-        <h3 className="text-xl font-semibold mb-4">
-          Commentaires ({comments.length})
-        </h3>
-        
-        <div className="space-y-4">
-          {comments.map((comment) => (
-            <Card key={comment.id}>
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold text-blue-600">{comment.author}</h4>
-                  <span className="text-sm text-gray-500">
-                    {new Date(comment.created_at).toLocaleDateString('fr-FR')}
-                  </span>
-                </div>
-                <p className="text-gray-800">{comment.content}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+      {/* Affichage du compteur de commentaires seulement */}
+      <Card>
+        <CardContent className="pt-6">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-blue-600 mb-2">
+              {commentCount}
+            </div>
+            <p className="text-gray-600">
+              {commentCount === 0 ? 'Aucun avis' : 
+               commentCount === 1 ? 'Avis reçu' : 
+               'Avis reçus'}
+            </p>
+            <p className="text-sm text-gray-500 mt-2">
+              Les avis sont enregistrés dans la base de données
+            </p>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
