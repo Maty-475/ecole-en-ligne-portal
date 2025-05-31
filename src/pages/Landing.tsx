@@ -14,6 +14,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import AvisGoogle from "../components/AvisGoogle";
 import { schools, categories } from '../data/schools';
 
 const Landing: React.FC = () => {
@@ -229,7 +230,7 @@ const Landing: React.FC = () => {
             </Tabs>
           </div>
         </section>
-        
+         <AvisGoogle />
         <section className="py-12 md:py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12 text-primary">
@@ -329,7 +330,7 @@ const Landing: React.FC = () => {
             </div>
           </div>
         </section>
-      </main>
+         </main>
       
       <Footer />
     </div>

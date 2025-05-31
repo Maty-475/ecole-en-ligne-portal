@@ -13,10 +13,10 @@ const Header: React.FC = () => {
         
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="text-white hover:text-secondary transition-colors">
-            Accueil
+            Home
           </Link>
           <Link to="/index" className="text-white hover:text-secondary transition-colors">
-            Établissements
+            Schools
           </Link>
           <Link to="/about" className="text-white hover:text-secondary transition-colors">
             About

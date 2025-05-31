@@ -13,6 +13,7 @@ interface FormData {
   AdresseMail: string;
   Pays: string;
   EcoleInteresse?: string;
+  WhatsApp: string;
 }
 
 const FormulaireInscription: React.FC = () => {
@@ -24,6 +25,7 @@ const FormulaireInscription: React.FC = () => {
     AdresseMail: "",
     Pays: "",
     EcoleInteresse: "",
+    WhatsApp:"",
   });
 
   const navigate = useNavigate();
@@ -144,6 +146,15 @@ const FormulaireInscription: React.FC = () => {
               placeholder="Pays" 
               onChange={handleChange}
               value={formData.Pays}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required 
+            />
+            <input 
+              type="text" 
+              name="WhatsApp" 
+              placeholder="Numéro WhatsApp" 
+              onChange={handleChange}
+              value={formData.WhatsApp}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required 
             />
