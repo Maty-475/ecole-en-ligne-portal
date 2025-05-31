@@ -92,7 +92,7 @@ const Blog: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold text-center mb-8">
-              Blog - Avis sur nos établissements
+              Actualité - Avis sur nos établissements
             </h1>
             
             {selectedArticle ? (
@@ -116,9 +116,14 @@ const Blog: React.FC = () => {
                       <div className="flex items-start gap-4">
                         <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                           <img 
-                            src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=100&q=80"
-                            alt="École"
-                            className="w-full h-full object-cover"
+                            src="/Images/images.jpeg"
+                            alt="Logo école"
+                            className="w-48 h-50 object-contain rounded"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const sibling = e.currentTarget.nextElementSibling as HTMLElement;
+                              if (sibling) sibling.style.display = 'flex';
+                            }}
                           />
                         </div>
                         <div className="flex-1">

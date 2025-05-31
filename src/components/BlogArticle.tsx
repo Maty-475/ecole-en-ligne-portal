@@ -10,6 +10,7 @@ interface Article {
   content: string;
   created_at: string;
   comment_count?: number;
+  image_url?: string;
 }
 
 interface BlogArticleProps {
@@ -47,27 +48,29 @@ const BlogArticle: React.FC<BlogArticleProps> = ({ article, onCommentAdded }) =>
   return (
     <div className="space-y-6">
       {/* Article principal avec image et logo */}
-      <Card>
+      <Card  key={article.article_id}>
         <CardHeader className="pb-4">
           {/* Image de l'événement */}
           <div className="w-full h-64 mb-4 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1200&q=80"
-              alt="Événement école"
-              className="w-full h-full object-cover"
-            />
+          <img 
+              src={article.image_url || 'https://via.placeholder.com/600x400'} 
+              alt="Article" 
+              className="w-full h-64 object-cover"
+          />
+
           </div>
           
           {/* Titre avec logo de l'école */}
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <img 
-                src="/Images/logo.jpg"
+             <img 
+                src="/Images/images.jpeg"
                 alt="Logo école"
                 className="w-12 h-12 object-contain rounded"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                  const sibling = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (sibling) sibling.style.display = 'flex';
                 }}
               />
               <div className="w-12 h-12 bg-blue-500 rounded text-white text-xs font-bold flex items-center justify-center" style={{display: 'none'}}>
