@@ -106,9 +106,9 @@ export const schools: School[] = [
     id: "Groupe-Miage",
     name: "Groupe Miage Etablissement Privé",
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
-    logo: "Images/images.jpeg", 
+    logo: "Images/images.png", 
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 522-279600",
       email: "miagecasa@groupemiage.net",
@@ -476,7 +476,7 @@ export const schools: School[] = [
     description: "BEST INSTITUT porte une attention particulière sur l’avenir de ses étudiants, et leurs responsabilités. C’est pourquoi, nous mettons tout en œuvre pour donner à chacun un métier, mais aussi une vraie capacité d’intégration professionnelle en lui assurant une meilleure opportunité de recrutement en entreprise.",
     logo: "Images/Best.png", 
     address: "95 Bd Mohammed V, Casablanca 20250",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 5 22 54 15 47",
       email: "Contact@bestinstitut.com",
@@ -707,7 +707,7 @@ export const schools: School[] = [
     description: "Un établissement de premier plan spécialisé dans les formations commerciales, marketing et management, offrant des programmes adaptés aux exigences du marché.",
     logo: "Images/Cesa2.png", 
     address: "15 Rue de champigny (Rond point Cimicolor), 20000 Casablanca",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 522-444180",
       email: "contact@cesa.ma",
@@ -1002,7 +1002,7 @@ export const schools: School[] = [
     description: "EDD s'est créée une très bonne reputation dans le domaine de la formation professionnelle grâce à son sérieux et à son corps professoral qui est constitué d'éminents formateurs... Avec une expertisse dans le domaine du transport, Logistiqueu, Douane, Gestion...",
     logo: "Images/EDD.jpg", 
     address: "12 Rue des Arts, 20000 Casablanca",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 5 22 22 00 44",
       email: "contact@edd.ma",
@@ -1104,7 +1104,7 @@ export const schools: School[] = [
     description: "Un institut dédié à l'excellence académique en gestion, économie et administration des entreprises, formant les futurs cadres dirigeants.",
     logo: "Images/ibegis.png", 
     address: "8 Boulevard Mohammed V, 20250 Casablanca",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 5 22 20 20 60",
       email: "contact@ibegis.ma",
@@ -1465,7 +1465,7 @@ export const schools: School[] = [
     description: "l’Institut IPCS bénéficie d’une forte expérience et de compétences reconnues dans la formation des professionnels de santé.",
     logo: "Images/IPCS.png", 
     address: "131, Bd de la Résistance (En face du Lycée Jaber Ben Hayane) - Casablanca",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 522 44 70 72",
       email: "group.ipcs@live.fr",
@@ -1556,7 +1556,7 @@ export const schools: School[] = [
         description: "MONDIAL MEDIA est une école Internationale des métiers de l'audiovisuel et de journalisme formation.",
         logo: "Images/Mondial.jpg", 
         address: "Bd Mohamed V,97 passage Gallinari,3éme Etage , Casablanca, Morocco",
-        video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+        video: "https://youtu.be/hwcRRzL39dQ",
         contact: {
           phone: "+212 670-502053",
           email: "mondialmedia@gmail.com",
@@ -1590,7 +1590,7 @@ export const schools: School[] = [
     description: "IPM offre des formations de qualité en gestion d'entreprise et en gestion administrative et comptable. En nous choisissant, vous bénéficiez d'un enseignement rigoureux.",
     logo: "Images/ipemf.jpg", 
     address: "66 Bd Hassan Premier, Casablanca 20250",
-    video: "https://www.youtube.com/watch?v=c8jZRuMTiDQ&list=PLwenwdaZUv6J1BLlVcI6xF44EBaWtsHh3",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+(212) 05 22 27 78 68 | 06 36 30 12 12",
       email: "ipemipemcom@gmail.com",

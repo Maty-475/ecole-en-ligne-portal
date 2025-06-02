@@ -330,7 +330,19 @@ const Landing: React.FC = () => {
             </div>
           </div>
         </section>
-         </main>
+        {/* === VIDEO EMBED === */}
+      <div className="w-full max-w-5xl mx-auto p-4">
+        <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/hwcRRzL39dQ"
+            title="Présentation vidéo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+      </main>
       
       <Footer />
     </div>
