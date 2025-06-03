@@ -476,7 +476,7 @@ export const schools: School[] = [
     description: "BEST INSTITUT porte une attention particulière sur l’avenir de ses étudiants, et leurs responsabilités. C’est pourquoi, nous mettons tout en œuvre pour donner à chacun un métier, mais aussi une vraie capacité d’intégration professionnelle en lui assurant une meilleure opportunité de recrutement en entreprise.",
     logo: "Images/Best.png", 
     address: "95 Bd Mohammed V, Casablanca 20250",
-    video: "https://youtu.be/hwcRRzL39dQ",
+    video: "https://youtu.be/AotfqzZf4oo",
     contact: {
       phone: "+212 5 22 54 15 47",
       email: "Contact@bestinstitut.com",
