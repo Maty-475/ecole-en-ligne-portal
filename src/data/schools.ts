@@ -108,7 +108,7 @@ export const schools: School[] = [
     description: "Un établissement d'excellence dédié à l'enseignement technologique avec des programmes innovants et des partenariats industriels.",
     logo: "Images/images.png", 
     address: "64, Rue Allal Ben Abdellah 20000 Casablanca",
-    video: "https://youtu.be/hwcRRzL39dQ",
+    video: "https://youtu.be/AotfqzZf4oo",
     contact: {
       phone: "+212 522-279600",
       email: "miagecasa@groupemiage.net",
@@ -476,7 +476,7 @@ export const schools: School[] = [
     description: "BEST INSTITUT porte une attention particulière sur l’avenir de ses étudiants, et leurs responsabilités. C’est pourquoi, nous mettons tout en œuvre pour donner à chacun un métier, mais aussi une vraie capacité d’intégration professionnelle en lui assurant une meilleure opportunité de recrutement en entreprise.",
     logo: "Images/Best.png", 
     address: "95 Bd Mohammed V, Casablanca 20250",
-    video: "https://youtu.be/AotfqzZf4oo",
+    video: "https://youtu.be/hwcRRzL39dQ",
     contact: {
       phone: "+212 5 22 54 15 47",
       email: "Contact@bestinstitut.com",
