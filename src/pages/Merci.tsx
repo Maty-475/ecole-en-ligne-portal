@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,8 +15,12 @@ const Merci = () => {
           Merci pour votre inscription !
         </h1>
         
+        <p className="text-gray-600 mb-4">
+          Nous avons bien reçu votre demande et un e-mail de confirmation vous a été envoyé. 
+        </p>
+
         <p className="text-gray-600 mb-6">
-          Nous vous recontacterons sous peu. Si vous avez été redirigé depuis le site d'une école, 
+          📬 Pensez à vérifier votre boîte de réception (ou les spams) pour retrouver notre message. Si vous avez été redirigé depuis le site d'une école, 
           la page s'est ouverte dans un nouvel onglet.
         </p>
         

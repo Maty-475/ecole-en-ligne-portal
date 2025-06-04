@@ -1,0 +1,65 @@
+from datetime import datetime, timedelta
+import icalendar
+from icalendar import Calendar, Event
+from pytz import UTC
+
+# Début du planning : lundi 10 juin 2025 à 10h
+start_date = datetime(2025, 6, 10, 10, 0, tzinfo=UTC)
+
+# Planning avec descriptions
+events_data = [
+    # LUNDI
+    ("Préparation & tournage vidéos YouTube", 0, 11, 15, "Préparation du matériel, tournage de contenu pour YouTube."),
+    ("Programmation vidéos YouTube", 0, 15.5, 18.5, "Programmation des vidéos, description, miniatures, publications prévues."),
+    ("Projet Plateforme E-Learning", 0, 19, 21, "Développement de la plateforme E-Learning : structure, contenus, maquettes."),
+    
+    # MARDI
+    ("Recherche de partenariats dans les écoles", 1, 10, 15, "Visites d’écoles pour présenter RezoCampus et établir des partenariats."),
+    ("Mise à jour du site RezoCampus", 1, 16, 18, "Ajout de nouvelles écoles, actualités, correction de contenu."),
+    ("Projet Plateforme Immobilière", 1, 19, 21, "Travail sur la plateforme de gestion locative (architecture, base de données, interfaces)."),
+    
+    # MERCREDI
+    ("Accompagnement et traitement des dossiers étudiants", 2, 10, 15, "Réception, analyse et gestion des dossiers des étudiants."),
+    ("Gestion des réseaux sociaux", 2, 16, 18.5, "Publication, modération et animation des pages sociales RezoCampus."),
+    
+    # JEUDI
+    ("Suivi des partenariats et descente dans les écoles irrégulières", 3, 10, 15, "Évaluation et accompagnement des écoles avec structure défaillante."),
+    ("Mise à jour du site", 3, 16, 18.5, "Ajouts et corrections liés aux écoles visitées."),
+    ("Projet Plateforme E-Learning", 3, 19, 21, "Développement du back-office pédagogique."),
+    ("Culte de la jeunesse en ligne", 3, 21.5, 22, "Connexion au culte de la jeunesse via Zoom ou plateforme dédiée."),
+    
+    # VENDREDI
+    ("Réalisation de vidéos dans les écoles partenaires", 4, 10, 18.5, "Captation d’interviews, images d’écoles et témoignages d’élèves."),
+    ("Culte d'affermissement à l’église", 4, 19.5, 21, "Participation au culte d’enseignement et d’affermissement."),
+    
+    # SAMEDI
+    ("Montage vidéo publicitaire des écoles", 5, 10, 18, "Montage des clips vidéos capturés dans la semaine."),
+    
+    # DIMANCHE
+    ("Culte à l’église", 6, 10, 14.5, "Participation au culte dominical."),
+    ("Repos et tâches ménagères", 6, 15, 18, "Vaisselle, nettoyage, repos personnel."),
+]
+
+# Créer le calendrier
+cal = Calendar()
+cal.add('prodid', '-//RezoCampus Weekly Planning//')
+cal.add('version', '2.0')
+
+for title, day_offset, start_hour, end_hour, description in events_data:
+    event = Event()
+    start_dt = start_date + timedelta(days=day_offset, hours=start_hour - 10)
+    end_dt = start_date + timedelta(days=day_offset, hours=end_hour - 10)
+    event.add('summary', title)
+    event.add('description', description)
+    event.add('dtstart', start_dt)
+    event.add('dtend', end_dt)
+    event.add('rrule', {'freq': 'weekly'})
+    event.add('dtstamp', datetime.now(tz=UTC))
+    cal.add_component(event)
+
+# Sauvegarde du fichier ICS
+ics_path = "/mnt/data/planning_rezocampus.ics"
+with open(ics_path, "wb") as f:
+    f.write(cal.to_ical())
+
+ics_path

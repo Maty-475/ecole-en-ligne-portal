@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 import { supabase } from "../lib/supabaseClient";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -45,26 +46,46 @@ const FormulaireInscription: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
 
-    const { error } = await supabase.from("Inscription").insert([formData]);
+      const { error } = await supabase.from("Inscription").insert([formData]);
 
-    if (error) {
-      alert("Erreur lors de l'enregistrement !");
-      console.error(error);
-    } else {
-      alert("Inscription réussie !");
-      
-      // Si une URL de redirection est fournie, rediriger vers celle-ci
-      if (redirectUrl) {
-        window.open(redirectUrl, '_blank');
-        navigate("/merci");
+      if (error) {
+        alert("Erreur lors de l'enregistrement !");
+        console.error(error);
       } else {
-        navigate("/merci");
+        // ✅ Envoi de l'email de bienvenue avec EmailJS
+        try {
+          await emailjs.send(
+            'service_7l7iiir',       // Remplace par ton vrai service ID
+            'template_wktvhog',      // Remplace par ton vrai template ID
+            {
+              Nom: formData.Nom,
+              Prenom: formData.Prenom,
+              AdresseMail: formData.AdresseMail,
+              formation: formData.Formation,
+              EcoleInteresse: formData.EcoleInteresse,
+
+            },
+            'xgYkC3rP4oY01KUy-'         // Remplace par ta clé publique EmailJS
+          );
+          console.log("Email de confirmation envoyé !");
+        } catch (emailError) {
+          console.error("Erreur lors de l'envoi de l'email :", emailError);
+        }
+
+        alert("Inscription réussie !");
+
+        // Redirection
+        if (redirectUrl) {
+          window.open(redirectUrl, '_blank');
+          navigate("/merci");
+        } else {
+          navigate("/merci");
+        }
       }
-    }
-  };
+    };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
