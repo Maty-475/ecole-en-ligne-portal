@@ -18,6 +18,7 @@ import Blog from "./pages/Blog";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
+import BrowseSchools from "./pages/BrowseSchools";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();

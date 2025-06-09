@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LogIn } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
@@ -26,6 +27,10 @@ const Header: React.FC = () => {
           </Link>
           <Link to="/contact" className="text-white hover:text-secondary transition-colors">
             Contact
+          </Link>
+          <Link to="/login" className="text-white hover:text-secondary transition-colors flex items-center">
+            <LogIn className="mr-1 h-4 w-4" />
+            Login
           </Link>
         </nav>
         
