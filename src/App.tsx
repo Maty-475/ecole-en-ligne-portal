@@ -15,6 +15,10 @@ import Admin from "./pages/Admin";
 import FormulaireInscription from "./components/FormulaireInscription";
 import Merci from "./pages/Merci";
 import Blog from "./pages/Blog";
+import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +39,15 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/formulaire" element={<FormulaireInscription />} />
           <Route path="/merci" element={<Merci />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          
+          {/* Protected Routes */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
