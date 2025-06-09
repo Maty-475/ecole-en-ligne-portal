@@ -24,8 +24,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simplified authentication for demonstration purposes
-    // In a real application, this would validate against a secure backend
+
     if (username === 'admin' && password === 'admin123') {
       setIsAuthenticated(true);
       localStorage.setItem('isAuthenticated', 'true');
