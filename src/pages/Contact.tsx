@@ -143,7 +143,7 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     className="w-full min-h-[150px]"
-                    placeholder="Notre de Caractère requis 250"
+                    placeholder="Nombre de Caractère requis 250"
                   />
                 </div>
 
