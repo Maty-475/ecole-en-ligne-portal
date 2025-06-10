@@ -95,8 +95,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
-      
+           
       <main className="flex-grow bg-gray-50">
         {/* En-tête du dashboard avec info utilisateur */}
         <div className="bg-white shadow-sm border-b">
