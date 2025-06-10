@@ -204,7 +204,7 @@ const Dashboard = () => {
                         
                         <div>
                           <h3 className="text-xl font-semibold text-gray-900 mb-3">Localisation</h3>
-                          <p className="text-gray-600">{selectedSchool.location}</p>
+                          <p className="text-gray-600">{selectedSchool.address}</p>
                         </div>
                       </div>
 
@@ -215,9 +215,12 @@ const Dashboard = () => {
                         >
                           Voir tous les détails
                         </Link>
-                        <button className="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
-                          Demander des informations
-                        </button>
+                       <Link
+                          to="/Contact"
+                          className="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+                        >
+                          Demandez une information
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -231,21 +234,21 @@ const Dashboard = () => {
                           <MessageCircle className="w-8 h-8 text-primary" />
                         </div>
                         <h3 className="font-semibold text-gray-900">Messagerie</h3>
-                        <p className="text-sm text-gray-600">Communiquez directement avec les établissements</p>
+                        <p className="text-sm text-gray-600">Communiquez directement avec l'équipe Rézo Campus, pour une orientation </p>
                       </div>
                       <div className="text-center">
                         <div className="bg-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                           <Settings className="w-8 h-8 text-secondary" />
                         </div>
                         <h3 className="font-semibold text-gray-900">Paramètres</h3>
-                        <p className="text-sm text-gray-600">Gérez votre profil et préférences</p>
+                        <p className="text-sm text-gray-600">Gérez votre profil et Modifier vos informations</p>
                       </div>
                       <div className="text-center">
                         <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                           <Globe className="w-8 h-8 text-green-600" />
                         </div>
                         <h3 className="font-semibold text-gray-900">Établissements</h3>
-                        <p className="text-sm text-gray-600">Explorez notre réseau d'écoles partenaires</p>
+                        <p className="text-sm text-gray-600">Explorez notre réseau d'écoles partenaires, accrédités choisi spéciallement pour vous !</p>
                       </div>
                     </div>
                   </div>
@@ -276,7 +279,7 @@ const Dashboard = () => {
                             />
                             <div>
                               <h3 className="font-medium text-gray-900 text-sm">{school.name}</h3>
-                              <p className="text-xs text-gray-500 truncate">{school.location}</p>
+                              <p className="text-xs text-gray-500 truncate">{school.address}</p>
                             </div>
                           </div>
                           <ChevronRight className="w-4 h-4 text-gray-400" />
