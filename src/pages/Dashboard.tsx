@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabaseClient';
 import { schools } from '../data/schools';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { MessageCircle, Settings, LogOut, Globe, Phone, Mail } from 'lucide-react';
+import { MessageCircle, Settings, LogOut, Globe, Phone, Mail, ChevronRight } from 'lucide-react';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -14,12 +14,9 @@ const Dashboard = () => {
   const [messageThread, setMessageThread] = useState<any[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [updateInfo, setUpdateInfo] = useState({ nom: '', photo: '', password: '' });
-  const [activeTab, setActiveTab] = useState<'messages' | 'settings'>('messages');
   const [showMessaging, setShowMessaging] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-
-  // Récupérer quelques écoles pour l'affichage des informations
-  const featuredSchools = schools.slice(0, 3);
+  const [selectedSchool, setSelectedSchool] = useState<any>(null);
 
   useEffect(() => {
     const getSession = async () => {
@@ -95,6 +92,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Header />
            
       <main className="flex-grow bg-gray-50">
         {/* En-tête du dashboard avec info utilisateur */}
@@ -127,7 +125,10 @@ const Dashboard = () => {
               {/* Actions à droite */}
               <div className="flex items-center space-x-4">
                 <button
-                  onClick={() => setShowMessaging(!showMessaging)}
+                  onClick={() => {
+                    setShowMessaging(!showMessaging);
+                    setShowSettings(false);
+                  }}
                   className={`p-2 rounded-lg transition-colors ${
                     showMessaging ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
@@ -135,7 +136,10 @@ const Dashboard = () => {
                   <MessageCircle className="w-5 h-5" />
                 </button>
                 <button
-                  onClick={() => setShowSettings(!showSettings)}
+                  onClick={() => {
+                    setShowSettings(!showSettings);
+                    setShowMessaging(false);
+                  }}
                   className={`p-2 rounded-lg transition-colors ${
                     showSettings ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
@@ -154,58 +158,132 @@ const Dashboard = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Contenu principal par défaut - Informations des écoles */}
+          {/* Layout principal avec sidebar d'établissements */}
           {!showMessaging && !showSettings && (
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Établissements partenaires</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {featuredSchools.map((school) => (
-                    <div key={school.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                      <img
-                        src={school.logo}
-                        alt={school.name}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{school.name}</h3>
-                        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{school.description}</p>
-                        
-                        <div className="space-y-2 mb-4">
-                          <div className="flex items-center text-sm text-gray-500">
-                            <Phone className="w-4 h-4 mr-2" />
-                            {school.contact.phone}
-                          </div>
-                          <div className="flex items-center text-sm text-gray-500">
-                            <Mail className="w-4 h-4 mr-2" />
-                            {school.contact.email}
-                          </div>
-                          {school.contact.website && (
-                            <div className="flex items-center text-sm text-gray-500">
-                              <Globe className="w-4 h-4 mr-2" />
-                              <a
-                                href={school.contact.website}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-primary hover:underline"
-                              >
-                                Site web
-                              </a>
+            <div className="flex gap-8">
+              {/* Contenu central - Détails de l'établissement */}
+              <div className="flex-1">
+                {selectedSchool ? (
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img
+                      src={selectedSchool.logo}
+                      alt={selectedSchool.name}
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="p-8">
+                      <h1 className="text-3xl font-bold text-gray-900 mb-4">{selectedSchool.name}</h1>
+                      <p className="text-gray-600 text-lg mb-6">{selectedSchool.description}</p>
+                      
+                      <div className="grid md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-900 mb-3">Contact</h3>
+                          <div className="space-y-3">
+                            <div className="flex items-center text-gray-600">
+                              <Phone className="w-5 h-5 mr-3" />
+                              {selectedSchool.contact.phone}
                             </div>
-                          )}
+                            <div className="flex items-center text-gray-600">
+                              <Mail className="w-5 h-5 mr-3" />
+                              {selectedSchool.contact.email}
+                            </div>
+                            {selectedSchool.contact.website && (
+                              <div className="flex items-center text-gray-600">
+                                <Globe className="w-5 h-5 mr-3" />
+                                <a
+                                  href={selectedSchool.contact.website}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-primary hover:underline"
+                                >
+                                  Site web officiel
+                                </a>
+                              </div>
+                            )}
+                          </div>
                         </div>
-
-                        <div className="flex gap-2">
-                          <Link
-                            to={`/school/${school.id}`}
-                            className="flex-1 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors text-center"
-                          >
-                            Voir détails
-                          </Link>
+                        
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-900 mb-3">Localisation</h3>
+                          <p className="text-gray-600">{selectedSchool.location}</p>
                         </div>
                       </div>
+
+                      <div className="flex gap-4">
+                        <Link
+                          to={`/school/${selectedSchool.id}`}
+                          className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                        >
+                          Voir tous les détails
+                        </Link>
+                        <button className="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
+                          Demander des informations
+                        </button>
+                      </div>
                     </div>
-                  ))}
+                  </div>
+                ) : (
+                  <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Bienvenue sur votre tableau de bord</h2>
+                    <p className="text-gray-600 mb-6">Sélectionnez un établissement dans la liste pour découvrir ses détails et programmes.</p>
+                    <div className="grid md:grid-cols-3 gap-6 mt-8">
+                      <div className="text-center">
+                        <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                          <MessageCircle className="w-8 h-8 text-primary" />
+                        </div>
+                        <h3 className="font-semibold text-gray-900">Messagerie</h3>
+                        <p className="text-sm text-gray-600">Communiquez directement avec les établissements</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="bg-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                          <Settings className="w-8 h-8 text-secondary" />
+                        </div>
+                        <h3 className="font-semibold text-gray-900">Paramètres</h3>
+                        <p className="text-sm text-gray-600">Gérez votre profil et préférences</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                          <Globe className="w-8 h-8 text-green-600" />
+                        </div>
+                        <h3 className="font-semibold text-gray-900">Établissements</h3>
+                        <p className="text-sm text-gray-600">Explorez notre réseau d'écoles partenaires</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Sidebar droite - Liste des établissements */}
+              <div className="w-80">
+                <div className="bg-white rounded-lg shadow-lg">
+                  <div className="p-6 border-b">
+                    <h2 className="text-xl font-semibold text-gray-900">Établissements partenaires</h2>
+                  </div>
+                  <div className="max-h-96 overflow-y-auto">
+                    {schools.map((school) => (
+                      <button
+                        key={school.id}
+                        onClick={() => setSelectedSchool(school)}
+                        className={`w-full p-4 border-b border-gray-100 text-left hover:bg-gray-50 transition-colors ${
+                          selectedSchool?.id === school.id ? 'bg-primary/5 border-l-4 border-l-primary' : ''
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-3">
+                            <img
+                              src={school.logo}
+                              alt={school.name}
+                              className="w-12 h-12 object-cover rounded-lg"
+                            />
+                            <div>
+                              <h3 className="font-medium text-gray-900 text-sm">{school.name}</h3>
+                              <p className="text-xs text-gray-500 truncate">{school.location}</p>
+                            </div>
+                          </div>
+                          <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </div>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -228,7 +306,7 @@ const Dashboard = () => {
                         className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                           msg.sender_id === user.id
                             ? 'bg-primary text-white'
-                            : 'bg-green-100 text-green-800'
+                            : 'bg-blue-100 text-blue-800'
                         }`}
                       >
                         {msg.texte}
