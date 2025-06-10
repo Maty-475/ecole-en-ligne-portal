@@ -27,6 +27,8 @@ const Header: React.FC = () => {
           <Link to="/contact" className="text-white hover:text-secondary transition-colors">
             Contact
           </Link>
+          <Link to="/login" className="text-white hover:text-secondary transition-colors">Connexion</Link>
+
         </nav>
         
         <div className="md:hidden">
