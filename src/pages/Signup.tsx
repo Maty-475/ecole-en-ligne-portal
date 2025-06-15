@@ -1,9 +1,11 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import RecaptchaComponent from '../components/RecaptchaComponent';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { BookOpen, Award, Zap } from 'lucide-react';
 
 const Signup = () => {
@@ -13,9 +15,20 @@ const Signup = () => {
   const [nom, setNom] = useState("");
   const [photo, setPhoto] = useState("");
   const [error, setError] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      setError("Veuillez valider le reCAPTCHA");
+      return;
+    }
 
     // Étape 1 : créer le compte
     const { data, error: signupError } = await supabase.auth.signUp({
@@ -136,6 +149,11 @@ const Signup = () => {
                   />
                 </div>
 
+                <RecaptchaComponent 
+                  onVerify={handleRecaptchaChange}
+                  recaptchaRef={recaptchaRef}
+                />
+
                 {error && (
                   <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
                     {error}
@@ -144,7 +162,8 @@ const Signup = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+                  className="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={!recaptchaToken}
                 >
                   S'inscrire
                 </button>

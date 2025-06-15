@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabaseClient';
 import { Input } from '@/components/ui/input';
@@ -7,6 +8,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/sonner';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import RecaptchaComponent from '../components/RecaptchaComponent';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -16,35 +19,48 @@ const Contact: React.FC = () => {
     message: '',
     whatsapp: ''
   });
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
 
-  const { name, email, subject, message, whatsapp } = formData;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const { error } = await supabase
-    .from('ContactMessages')
-    .insert([{ name, email, subject, message, whatsapp }]);
+    if (!recaptchaToken) {
+      toast.error("Veuillez valider le reCAPTCHA");
+      return;
+    }
 
-  if (error) {
-    console.error('Erreur lors de l\'envoi :', error.message);
-    toast.error("Une erreur s'est produite. Veuillez réessayer.");
-  } else {
-    toast.success('Merci pour votre message ! Nous vous contacterons bientôt.');
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-      whatsapp: ''
-    });
-  }
-};
+    const { name, email, subject, message, whatsapp } = formData;
+
+    const { error } = await supabase
+      .from('ContactMessages')
+      .insert([{ name, email, subject, message, whatsapp }]);
+
+    if (error) {
+      console.error('Erreur lors de l\'envoi :', error.message);
+      toast.error("Une erreur s'est produite. Veuillez réessayer.");
+    } else {
+      toast.success('Merci pour votre message ! Nous vous contacterons bientôt.');
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        whatsapp: ''
+      });
+      setRecaptchaToken(null);
+      recaptchaRef.current?.reset();
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -147,9 +163,15 @@ const Contact: React.FC = () => {
                   />
                 </div>
 
+                <RecaptchaComponent 
+                  onVerify={handleRecaptchaChange}
+                  recaptchaRef={recaptchaRef}
+                />
+
                 <Button
                   type="submit"
                   className="bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-md"
+                  disabled={!recaptchaToken}
                 >
                   Envoyer le message
                 </Button>
@@ -162,10 +184,10 @@ const Contact: React.FC = () => {
                 <h2 className="text-xl font-bold text-primary mb-4">Responsable Technique</h2>
                 <img src="/Images/Photo1.jpg" alt="Directeur" className="w-32 h-32 rounded-full object-cover mb-4" />
                 <p className="text-ms font-bold text-primary mb-4 text-justify">
-                  "Bienvenue sur Rézo Campus une plateforme dédiée à la recherche, la gestion et l’orientation vers les établissements 
-                  d’enseignement. Explorez une large sélection d’écoles, trouvez la formation qui vous correspond et inscrivez-vous en 
-                  quelques clics. Que vous soyez étudiant, parent ou responsable d’établissement, Rézo Campus simplifie l’accès à l’éducation de qualité. 
-                  Avec Rézo Campus, trouvez l’école de vos rêves n’a jamais été aussi simple. Comparez, explorez et inscrivez-vous dans des établissements 
+                  "Bienvenue sur Rézo Campus une plateforme dédiée à la recherche, la gestion et l'orientation vers les établissements 
+                  d'enseignement. Explorez une large sélection d'écoles, trouvez la formation qui vous correspond et inscrivez-vous en 
+                  quelques clics. Que vous soyez étudiant, parent ou responsable d'établissement, Rézo Campus simplifie l'accès à l'éducation de qualité. 
+                  Avec Rézo Campus, trouvez l'école de vos rêves n'a jamais été aussi simple. Comparez, explorez et inscrivez-vous dans des établissements 
                   de qualité, où que vous soyez. Une plateforme intuitive pour construire votre avenir en toute confiance."
                 </p>
               </div>
