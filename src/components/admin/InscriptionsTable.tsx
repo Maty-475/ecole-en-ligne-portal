@@ -26,26 +26,25 @@ const InscriptionsTable: React.FC = () => {
     loadInscriptions();
   }, []);
 
-  const loadInscriptions = async () => {
-    try {
-      console.log('Loading inscriptions...');
-      const { data, error } = await supabase
-        .from('Inscription')
-        .select('*')
-        .order('date_ajout', { ascending: false });
-      
-      if (error) {
-        console.error('Error loading inscriptions:', error);
-      } else {
-        console.log('Inscriptions loaded:', data);
-        setInscriptions(data || []);
-      }
-    } catch (error) {
-      console.error('Error in loadInscriptions:', error);
-    }
-    setLoading(false);
-  };
+      const loadInscriptions = async () => {
+      try {
+        console.log('🔄 Chargement des inscriptions...');
+        const { data, error } = await supabase
+          .from('Inscription') // Majuscule ici car ta table s'appelle "Inscription"
+          .select('*')
+          .order('date_ajout', { ascending: false });
 
+        if (error) {
+          console.error('❌ Erreur Supabase :', error.message);
+        } else {
+          console.log('✅ Données reçues :', data);
+          setInscriptions(data || []);
+        }
+      } catch (err) {
+        console.error('🔥 Exception loadInscriptions :', err);
+      }
+      setLoading(false);
+    };
   const filteredInscriptions = inscriptions.filter(inscription =>
     inscription.Nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
     inscription.Prenom.toLowerCase().includes(searchTerm.toLowerCase()) ||

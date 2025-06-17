@@ -13,7 +13,7 @@ interface Message {
   user_id: string;
   sender_id: string;
   texte: string;
-  created_ad: string;
+  created_at: string;
 }
 
 const MessagesTable: React.FC = () => {
@@ -33,7 +33,7 @@ const MessagesTable: React.FC = () => {
       const { data, error } = await supabase
         .from('messages')
         .select('*')
-        .order('created_ad', { ascending: false });
+        .order('created_at', { ascending: false });
       
       if (error) {
         console.error('Error loading messages:', error);
@@ -64,7 +64,7 @@ const MessagesTable: React.FC = () => {
         user_id: selectedMessage.user_id,
         sender_id: 'admin',
         texte: replyContent,
-        created_ad: new Date().toISOString()
+        created_at: new Date().toISOString()
       }]);
 
     if (error) {
@@ -116,7 +116,7 @@ const MessagesTable: React.FC = () => {
                   <div className="truncate">{message.texte}</div>
                 </TableCell>
                 <TableCell>
-                  {new Date(message.created_ad).toLocaleDateString()}
+                  {new Date(message.created_at).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
                   <Dialog>

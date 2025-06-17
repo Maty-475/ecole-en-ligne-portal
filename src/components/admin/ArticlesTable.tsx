@@ -13,7 +13,7 @@ interface Article {
   image_url: string;
   logo_url: string;
   content: string;
-  created_ad: string;
+  created_at: string;
 }
 
 const ArticlesTable: React.FC = () => {
@@ -31,7 +31,7 @@ const ArticlesTable: React.FC = () => {
       const { data, error } = await supabase
         .from('Articles')
         .select('*')
-        .order('created_ad', { ascending: false });
+        .order('created_at', { ascending: false });
       
       if (error) {
         console.error('Error loading articles:', error);
@@ -120,7 +120,7 @@ const ArticlesTable: React.FC = () => {
                   <div className="truncate">{article.content}</div>
                 </TableCell>
                 <TableCell>
-                  {new Date(article.created_ad).toLocaleDateString()}
+                  {new Date(article.created_at).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
                   <Button

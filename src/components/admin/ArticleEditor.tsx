@@ -34,7 +34,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({ onArticleCreated }) => {
         content: content.trim(),
         image_url: imageUrl.trim() || null,
         logo_url: logoUrl.trim() || null,
-        created_ad: new Date().toISOString()
+        created_at: new Date().toISOString()
       });
 
       const { error } = await supabase
@@ -44,7 +44,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({ onArticleCreated }) => {
           content: content.trim(),
           image_url: imageUrl.trim() || null,
           logo_url: logoUrl.trim() || null,
-          created_ad: new Date().toISOString()
+          created_at: new Date().toISOString()
         }]);
 
       if (error) {
