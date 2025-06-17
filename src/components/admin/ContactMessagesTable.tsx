@@ -1,17 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "../../lib/supabaseClient";
-import { toast } from "sonner";
 
 interface ContactMessage {
   id: number;
-  nom: string;
+  name: string;
   email: string;
+  whatsapp: string;
+  subjet: string;
   message: string;
-  created_at: string;
+  created_ad: string;
 }
 
 const ContactMessagesTable: React.FC = () => {
@@ -28,40 +28,24 @@ const ContactMessagesTable: React.FC = () => {
       const { data, error } = await supabase
         .from('ContactMessages')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('created_ad', { ascending: false });
       
       if (error) {
-        toast.error("Erreur lors du chargement des messages de contact");
         console.error(error);
       } else {
         setContactMessages(data || []);
       }
     } catch (error) {
-      toast.error("Erreur lors du chargement des messages de contact");
       console.error(error);
     }
     setLoading(false);
   };
 
   const filteredMessages = contactMessages.filter(message =>
-    message.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    message.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     message.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     message.message.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleDelete = async (id: number) => {
-    const { error } = await supabase
-      .from('ContactMessages')
-      .delete()
-      .eq('id', id);
-
-    if (error) {
-      toast.error("Erreur lors de la suppression");
-    } else {
-      toast.success("Message supprimé");
-      loadContactMessages();
-    }
-  };
 
   if (loading) {
     return <div className="text-center py-4">Chargement...</div>;
@@ -87,39 +71,30 @@ const ContactMessagesTable: React.FC = () => {
             <TableRow>
               <TableHead>Nom</TableHead>
               <TableHead>Email</TableHead>
+              <TableHead>WhatsApp</TableHead>
+              <TableHead>Sujet</TableHead>
               <TableHead>Message</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Statut</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredMessages.map((message) => (
               <TableRow key={message.id}>
-                <TableCell>{message.nom}</TableCell>
+                <TableCell>{message.name}</TableCell>
                 <TableCell>{message.email}</TableCell>
+                <TableCell>{message.whatsapp}</TableCell>
+                <TableCell>{message.subjet}</TableCell>
                 <TableCell className="max-w-md">
                   <div className="truncate">{message.message}</div>
                 </TableCell>
                 <TableCell>
-                  {new Date(message.created_at).toLocaleDateString()}
+                  {new Date(message.created_ad).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
-                  <div className="flex gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => window.open(`mailto:${message.email}`, '_blank')}
-                    >
-                      Répondre
-                    </Button>
-                    <Button
-                      variant="destructive"
-                      size="sm"
-                      onClick={() => handleDelete(message.id)}
-                    >
-                      Supprimer
-                    </Button>
-                  </div>
+                  <span className="px-2 py-1 rounded text-sm bg-green-100 text-green-800">
+                    Reçu
+                  </span>
                 </TableCell>
               </TableRow>
             ))}

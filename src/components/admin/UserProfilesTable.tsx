@@ -1,18 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "../../lib/supabaseClient";
-import { toast } from "sonner";
 
 interface UserProfile {
   id: string;
-  email: string;
   full_name: string;
+  email: string;
   avatar_url: string;
-  created_at: string;
-  last_sign_in_at: string;
+  message: string;
 }
 
 const UserProfilesTable: React.FC = () => {
@@ -29,7 +26,7 @@ const UserProfilesTable: React.FC = () => {
       const { data, error } = await supabase
         .from('user_profiles')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('full_name', { ascending: true });
       
       if (error) {
         console.error(error);
@@ -46,20 +43,6 @@ const UserProfilesTable: React.FC = () => {
     profile.full_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     profile.email?.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleDelete = async (id: string) => {
-    const { error } = await supabase
-      .from('user_profiles')
-      .delete()
-      .eq('id', id);
-
-    if (error) {
-      toast.error("Erreur lors de la suppression");
-    } else {
-      toast.success("Profil supprimé");
-      loadUserProfiles();
-    }
-  };
 
   if (loading) {
     return <div className="text-center py-4">Chargement...</div>;
@@ -86,9 +69,8 @@ const UserProfilesTable: React.FC = () => {
               <TableHead>Avatar</TableHead>
               <TableHead>Nom complet</TableHead>
               <TableHead>Email</TableHead>
-              <TableHead>Date d'inscription</TableHead>
-              <TableHead>Dernière connexion</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Message</TableHead>
+              <TableHead>Statut</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -109,20 +91,13 @@ const UserProfilesTable: React.FC = () => {
                 </TableCell>
                 <TableCell>{profile.full_name || 'N/A'}</TableCell>
                 <TableCell>{profile.email}</TableCell>
-                <TableCell>
-                  {new Date(profile.created_at).toLocaleDateString()}
+                <TableCell className="max-w-md">
+                  <div className="truncate">{profile.message || 'Aucun message'}</div>
                 </TableCell>
                 <TableCell>
-                  {profile.last_sign_in_at ? new Date(profile.last_sign_in_at).toLocaleDateString() : 'Jamais'}
-                </TableCell>
-                <TableCell>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => handleDelete(profile.id)}
-                  >
-                    Supprimer
-                  </Button>
+                  <span className="px-2 py-1 rounded text-sm bg-green-100 text-green-800">
+                    Reçu
+                  </span>
                 </TableCell>
               </TableRow>
             ))}

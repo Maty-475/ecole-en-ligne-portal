@@ -9,12 +9,11 @@ import { supabase } from "../../lib/supabaseClient";
 import { toast } from "sonner";
 
 interface Message {
-  id: number;
+  id: string;
+  user_id: string;
   sender_id: string;
-  receiver_id: string;
-  content: string;
-  timestamp: string;
-  is_read: boolean;
+  texte: string;
+  created_ad: string;
 }
 
 const MessagesTable: React.FC = () => {
@@ -33,23 +32,21 @@ const MessagesTable: React.FC = () => {
       const { data, error } = await supabase
         .from('messages')
         .select('*')
-        .order('timestamp', { ascending: false });
+        .order('created_ad', { ascending: false });
       
       if (error) {
-        toast.error("Erreur lors du chargement des messages");
         console.error(error);
       } else {
         setMessages(data || []);
       }
     } catch (error) {
-      toast.error("Erreur lors du chargement des messages");
       console.error(error);
     }
     setLoading(false);
   };
 
   const filteredMessages = messages.filter(message =>
-    message.content.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    message.texte.toLowerCase().includes(searchTerm.toLowerCase()) ||
     message.sender_id.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -62,11 +59,10 @@ const MessagesTable: React.FC = () => {
     const { error } = await supabase
       .from('messages')
       .insert([{
+        user_id: selectedMessage.user_id,
         sender_id: 'admin',
-        receiver_id: selectedMessage.sender_id,
-        content: replyContent,
-        timestamp: new Date().toISOString(),
-        is_read: false
+        texte: replyContent,
+        created_ad: new Date().toISOString()
       }]);
 
     if (error) {
@@ -75,17 +71,6 @@ const MessagesTable: React.FC = () => {
       toast.success("Réponse envoyée");
       setReplyContent('');
       setSelectedMessage(null);
-      loadMessages();
-    }
-  };
-
-  const markAsRead = async (id: number) => {
-    const { error } = await supabase
-      .from('messages')
-      .update({ is_read: true })
-      .eq('id', id);
-
-    if (!error) {
       loadMessages();
     }
   };
@@ -112,75 +97,58 @@ const MessagesTable: React.FC = () => {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead>Utilisateur</TableHead>
               <TableHead>Expéditeur</TableHead>
-              <TableHead>Contenu</TableHead>
+              <TableHead>Message</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead>Statut</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredMessages.map((message) => (
               <TableRow key={message.id}>
+                <TableCell>{message.user_id}</TableCell>
                 <TableCell>{message.sender_id}</TableCell>
                 <TableCell className="max-w-md">
-                  <div className="truncate">{message.content}</div>
+                  <div className="truncate">{message.texte}</div>
                 </TableCell>
                 <TableCell>
-                  {new Date(message.timestamp).toLocaleDateString()}
+                  {new Date(message.created_ad).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
-                  <span className={`px-2 py-1 rounded text-sm ${
-                    message.is_read ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-                  }`}>
-                    {message.is_read ? 'Lu' : 'Non lu'}
-                  </span>
-                </TableCell>
-                <TableCell>
-                  <div className="flex gap-2">
-                    {!message.is_read && (
+                  <Dialog>
+                    <DialogTrigger asChild>
                       <Button
-                        variant="outline"
+                        variant="default"
                         size="sm"
-                        onClick={() => markAsRead(message.id)}
+                        onClick={() => setSelectedMessage(message)}
                       >
-                        Marquer lu
+                        Répondre
                       </Button>
-                    )}
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="default"
-                          size="sm"
-                          onClick={() => setSelectedMessage(message)}
-                        >
-                          Répondre
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Répondre au message</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <div>
-                            <p className="text-sm text-gray-600">Message original :</p>
-                            <div className="bg-gray-100 p-3 rounded">{message.content}</div>
-                          </div>
-                          <div>
-                            <Textarea
-                              placeholder="Tapez votre réponse..."
-                              value={replyContent}
-                              onChange={(e) => setReplyContent(e.target.value)}
-                              rows={4}
-                            />
-                          </div>
-                          <Button onClick={handleReply} className="w-full">
-                            Envoyer la réponse
-                          </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Répondre au message</DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm text-gray-600">Message original :</p>
+                          <div className="bg-gray-100 p-3 rounded">{message.texte}</div>
                         </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                        <div>
+                          <Textarea
+                            placeholder="Tapez votre réponse..."
+                            value={replyContent}
+                            onChange={(e) => setReplyContent(e.target.value)}
+                            rows={4}
+                          />
+                        </div>
+                        <Button onClick={handleReply} className="w-full">
+                          Envoyer la réponse
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </TableCell>
               </TableRow>
             ))}

@@ -1,10 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "../../lib/supabaseClient";
-import { toast } from "sonner";
 
 interface Inscription {
   id: number;
@@ -12,11 +10,11 @@ interface Inscription {
   Prenom: string;
   Der_Dip: string;
   Formation: string;
+  WhatsApp: string;
   AdresseMail: string;
   Pays: string;
-  EcoleInteresse?: string;
-  WhatsApp: string;
-  created_at: string;
+  EcoleInteresse: string;
+  date_ajout: string;
 }
 
 const InscriptionsTable: React.FC = () => {
@@ -33,16 +31,14 @@ const InscriptionsTable: React.FC = () => {
       const { data, error } = await supabase
         .from('Inscription')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('date_ajout', { ascending: false });
       
       if (error) {
-        toast.error("Erreur lors du chargement des inscriptions");
         console.error(error);
       } else {
         setInscriptions(data || []);
       }
     } catch (error) {
-      toast.error("Erreur lors du chargement des inscriptions");
       console.error(error);
     }
     setLoading(false);
@@ -51,23 +47,8 @@ const InscriptionsTable: React.FC = () => {
   const filteredInscriptions = inscriptions.filter(inscription =>
     inscription.Nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
     inscription.Prenom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    inscription.AdresseMail.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (inscription.EcoleInteresse && inscription.EcoleInteresse.toLowerCase().includes(searchTerm.toLowerCase()))
+    inscription.AdresseMail.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleDelete = async (id: number) => {
-    const { error } = await supabase
-      .from('Inscription')
-      .delete()
-      .eq('id', id);
-
-    if (error) {
-      toast.error("Erreur lors de la suppression");
-    } else {
-      toast.success("Inscription supprimée");
-      loadInscriptions();
-    }
-  };
 
   if (loading) {
     return <div className="text-center py-4">Chargement...</div>;
@@ -93,12 +74,14 @@ const InscriptionsTable: React.FC = () => {
             <TableRow>
               <TableHead>Nom</TableHead>
               <TableHead>Prénom</TableHead>
-              <TableHead>Email</TableHead>
+              <TableHead>Dernier Diplôme</TableHead>
               <TableHead>Formation</TableHead>
-              <TableHead>École</TableHead>
+              <TableHead>WhatsApp</TableHead>
+              <TableHead>Email</TableHead>
               <TableHead>Pays</TableHead>
+              <TableHead>École Intéressée</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Statut</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -106,21 +89,19 @@ const InscriptionsTable: React.FC = () => {
               <TableRow key={inscription.id}>
                 <TableCell>{inscription.Nom}</TableCell>
                 <TableCell>{inscription.Prenom}</TableCell>
-                <TableCell>{inscription.AdresseMail}</TableCell>
+                <TableCell>{inscription.Der_Dip}</TableCell>
                 <TableCell>{inscription.Formation}</TableCell>
-                <TableCell>{inscription.EcoleInteresse || 'N/A'}</TableCell>
+                <TableCell>{inscription.WhatsApp}</TableCell>
+                <TableCell>{inscription.AdresseMail}</TableCell>
                 <TableCell>{inscription.Pays}</TableCell>
+                <TableCell>{inscription.EcoleInteresse}</TableCell>
                 <TableCell>
-                  {new Date(inscription.created_at).toLocaleDateString()}
+                  {new Date(inscription.date_ajout).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => handleDelete(inscription.id)}
-                  >
-                    Supprimer
-                  </Button>
+                  <span className="px-2 py-1 rounded text-sm bg-green-100 text-green-800">
+                    Reçu
+                  </span>
                 </TableCell>
               </TableRow>
             ))}

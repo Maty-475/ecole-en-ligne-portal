@@ -5,14 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "../../lib/supabaseClient";
 import { toast } from "sonner";
+import ArticleEditor from './ArticleEditor';
 
 interface Article {
-  id: number;
+  article_id: number;
   title: string;
+  image_url: string;
+  logo_url: string;
   content: string;
-  author: string;
-  created_at: string;
-  published: boolean;
+  created_ad: string;
 }
 
 const ArticlesTable: React.FC = () => {
@@ -29,7 +30,7 @@ const ArticlesTable: React.FC = () => {
       const { data, error } = await supabase
         .from('Articles')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('created_ad', { ascending: false });
       
       if (error) {
         console.error(error);
@@ -43,20 +44,19 @@ const ArticlesTable: React.FC = () => {
   };
 
   const filteredArticles = articles.filter(article =>
-    article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    article.author.toLowerCase().includes(searchTerm.toLowerCase())
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const togglePublished = async (id: number, currentStatus: boolean) => {
+  const handleDelete = async (id: number) => {
     const { error } = await supabase
       .from('Articles')
-      .update({ published: !currentStatus })
-      .eq('id', id);
+      .delete()
+      .eq('article_id', id);
 
     if (error) {
-      toast.error("Erreur lors de la mise à jour");
+      toast.error("Erreur lors de la suppression");
     } else {
-      toast.success("Statut mis à jour");
+      toast.success("Article supprimé");
       loadArticles();
     }
   };
@@ -67,6 +67,8 @@ const ArticlesTable: React.FC = () => {
 
   return (
     <div className="space-y-4">
+      <ArticleEditor />
+      
       <div className="flex justify-between items-center">
         <Input
           placeholder="Rechercher un article..."
@@ -84,36 +86,42 @@ const ArticlesTable: React.FC = () => {
           <TableHeader>
             <TableRow>
               <TableHead>Titre</TableHead>
-              <TableHead>Auteur</TableHead>
+              <TableHead>Image</TableHead>
+              <TableHead>Logo</TableHead>
+              <TableHead>Contenu</TableHead>
               <TableHead>Date</TableHead>
-              <TableHead>Statut</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredArticles.map((article) => (
-              <TableRow key={article.id}>
+              <TableRow key={article.article_id}>
                 <TableCell className="max-w-md">
                   <div className="truncate">{article.title}</div>
                 </TableCell>
-                <TableCell>{article.author}</TableCell>
                 <TableCell>
-                  {new Date(article.created_at).toLocaleDateString()}
+                  {article.image_url && (
+                    <img src={article.image_url} alt="Article" className="w-12 h-12 object-cover rounded" />
+                  )}
                 </TableCell>
                 <TableCell>
-                  <span className={`px-2 py-1 rounded text-sm ${
-                    article.published ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                  }`}>
-                    {article.published ? 'Publié' : 'Brouillon'}
-                  </span>
+                  {article.logo_url && (
+                    <img src={article.logo_url} alt="Logo" className="w-12 h-12 object-cover rounded" />
+                  )}
+                </TableCell>
+                <TableCell className="max-w-md">
+                  <div className="truncate">{article.content}</div>
+                </TableCell>
+                <TableCell>
+                  {new Date(article.created_ad).toLocaleDateString()}
                 </TableCell>
                 <TableCell>
                   <Button
-                    variant="outline"
+                    variant="destructive"
                     size="sm"
-                    onClick={() => togglePublished(article.id, article.published)}
+                    onClick={() => handleDelete(article.article_id)}
                   >
-                    {article.published ? 'Dépublier' : 'Publier'}
+                    Supprimer
                   </Button>
                 </TableCell>
               </TableRow>
