@@ -29,18 +29,20 @@ const MessagesTable: React.FC = () => {
 
   const loadMessages = async () => {
     try {
+      console.log('Loading messages...');
       const { data, error } = await supabase
         .from('messages')
         .select('*')
         .order('created_ad', { ascending: false });
       
       if (error) {
-        console.error(error);
+        console.error('Error loading messages:', error);
       } else {
+        console.log('Messages loaded:', data);
         setMessages(data || []);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error in loadMessages:', error);
     }
     setLoading(false);
   };
@@ -66,6 +68,7 @@ const MessagesTable: React.FC = () => {
       }]);
 
     if (error) {
+      console.error('Error sending reply:', error);
       toast.error("Erreur lors de l'envoi de la réponse");
     } else {
       toast.success("Réponse envoyée");

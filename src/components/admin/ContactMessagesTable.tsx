@@ -25,18 +25,20 @@ const ContactMessagesTable: React.FC = () => {
 
   const loadContactMessages = async () => {
     try {
+      console.log('Loading contact messages...');
       const { data, error } = await supabase
         .from('ContactMessages')
         .select('*')
         .order('created_ad', { ascending: false });
       
       if (error) {
-        console.error(error);
+        console.error('Error loading contact messages:', error);
       } else {
+        console.log('Contact messages loaded:', data);
         setContactMessages(data || []);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error in loadContactMessages:', error);
     }
     setLoading(false);
   };

@@ -28,18 +28,20 @@ const InscriptionsTable: React.FC = () => {
 
   const loadInscriptions = async () => {
     try {
+      console.log('Loading inscriptions...');
       const { data, error } = await supabase
         .from('Inscription')
         .select('*')
         .order('date_ajout', { ascending: false });
       
       if (error) {
-        console.error(error);
+        console.error('Error loading inscriptions:', error);
       } else {
+        console.log('Inscriptions loaded:', data);
         setInscriptions(data || []);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error in loadInscriptions:', error);
     }
     setLoading(false);
   };

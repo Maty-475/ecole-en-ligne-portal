@@ -23,25 +23,27 @@ const UserProfilesTable: React.FC = () => {
 
   const loadUserProfiles = async () => {
     try {
+      console.log('Loading user profiles...');
       const { data, error } = await supabase
         .from('user_profiles')
         .select('*')
         .order('full_name', { ascending: true });
       
       if (error) {
-        console.error(error);
+        console.error('Error loading user profiles:', error);
       } else {
+        console.log('User profiles loaded:', data);
         setUserProfiles(data || []);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error in loadUserProfiles:', error);
     }
     setLoading(false);
   };
 
   const filteredProfiles = userProfiles.filter(profile =>
-    profile.full_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    profile.email?.toLowerCase().includes(searchTerm.toLowerCase())
+    (profile.full_name?.toLowerCase().includes(searchTerm.toLowerCase()) || '') ||
+    (profile.email?.toLowerCase().includes(searchTerm.toLowerCase()) || '')
   );
 
   if (loading) {

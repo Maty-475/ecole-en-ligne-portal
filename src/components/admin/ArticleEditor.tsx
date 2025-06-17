@@ -7,7 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "../../lib/supabaseClient";
 import { toast } from "sonner";
 
-const ArticleEditor: React.FC = () => {
+interface ArticleEditorProps {
+  onArticleCreated?: () => void;
+}
+
+const ArticleEditor: React.FC<ArticleEditorProps> = ({ onArticleCreated }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -25,6 +29,14 @@ const ArticleEditor: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Creating article with data:', {
+        title: title.trim(),
+        content: content.trim(),
+        image_url: imageUrl.trim() || null,
+        logo_url: logoUrl.trim() || null,
+        created_ad: new Date().toISOString()
+      });
+
       const { error } = await supabase
         .from('Articles')
         .insert([{
@@ -36,8 +48,8 @@ const ArticleEditor: React.FC = () => {
         }]);
 
       if (error) {
+        console.error('Error creating article:', error);
         toast.error("Erreur lors de la création de l'article");
-        console.error(error);
       } else {
         toast.success("Article créé avec succès");
         // Réinitialiser le formulaire
@@ -45,10 +57,14 @@ const ArticleEditor: React.FC = () => {
         setContent('');
         setImageUrl('');
         setLogoUrl('');
+        // Notifier le parent pour recharger la liste
+        if (onArticleCreated) {
+          onArticleCreated();
+        }
       }
     } catch (error) {
+      console.error('Error in handleSubmit:', error);
       toast.error("Erreur lors de la création de l'article");
-      console.error(error);
     } finally {
       setIsSubmitting(false);
     }

@@ -27,18 +27,20 @@ const ArticlesTable: React.FC = () => {
 
   const loadArticles = async () => {
     try {
+      console.log('Loading articles...');
       const { data, error } = await supabase
         .from('Articles')
         .select('*')
         .order('created_ad', { ascending: false });
       
       if (error) {
-        console.error(error);
+        console.error('Error loading articles:', error);
       } else {
+        console.log('Articles loaded:', data);
         setArticles(data || []);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error in loadArticles:', error);
     }
     setLoading(false);
   };
@@ -54,11 +56,16 @@ const ArticlesTable: React.FC = () => {
       .eq('article_id', id);
 
     if (error) {
+      console.error('Error deleting article:', error);
       toast.error("Erreur lors de la suppression");
     } else {
       toast.success("Article supprimé");
       loadArticles();
     }
+  };
+
+  const handleArticleCreated = () => {
+    loadArticles();
   };
 
   if (loading) {
@@ -67,7 +74,7 @@ const ArticlesTable: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <ArticleEditor />
+      <ArticleEditor onArticleCreated={handleArticleCreated} />
       
       <div className="flex justify-between items-center">
         <Input
