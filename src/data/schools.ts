@@ -1595,7 +1595,7 @@ export const schools: School[] = [
             skillsDeveloped: ["Prise de vue", "Prise de son", "Montage de base", "Lumière et cadrage", "Maintenance technique"],
             opportunities: ["Assistant de production", "Opérateur caméra", "Technicien son", "Technicien plateau"]
           },
-          {
+          { 
             name: "Audiovisuel - Montage",
             description: "Spécialise les apprenants dans les techniques de montage vidéo et la post-production.",
             category: "Audiovisuel",
