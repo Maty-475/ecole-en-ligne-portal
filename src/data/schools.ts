@@ -1622,7 +1622,7 @@ export const schools: School[] = [
             objectives: ["Concevoir et réaliser des projets audiovisuels", "Gérer les aspects techniques et artistiques d’une production", "Acquérir une culture cinématographique"],
             skillsDeveloped: ["Scénarisation", "Réalisation", "Montage avancé", "Direction de production", "Analyse de film"],
             opportunities: ["Assistant réalisateur", "Chargé de production", "Chef monteur", "Cadreur", "Documentariste"]
-          },
+          }, 
           {
             name: "Master en Audiovisuel",
             description: "Permet aux étudiants de se spécialiser dans un domaine précis de l’audiovisuel et d’acquérir une expertise de haut niveau.",
